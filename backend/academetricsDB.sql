@@ -35,5 +35,5 @@ CREATE TABLE IF NOT EXISTS `user` (
 );
 
 
---insert test data
-INSERT INTO `user` (`u_id`, `user_name`, `password`, `email`) VALUES (NULL, 'kavishka', 'bungas','ka@bungas.com');
+-- insert test data
+INSERT INTO `user`(`username`, `password`, `email`) VALUES ('kavishka', 'bungas','ka@bungas.com');
