@@ -22,6 +22,18 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "login" */ "../views/LoginView.vue"),
   },
+  {
+    path: "/firstlogin",
+    name: "firstlogin",
+    component: () =>
+      import(/* webpackChunkName: "firstlogin" */ "../views/FirstLoginView.vue"),
+  },
+  {
+    path: "/reset",
+    name: "reset",
+    component: () =>
+      import(/* webpackChunkName: "reset" */ "../views/ResetView.vue"),
+  },
 ];
 
 const router = createRouter({
