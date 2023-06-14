@@ -16,7 +16,7 @@
             <button class="btn btn-primary">Create Account</button>
         </div>
         <div class="copyright">
-            ©Academetix 2023
+            ©Academetrix 2023
         </div>
     </div>
 </template>

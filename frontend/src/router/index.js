@@ -34,6 +34,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "reset" */ "../views/ResetView.vue"),
   },
+  {
+    path: "/temp",
+    name: "temp",
+    component: () =>
+      import(/* webpackChunkName: "temp" */ "../views/TempPasswordView.vue"),
+  },
 ];
 
 const router = createRouter({

@@ -15,7 +15,7 @@
             <button class="btn btn-primary">Reset Password</button>
         </div>
         <div class="copyright">
-            ©Academetix 2023
+            ©Academetrix 2023
         </div>
     </div>
 </template>

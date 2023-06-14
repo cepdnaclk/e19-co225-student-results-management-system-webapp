@@ -1,19 +1,14 @@
 <template>
-    <div class="login">
+    <div class="temp">
         <img class="bg" src="@/assets/loginback.jpg" alt="">
         <div class="container col-lg-4 col-md-5">
-            <h3 class="mb-5">Welcome to Academetrix</h3>
-            <p class="mb-md-5">Enter your User ID and Password to Log in to the system</p>
+            <h3 class="mb-5">Forget Your Password?</h3>
+            <p class="mb-md-5">Don't worry, we have sent a temporary password to your email. Enter the temporary password below</p>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingID" placeholder="E/XX/XXX">
-                <label for="floatingID">User ID</label>
+                <input type="password" class="form-control" id="floatingTempPassword" placeholder="Password">
+                <label for="floatingTempPassword">Temporary Password</label>
             </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
-            </div>
-            <button class="btn btn-primary">LOGIN</button>
-            <a href="">Forgot Password?</a>
+            <button class="btn btn-primary">Proceed</button>
         </div>
         <div class="copyright">
             ©Academetrix 2023
@@ -24,14 +19,14 @@
 <script setup></script>
 
 <style>
-.login {
+.temp {
     height: 100vh;
     display: flex;
     align-items: center;
     text-align: center;
 }
 
-.login .bg {
+.temp .bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -41,24 +36,24 @@
     opacity: 0.2;
 }
 
-.login .container {
-    padding: 4rem 2rem 2rem;
+.temp .container {
+    padding: 4rem 2rem;
     border-radius: 1.5rem;
     background: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.217);
 }
 
-.login .container h3 {
+.temp .container h3 {
     font-weight: 300;
 }
 
-.login .container p {
+.temp .container p {
     font-size: 0.9rem;
     font-weight: 500;
 }
 
-.login .container button {
-    margin-top: 4rem;
+.temp .container button {
+    margin-top: 2rem;
     width: 80%;
     border-radius: 2rem;
     font-size: 1rem;
@@ -66,7 +61,7 @@
     padding: 0.6em 1em;
 }
 
-.login .copyright {
+.temp .copyright {
     position: absolute;
     bottom: 1rem;
     left: 50%;
@@ -75,33 +70,26 @@
     font-weight: 500;
 }
 
-.login .container a {
-    font-size: 0.9rem;
-    display: block;
-    font-weight: 500;
-    margin-top: 1rem;
-}
-
 @media screen and (max-width: 769px) {
-    .login {
+    .temp {
         align-items: flex-start;
     }
 
-    .login .container {
+    .temp .container {
         margin-top: 5rem;
         padding: 2rem;
     }
 
-    .login .container {
+    .temp .container {
         background: none;
         box-shadow: none;
     }
 
-    .login .bg {
+    .temp .bg {
         opacity: 0.05;
     }
 
-    .login .container button {
+    .temp .container button {
         width: 100%;
     }
 }
