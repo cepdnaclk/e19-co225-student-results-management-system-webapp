@@ -144,6 +144,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `addressline2` varchar(50) NULL,
   `addressline3` varchar(50) NULL,
   `Dep_id` int NOT NULL,
+  `contact_no` varchar(20) NULL,
   PRIMARY KEY (`Id`),
   FOREIGN KEY (`Dep_id`) REFERENCES `department`(`D_id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
