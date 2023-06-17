@@ -20,13 +20,14 @@ This is a sample image, to show how to add images to your page. To learn more op
  -->
 
 ## Team
--  e18059, Name, [email](mailto:name@email.com)
--  e19029, Name, [email](mailto:name@email.com)
--  e19275, Name, [email](mailto:name@email.com)
--  e19309, Name, [email](mailto:name@email.com)
--  e19366, Name, [email](mailto:name@email.com)
--  e19436, Name, [email](mailto:name@email.com)
--  e19446, Name, [email](mailto:name@email.com)
+-  e18059, De Silva D.M., [email](mailto:e18059@eng.pdn.ac.lk)
+-  e19029, Avinash K.T.D., [email](mailto:e19029@eng.pdn.ac.lk)
+-  e19029, Disaanayake D.M.I.G., [email](mailto:e19090@eng.pdn.ac.lk)
+-  e19275, Peeris M.S., [email](mailto:ne190275@eng.pdn.ac.lk)
+-  e19309, Rambukwella H.M.W.K.G., [email](mailto:e19309@eng.pdn.ac.lk)
+-  e19366, Senevirathne W.A.M.P., [email](mailto:e19366@eng.pdn.ac.lk)
+-  e19436, Wickramasingha G.T.G., [email](mailto:e19436@eng.pdn.ac.lk)
+-  e19446, Wijerathna I.M.K.D.I., [email](mailto:e19446@eng.pdn.ac.lk)
 
 ## Table of Contents
 1. [Introduction](#introduction)
