@@ -1,0 +1,50 @@
+{
+    "team": [
+        {
+            "name": "De Silva D.M.",
+            "email": "e18059@eng.pdn.ac.lk",
+            "eNumber": "E/18/059"
+        },
+        {
+            "name": "Avinash K.T.D.",
+            "email": "e19029@eng.pdn.ac.lk",
+            "eNumber": "E/19/029"
+        },
+        {
+            "name": "Peeris M.S.",
+            "email": "e19275@eng.pdn.ac.lk",
+            "eNumber": "E/19/275"
+        },
+        {
+            "name": "Rambukwella H.M.W.K.G.",
+            "email": "e19309@eng.pdn.ac.lk",
+            "eNumber": "E/19/309"
+        },
+        {
+            "name": "Senevirathne W.A.M.P.",
+            "email": "e19366@eng.pdn.ac.lk",
+            "eNumber": "E/19/366"
+        },
+        {
+            "name": "Wickramasingha G.T.G.",
+            "email": "e19436@eng.pdn.ac.lk",
+            "eNumber": "E/19/436"
+        },
+        {
+            "name": "Wijerathna I.M.K.D.I.",
+            "email": "e19446@eng.pdn.ac.lk",
+            "eNumber": "E/19/446"
+        }
+    ],
+    "supervisors": [
+        {
+            "name": "Mrs. Nadeesha Adikari",
+            "email": "nadeeshaa@eng.pdn.ac.lk"
+        },
+        {
+            "name": "Dr. Mahanama Wickramasinghe",
+            "email": "mahanamaw@eng.pdn.ac.lk"
+        }
+    ],
+    "tags": []
+}
