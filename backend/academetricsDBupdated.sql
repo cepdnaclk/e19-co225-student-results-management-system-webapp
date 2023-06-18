@@ -178,13 +178,13 @@ VALUES
     (8, 'sanka', 'password', 'peterson_sanka@example.com', 'S.M', 'Peterson', 1, 1999, 11, 8, null, '321 Elm St', 'Kandy', 'Sri Lanka', 3, '9012345678',`student`);
 
 -- Insert data into the student table
-INSERT INTO student (S_id, Batch, Semester, gpa, D_rank)
+INSERT INTO student (S_id, Batch, Academic_year,Semester, gpa, D_rank)
 VALUES
-    (1, 19, 2, 3.5, 1),
-    (2, 17, 2, 3.2, 2),
-    (3, 18, 2, 3.7, 3),
-    (4, 20, 2, 3.0, 4),
-    (5, 19, 2, 3.9, 5);
+    (1, 19,2, 4, 3.5, 1),
+    (2, 17,4, 8, 3.2, 2),
+    (3, 18,3, 6, 3.7, 3),
+    (4, 20,1, 2, 3.0, 4),
+    (5, 19,2, 4, 3.9, 5);
 
 -- Insert data into the course_offering table
 INSERT INTO course_offering (Course_id, Coord_id, offered_by, offered_to, Course_code, year, batch, semester, credits)
