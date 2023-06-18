@@ -113,6 +113,7 @@ DROP TABLE IF EXISTS `student`;
 CREATE TABLE IF NOT EXISTS `student` (
   `S_id` int NOT NULL,
   `Batch` int NOT NULL,
+  `Academic_year` tinyint NOT NULL,
   `Semester` tinyint NOT NULL,
   `gpa` double NOT NULL,
   `D_rank` int UNSIGNED NOT NULL,
