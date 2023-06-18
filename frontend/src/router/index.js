@@ -32,13 +32,43 @@ const routes = [
     path: "/reset",
     name: "reset",
     component: () =>
-      import(/* webpackChunkName: "reset" */ "../views/ResetView.vue"),
+      import(/* webpackChunkName: "reset" */ "../views/ResetPasswordView.vue"),
   },
   {
     path: "/temp",
     name: "temp",
     component: () =>
       import(/* webpackChunkName: "temp" */ "../views/TempPasswordView.vue"),
+  },
+  {
+    path: "/home_student",
+    name: "home_student",
+    component: () =>
+      import(/* webpackChunkName: "home_student" */ "../views/HomeStudentView.vue"),
+  },
+  {
+    path: "/home_ar",
+    name: "home_ar",
+    component: () =>
+      import(/* webpackChunkName: "home_ar" */ "../views/HomeArView.vue"),
+  },
+  {
+    path: "/adduser_ar",
+    name: "adduser_ar",
+    component: () =>
+      import(/* webpackChunkName: "adduser_ar" */ "../views/AddUserArView.vue"),
+  },
+  {
+    path: "/user_ar",
+    name: "user_ar",
+    component: () =>
+      import(/* webpackChunkName: "user_ar" */ "../views/UserArView.vue"),
+  },
+  {
+    path: "/logout_ar",
+    name: "logout_ar",
+    component: () =>
+      import(/* webpackChunkName: "logout_ar" */ "../views/LogoutArView.vue"),
   },
 ];
 

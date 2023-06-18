@@ -1,0 +1,212 @@
+<template>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><font-awesome-icon icon="fa-solid fa-user-graduate" style="margin-right: 7px;"/>Academetrix</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav ms-auto">
+                    <li><a class="nav-item nav-link" href="/home_ar">Home</a></li>
+                    <li><a class="nav-item nav-link" href="/user_ar">View Users</a></li>
+                    <li><a class="nav-item nav-link current" href="#">User Registration</a></li>
+                    <li><a class="nav-item nav-link" href="logout_ar">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <img class="bg" src="@/assets/bg.png" alt="">
+    <div class="container">
+        <form class="form">
+            <!-- dropdown -->
+            <!-- <div class="row">
+                <label for="acc_type" class="col-sm-2 col-form-label">Account type</label>
+                <div class="col-sm-10">
+                    <select class="form-select" aria-label="Default select example">
+                    <option selected>Account type</option>
+                    <option value="1">Student</option>
+                    <option value="2">Representative</option>
+                    <option value="3">Coordinator</option>
+                    </select>
+                </div>
+            </div> -->
+            <div class="row mt-4">
+                <label for="acc_type" class="col-sm-2 col-form-label">Account type</label>
+                <div class="col-sm-10">
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="acc_type" id="option1" value="1">
+                    <label class="form-check-label" for="option1">Student</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="acc_type" id="option2" value="2">
+                    <label class="form-check-label" for="option2">Representative</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="acc_type" id="option3" value="3">
+                    <label class="form-check-label" for="option3">Coordinator</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <label for="fullname" class="col-sm-2 col-form-label">Full Name</label>
+                <div class="col-sm">
+                    <input type="text" class="form-control" id="fullname" placeholder="Full name">
+                </div>
+            </div>
+  
+            <div class="row mt-4">
+                <label for="name" class="col-sm-2 col-form-label">Name with initials</label>
+                <div class="col-sm">
+                    <input type="text" class="form-control" id="name" placeholder="Name with initials">
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <label for="regno" class="col-sm-2 col-form-label">Regestration number</label>
+                <div class="col-sm">
+                    <input type="text" class="form-control" id="regno" placeholder="E/XX/XXX">
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <label for="batch" class="col-sm-2 col-form-label">Batch</label>
+                <div class="col-sm">
+                    <input type="text" class="form-control" id="batch" placeholder="Batch">
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <label for="dep" class="col-sm-2 col-form-label">Department</label>
+                <div class="col-sm-10">
+                    <select class="form-select" aria-label="Default select example">
+                    <option selected>Department</option>
+                    <option value="1">Computer Engineering</option>
+                    <option value="2">Electrical & Electronic Engineering</option>
+                    <option value="3">Chemical & Process Engineering</option>
+                    <option value="4">Mechanical Engineering</option>
+                    <option value="5">Manufacturing & Industrial Engineering</option>
+                    <option value="6">Civil Engineering</option>
+                    </select>
+                </div>
+            </div>
+  
+            <div class="row mt-4">
+                <label for="uni_email" class="col-sm-2 col-form-label">University Email</label>
+                <div class="col-sm">
+                    <input type="email" class="form-control" id="uni_email" placeholder="University email">
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <label for="personal_email" class="col-sm-2 col-form-label">Personal Email</label>
+                <div class="col-sm">
+                    <input type="email" class="form-control" id="personal_email" placeholder="Personal email">
+                </div>
+            </div>
+  
+            <div class="row mt-4 mb-3">
+                <label for="contact" class="col-sm-2 col-form-label">Contact number</label>
+                <div class="col-sm">
+                    <input type="tel" class="form-control" id="contact" placeholder="Contact number">
+                </div>
+            </div>
+
+  
+            <div class="col-lg-12 text-center">
+                <a class="btn btn-warning mt-2 mb-4" href="#" role="button">Create Account</a>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+            <div class="col-12">
+                <ul class="list-inline text-center">
+                    <li class="list-inline-item">©Academetrix 2023</li>
+                    <li class="list-inline-item"><a href="#">License</a></li>
+                    <li class="list-inline-item"><a href="#">Terms</a></li>
+                    <li class="list-inline-item"><a href="#">Privacy</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </footer>
+
+</template>
+
+<style>
+
+.form {
+    padding-top: 80px;
+}
+
+.navbar {
+    background: #2c3e50;
+    height: 75px;
+}
+
+.navbar-brand {
+    color: white;
+    font-weight: 700;
+}
+
+.nav-item:hover {
+    font-weight: 400;
+}
+
+.bg {
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.1;
+    background-attachment: fixed;
+}
+
+.navbar .current {
+    color: white;
+    font-weight: 500;
+}
+
+.btn {
+    font-weight: 500;
+}
+
+footer {
+    background-color: #2c3e50;
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-inline-item {
+    text-align: center;
+    padding: 20px 5px;
+    margin: 10px;
+    color: white;
+}
+
+.list-inline li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.list-inline li a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+}
+
+.list-inline li a:hover {
+    color: white;
+}
+
+</style>
