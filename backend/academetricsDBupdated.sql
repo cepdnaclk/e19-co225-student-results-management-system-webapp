@@ -140,11 +140,12 @@ CREATE TABLE IF NOT EXISTS `user` (
   `b_month` tinyint NOT NULL,
   `b_date` tinyint NOT NULL,
   `profile_picture` varchar(255) NULL,
-  `addressline1` varchar(20) NULL,
+  `addressline1` varchar(50) NULL,
   `addressline2` varchar(50) NULL,
   `addressline3` varchar(50) NULL,
   `Dep_id` int NOT NULL,
   `contact_no` varchar(20) NULL,
+  `role` varchar(50),
   PRIMARY KEY (`Id`),
   FOREIGN KEY (`Dep_id`) REFERENCES `department`(`D_id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
