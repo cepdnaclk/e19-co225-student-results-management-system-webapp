@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `addressline3` varchar(50) NULL,
   `Dep_id` int NOT NULL,
   `contact_no` varchar(20) NULL,
-  `role` varchar(50),
+  `role` varchar(50) NOT NULL,
   PRIMARY KEY (`Id`),
   FOREIGN KEY (`Dep_id`) REFERENCES `department`(`D_id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -165,16 +165,16 @@ VALUES
     (8, 'Engineering Mathematics');
 
 -- Insert data into the user table
-INSERT INTO user (Id, User_name, Password, Gmail, Initials, Last_name, sex, b_year, b_month, b_date, profile_picture, addressline1, addressline2, addressline3, Dep_id, contact_no)
+INSERT INTO user (Id, User_name, Password, Gmail, Initials, Last_name, sex, b_year, b_month, b_date, profile_picture, addressline1, addressline2, addressline3, Dep_id, contact_no,role)
 VALUES
-    (1, 'kavishkagaya', 'password', 'kavishkagaya@example.com', 'K.G.', 'Dissanayake', 1, 2000, 5, 10, null, '123 Main St', 'Colombo', 'Sri Lanka', 1, '1234567890'),
-    (2, 'gabrielinesha', 'password', 'ineshag@example.com', 'I.G.', 'De Silva', 1, 1999, 8, 15, null, '456 Elm St', 'Kandy', 'Sri Lanka', 2, '9876543210'),
-    (3, 'silvaboss', 'password', 'boss_silva@example.com', 'S.B', 'Rambukwella', 1, 1999, 3, 20, null, '789 Oak St', 'Galle', 'Sri Lanka', 3, '5678901234'),
-    (4, 'thiranjaya', 'password', 'thiranjaya@example.com', 'T.', 'Rajapaksa', 1, 1999, 11, 5, null, '321 Pine St', 'Jaffna', 'Sri Lanka', 4, '4321098765'),
-    (5, 'denuwankalindu', 'password', 'denuwankalindu@example.com', 'D.K.', 'Senevirathna', 1, 2000, 2, 1, null, '654 Maple St', 'Matara', 'Sri Lanka', 5, '9012345678'),
-    (6, 'manodya', 'password', 'gomezmanodya@example.com', 'M.', 'Gomez', 1, 2000, 9, 25, null, '987 Pine St', 'Negombo', 'Sri Lanka', 1, '7890123456'),
-    (7, 'dinukanemo', 'password', 'dinukanemo@example.com', 'D.N.', 'Wickramasinghe', 1, 2000, 4, 12, null, '654 Oak St', 'Colombo', 'Sri Lanka', 2, '5678901234'),
-    (8, 'sanka', 'password', 'peterson_sanka@example.com', 'S.M', 'Peterson', 1, 1999, 11, 8, null, '321 Elm St', 'Kandy', 'Sri Lanka', 3, '9012345678');
+    (1, 'kavishkagaya', 'password', 'kavishkagaya@example.com', 'K.G.', 'Dissanayake', 1, 2000, 5, 10, null, '123 Main St', 'Colombo', 'Sri Lanka', 1, '1234567890',`student`),
+    (2, 'gabrielinesha', 'password', 'ineshag@example.com', 'I.G.', 'De Silva', 1, 1999, 8, 15, null, '456 Elm St', 'Kandy', 'Sri Lanka', 2, '9876543210',`student`),
+    (3, 'silvaboss', 'password', 'boss_silva@example.com', 'S.B', 'Rambukwella', 1, 1999, 3, 20, null, '789 Oak St', 'Galle', 'Sri Lanka', 3, '5678901234',`student`),
+    (4, 'thiranjaya', 'password', 'thiranjaya@example.com', 'T.', 'Rajapaksa', 1, 1999, 11, 5, null, '321 Pine St', 'Jaffna', 'Sri Lanka', 4, '4321098765',`student`),
+    (5, 'denuwankalindu', 'password', 'denuwankalindu@example.com', 'D.K.', 'Senevirathna', 1, 2000, 2, 1, null, '654 Maple St', 'Matara', 'Sri Lanka', 5, '9012345678',`student`),
+    (6, 'manodya', 'password', 'gomezmanodya@example.com', 'M.', 'Gomez', 1, 2000, 9, 25, null, '987 Pine St', 'Negombo', 'Sri Lanka', 1, '7890123456',`student`),
+    (7, 'dinukanemo', 'password', 'dinukanemo@example.com', 'D.N.', 'Wickramasinghe', 1, 2000, 4, 12, null, '654 Oak St', 'Colombo', 'Sri Lanka', 2, '5678901234',`student`),
+    (8, 'sanka', 'password', 'peterson_sanka@example.com', 'S.M', 'Peterson', 1, 1999, 11, 8, null, '321 Elm St', 'Kandy', 'Sri Lanka', 3, '9012345678',`student`);
 
 -- Insert data into the student table
 INSERT INTO student (S_id, Batch, Semester, gpa, D_rank)
