@@ -41,12 +41,6 @@ const routes = [
       import(/* webpackChunkName: "temp" */ "../views/TempPasswordView.vue"),
   },
   {
-    path: "/home_student",
-    name: "home_student",
-    component: () =>
-      import(/* webpackChunkName: "home_student" */ "../views/HomeStudentView.vue"),
-  },
-  {
     path: "/home_ar",
     name: "home_ar",
     component: () =>

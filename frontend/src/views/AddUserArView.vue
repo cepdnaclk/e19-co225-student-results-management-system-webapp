@@ -32,8 +32,8 @@
                 </div>
             </div> -->
             <div class="row mt-4">
-                <label for="acc_type" class="col-sm-2 col-form-label">Account type</label>
-                <div class="col-sm-10">
+                <label for="acc_type" class="col-sm-2 col-form-label other">Account type</label>
+                <div class="col-sm-9">
                     <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="acc_type" id="option1" value="1">
                     <label class="form-check-label" for="option1">Student</label>
@@ -78,8 +78,8 @@
             </div>
 
             <div class="row mt-4">
-                <label for="dep" class="col-sm-2 col-form-label">Department</label>
-                <div class="col-sm-10">
+                <label for="dep" class="col-sm-2 col-form-label other">Department</label>
+                <div class="col-lg-10 col-sm-9">
                     <select class="form-select" aria-label="Default select example">
                     <option selected>Department</option>
                     <option value="1">Computer Engineering</option>
@@ -208,5 +208,83 @@ footer {
 .list-inline li a:hover {
     color: white;
 }
+
+/* @media screen and (max-width: 1200px) {
+    .col-form-label {
+        width: 20%;
+        font-size: 15px;
+    }
+    .form-control {
+        margin-left: 30px;
+        width: 94%;
+    }
+    .form-select {
+        margin-left: 30px; 
+        width: 100%;
+    }
+    .form-check {
+        margin-left: 30px;
+    }
+} */
+
+@media screen and (max-width: 1200px) {
+  /* Styles for screens up to 1200px width */
+  .col-form-label {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  /* Styles for screens up to 992px width */
+  .col-sm-2 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: left;
+    margin-bottom: 0px;
+  }
+  
+  .col-sm-9 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .form-check-inline {
+    display: inline-block;    
+    margin-bottom: 0;
+  }
+  
+  .btn {
+    width: 22%;
+    font-size: 17px;
+  }
+  .col-form-label {
+    margin-top: 5px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Styles for screens up to 768px width */
+  .form-check-label {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  
+  .col-sm {
+    margin-bottom: 0px;
+  }
+  .btn {
+    width: 30%;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  /* Styles for screens up to 576px width */
+  .form-check-inline {
+    margin-right: 10px;
+    margin-bottom: 0px;
+  }
+}
+
 
 </style>
