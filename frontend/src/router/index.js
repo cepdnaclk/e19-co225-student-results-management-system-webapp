@@ -82,6 +82,30 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/coor",
+    name: "coor",
+    component: () =>
+      import(/* webpackChunkName: "temp" */ "../views/CoorMainView.vue"),
+    children: [
+      {
+        path: "log",
+        name: "Coorwithlog",
+        component: () =>
+          import(
+            /* webpackChunkName: "Coorwithlog" */ "../views/CoordinatorView/WithLoginView.vue"
+          ),
+      },
+      {
+        path: "nolog",
+        name: "Coorwithoutlog",
+        component: () =>
+          import(
+            /* webpackChunkName: "Coorwithoutlog" */ "../views/CoordinatorView/WithoutLoginView.vue"
+          ),
+      }, 
+    ],
+  },
 ];
 
 const router = createRouter({
