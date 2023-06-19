@@ -26,7 +26,9 @@ const routes = [
     path: "/firstlogin",
     name: "firstlogin",
     component: () =>
-      import(/* webpackChunkName: "firstlogin" */ "../views/FirstLoginView.vue"),
+      import(
+        /* webpackChunkName: "firstlogin" */ "../views/FirstLoginView.vue"
+      ),
   },
   {
     path: "/reset",
@@ -41,28 +43,44 @@ const routes = [
       import(/* webpackChunkName: "temp" */ "../views/TempPasswordView.vue"),
   },
   {
-    path: "/home_ar",
-    name: "home_ar",
+    path: "/ar",
+    name: "ar",
     component: () =>
-      import(/* webpackChunkName: "home_ar" */ "../views/HomeArView.vue"),
-  },
-  {
-    path: "/adduser_ar",
-    name: "adduser_ar",
-    component: () =>
-      import(/* webpackChunkName: "adduser_ar" */ "../views/AddUserArView.vue"),
-  },
-  {
-    path: "/user_ar",
-    name: "user_ar",
-    component: () =>
-      import(/* webpackChunkName: "user_ar" */ "../views/UserArView.vue"),
-  },
-  {
-    path: "/logout_ar",
-    name: "logout_ar",
-    component: () =>
-      import(/* webpackChunkName: "logout_ar" */ "../views/LogoutArView.vue"),
+      import(/* webpackChunkName: "temp" */ "../views/ArMainView.vue"),
+    children: [
+      {
+        path: "home",
+        name: "ARhome",
+        component: () =>
+          import(
+            /* webpackChunkName: "ARhome" */ "../views/ArView/HomeArView.vue"
+          ),
+      },
+      {
+        path: "adduser",
+        name: "ARadduser",
+        component: () =>
+          import(
+            /* webpackChunkName: "ARadduser" */ "../views/ArView/AddUserArView.vue"
+          ),
+      },
+      {
+        path: "user",
+        name: "ARuser",
+        component: () =>
+          import(
+            /* webpackChunkName: "ARuser" */ "../views/ArView/UserArView.vue"
+          ),
+      },
+      {
+        path: "logout",
+        name: "ARlogout",
+        component: () =>
+          import(
+            /* webpackChunkName: "ARlogout" */ "../views/ArView/LogoutArView.vue"
+          ),
+      },
+    ],
   },
 ];
 
