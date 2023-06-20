@@ -26,19 +26,85 @@ const routes = [
     path: "/firstlogin",
     name: "firstlogin",
     component: () =>
-      import(/* webpackChunkName: "firstlogin" */ "../views/FirstLoginView.vue"),
+      import(
+        /* webpackChunkName: "firstlogin" */ "../views/FirstLoginView.vue"
+      ),
   },
   {
     path: "/reset",
     name: "reset",
     component: () =>
-      import(/* webpackChunkName: "reset" */ "../views/ResetView.vue"),
+      import(/* webpackChunkName: "reset" */ "../views/ResetPasswordView.vue"),
   },
   {
     path: "/temp",
     name: "temp",
     component: () =>
       import(/* webpackChunkName: "temp" */ "../views/TempPasswordView.vue"),
+  },
+  {
+    path: "/ar",
+    name: "ar",
+    component: () =>
+      import(/* webpackChunkName: "temp" */ "../views/ArMainView.vue"),
+    children: [
+      {
+        path: "home",
+        name: "ARhome",
+        component: () =>
+          import(
+            /* webpackChunkName: "ARhome" */ "../views/ArView/HomeArView.vue"
+          ),
+      },
+      {
+        path: "adduser",
+        name: "ARadduser",
+        component: () =>
+          import(
+            /* webpackChunkName: "ARadduser" */ "../views/ArView/AddUserArView.vue"
+          ),
+      },
+      {
+        path: "user",
+        name: "ARuser",
+        component: () =>
+          import(
+            /* webpackChunkName: "ARuser" */ "../views/ArView/UserArView.vue"
+          ),
+      },
+      {
+        path: "logout",
+        name: "ARlogout",
+        component: () =>
+          import(
+            /* webpackChunkName: "ARlogout" */ "../views/ArView/LogoutArView.vue"
+          ),
+      },
+    ],
+  },
+  {
+    path: "/coor",
+    name: "coor",
+    component: () =>
+      import(/* webpackChunkName: "temp" */ "../views/CoorMainView.vue"),
+    children: [
+      {
+        path: "log",
+        name: "Coorwithlog",
+        component: () =>
+          import(
+            /* webpackChunkName: "Coorwithlog" */ "../views/CoordinatorView/WithLoginView.vue"
+          ),
+      },
+      {
+        path: "nolog",
+        name: "Coorwithoutlog",
+        component: () =>
+          import(
+            /* webpackChunkName: "Coorwithoutlog" */ "../views/CoordinatorView/WithoutLoginView.vue"
+          ),
+      }, 
+    ],
   },
 ];
 
