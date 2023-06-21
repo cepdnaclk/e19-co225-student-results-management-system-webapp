@@ -103,7 +103,7 @@ const routes = [
           import(
             /* webpackChunkName: "Coorwithoutlog" */ "../views/CoordinatorView/WithoutLoginView.vue"
           ),
-      }, 
+      },
     ],
   },
 ];

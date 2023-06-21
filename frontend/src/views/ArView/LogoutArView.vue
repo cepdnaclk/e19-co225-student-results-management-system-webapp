@@ -11,7 +11,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
 .body {
     padding-top: 100px;
 }

@@ -115,100 +115,100 @@
                         <td>1. Avinash K.T.D.</td>
                         <td>E/19/029</td>
                         <td>Computer Engineering</td>
-                        <div class="col-lg-12">
+                        <td>
                             <a class="btn btn-warning view" href="#" role="button">View</a>
                             <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
+                        </td>
                     </tr>
 
                     <tr>
                         <td>2. Avinash K.T.D.</td>
                         <td>E/19/029</td>
                         <td>Computer Engineering</td>
-                        <div class="col-lg-12">
+                        <td>
                             <a class="btn btn-warning view" href="#" role="button">View</a>
                             <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
+                        </td>
                     </tr>
 
                     <tr>
                         <td>2. Avinash K.T.D.</td>
                         <td>E/19/029</td>
                         <td>Computer Engineering</td>
-                        <div class="col-lg-12">
+                        <td>
                             <a class="btn btn-warning view" href="#" role="button">View</a>
                             <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
+                        </td>
                     </tr>
 
                     <tr>
                         <td>2. Avinash K.T.D.</td>
                         <td>E/19/029</td>
                         <td>Computer Engineering</td>
-                        <div class="col-lg-12">
+                        <td>
                             <a class="btn btn-warning view" href="#" role="button">View</a>
                             <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
+                        </td>
                     </tr>
 
                     <tr>
                         <td>2. Avinash K.T.D.</td>
                         <td>E/19/029</td>
                         <td>Computer Engineering</td>
-                        <div class="col-lg-12">
+                        <td>
                             <a class="btn btn-warning view" href="#" role="button">View</a>
                             <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
+                        </td>
                     </tr>
 
                     <tr>
                         <td>2. Avinash K.T.D.</td>
                         <td>E/19/029</td>
                         <td>Computer Engineering</td>
-                        <div class="col-lg-12">
+                        <td>
                             <a class="btn btn-warning view" href="#" role="button">View</a>
                             <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
+                        </td>
                     </tr>
 
                     <tr>
                         <td>2. Avinash K.T.D.</td>
                         <td>E/19/029</td>
                         <td>Computer Engineering</td>
-                        <div class="col-lg-12">
+                        <td>
                             <a class="btn btn-warning view" href="#" role="button">View</a>
                             <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
+                        </td>
                     </tr>
 
                     <tr>
                         <td>2. Avinash K.T.D.</td>
                         <td>E/19/029</td>
                         <td>Computer Engineering</td>
-                        <div class="col-lg-12">
+                        <td>
                             <a class="btn btn-warning view" href="#" role="button">View</a>
                             <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
+                        </td>
                     </tr>
 
                     <tr>
                         <td>2. Avinash K.T.D.</td>
                         <td>E/19/029</td>
                         <td>Computer Engineering</td>
-                        <div class="col-lg-12 col-sm-12">
+                        <td>
                             <a class="btn btn-warning view" href="#" role="button">View</a>
                             <a class="btn btn-warning edit" href="#" role="button">Edit</a>
-                        </div>
+                        </td>
                     </tr>
 
                     <tr>
                         <td>2. Avinash K.T.D.</td>
                         <td>E/19/029</td>
                         <td>Computer Engineering</td>
-                        <div class="col-lg-12">
+                        <td>
                             <a class="btn btn-warning view" href="#" role="button">View</a>
                             <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -216,7 +216,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
 .bg {
     background-size: cover;
     position: fixed;
@@ -232,7 +232,7 @@
 .table {
     border: none;
     margin-bottom: 4rem;
-    width: 120%;
+    width: 100%;
     /*100% after md */
 }
 
@@ -277,36 +277,5 @@ div .col-lg-12 {
     padding-right: 20px;
     padding-left: 60px;
     width: fit-content;
-}
-
-footer {
-    background-color: #2c3e50;
-    padding: 0;
-    text-align: center;
-    font-size: 14px;
-    justify-content: center;
-    align-items: center;
-}
-
-.list-inline-item {
-    text-align: center;
-    padding: 20px 5px;
-    margin: 10px;
-    color: white;
-}
-
-.list-inline li {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.list-inline li a {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.5);
-    font-weight: 400;
-}
-
-.list-inline li a:hover {
-    color: white;
 }
 </style>
