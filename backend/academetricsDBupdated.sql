@@ -1,4 +1,4 @@
--- Database: `jacademetricsDB`
+-- Database: `AacademetricsDB`
 
 DROP DATABASE IF EXISTS `academetricsDB`;
 CREATE DATABASE IF NOT EXISTS `academetricsDB`;
