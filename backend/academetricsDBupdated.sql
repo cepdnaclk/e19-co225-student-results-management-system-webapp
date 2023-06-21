@@ -125,12 +125,12 @@ CREATE TABLE IF NOT EXISTS `following_courses` (
 
 DROP TABLE IF EXISTS `assesment`;
 CREATE TABLE IF NOT EXISTS `assesment` (
-  `c_code` varchar(20) NOT NULL,
+  `c_id` varchar(20) NOT NULL,
   `a_id` tinyint NOT NULL AUTO_INCREMENT,
   `a_type` varchar(50) NOT NULL,
   `max_marks` tinyint NOT NULL,
   PRIMARY KEY (`a_id`),
-  FOREIGN KEY (`c_code`) REFERENCES `course_offering`(`Course_code`) ON DELETE CASCADE ON UPDATE CASCADE
+  FOREIGN KEY (`c_id`) REFERENCES `course_offering`(`Course_id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- --------------------------------------------------------------------------------------------------------
@@ -200,17 +200,17 @@ VALUES
     (3, 5, 3, 3, 'CO225', 2021, 18, 4, 3);
 
 -- Insert data into the assesment table
-INSERT INTO assesment (c_code, a_type, max_marks)
+INSERT INTO assesment (c_id, a_type, max_marks)
 VALUES
-    ('GP106', 'Mid Exam', 20),
-    ('GP106', 'Project', 10),
-    ('CO225', 'Project', 30),
-    ('CO225', 'Lab-1', 5),
-    ('CO225', 'Lab-2', 5),
-    ('CO225', 'Lab-3', 5),
-    ('CO225', 'Lab-4', 5),
-    ('CO225', 'Quiz-1', 5),
-    ('CO225', 'Quiz-2', 5),
-    ('EM215', 'Mid Exam', 20),
-    ('EM215', 'Lab Assignment -1', 5);
+    (1, 'Mid Exam', 20),
+    (1, 'Project', 10),
+    (1, 'Project', 30),
+    (3, 'Lab-1', 5),
+    (3, 'Lab-2', 5),
+    (3, 'Lab-3', 5),
+    (3, 'Lab-4', 5),
+    (3, 'Quiz-1', 5),
+    (3, 'Quiz-2', 5),
+    (4, 'Mid Exam', 20),
+    (4, 'Lab Assignment -1', 5);
 
