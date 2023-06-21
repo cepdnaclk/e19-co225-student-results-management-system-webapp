@@ -12,8 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class CourseService {
 
-    private final CourseRepository courseRepository;
-    private final ModelMapper modelMapper;
+    private CourseRepository courseRepository;
+    private ModelMapper modelMapper;
 
     @Autowired
     public CourseService(CourseRepository courseRepository, ModelMapper modelMapper) {
