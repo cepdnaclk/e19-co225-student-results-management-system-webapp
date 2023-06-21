@@ -2,10 +2,10 @@
     <div class="ar-home">
         <img class="bg" src="@/assets/bg.png" alt="">
         <div class="container">
-            <div class="col-md-12 text-center">
+            <div class="col-lg-6 offset-lg-3 text-center">
                 <a class="btn btn-warning add" href="#">Add User</a>
             </div>
-            <div class="col-md-12 text-center">
+            <div class="col-lg-6 offset-lg-3 text-center">
                 <a class="btn btn-warning view" href="#">View User</a>
             </div>
         </div>
@@ -19,11 +19,9 @@
 
 
 .btn {
-    width: 35%;
-    font-size: 40px;
+    font-size: 35px;
     font-weight: 400;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 15px 50px;
 }
 
 .add {
@@ -48,17 +46,15 @@
 
 @media screen and (max-width: 769px) {
     .btn {
-        width: 45%;
-        font-size: 35px;
-        font-weight: 400;
-        padding-top: 15px;
-        padding-bottom: 15px;
+        font-size: 30px;
+        padding: 15px 40px;
     }
-
-    .add {
-        margin-top: 200px;
-        margin-bottom: 100px;
-    }
-
 }
+
+/* footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+} */
 </style>
