@@ -13,7 +13,7 @@
                         <li><router-link class="nav-item nav-link" to="/ar/home">Home</router-link></li>
                         <li><router-link class="nav-item nav-link" to="/ar/user">View Users</router-link></li>
                         <li><router-link class="nav-item nav-link" to="/ar/adduser">User Registration</router-link></li>
-                        <li><router-link class="nav-item nav-link" to="/ar/logout">Log Out</router-link></li>
+                        <li><button @click="toggleLogout" class="nav-item nav-link">Log Out</button></li>
                     </ul>
                 </div>
             </div>
@@ -36,9 +36,12 @@
     </div>
 </template>
 
-<script>
-export default {
+<script setup>
+import { useStore } from 'vuex';
 
+const store = useStore()
+const toggleLogout = () => {
+    store.state.showLogout = true
 }
 </script>
 

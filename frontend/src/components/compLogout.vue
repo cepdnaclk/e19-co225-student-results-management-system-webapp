@@ -4,18 +4,28 @@
         <div id="logout-confirmation" class="hidden">
             <div class="confirmation-box">
                 <h4>Are you sure you want to log out?</h4>
-                <a id="logout-yes" class="btn btn-warning" href="#">Yes, log out</a>
-                <a id="logout-no" class="btn btn-warning" href="#">Cancel</a>
+                <button @click="logout" class="btn btn-warning">Yes, log out</button>
+                <button @click="hideLogout" class="btn btn-warning">Cancel</button>
             </div>
         </div>
     </div>
 </template>
 
-<style scoped>
-.body {
-    padding-top: 100px;
+<script setup>
+import { useStore } from 'vuex';
+
+const store = useStore()
+
+const hideLogout = () => {
+    store.state.showLogout = false
 }
 
+const logout = () => {
+
+}
+</script>
+
+<style scoped>
 .btn {
     width: 80%;
     font-size: 30px;
@@ -78,11 +88,4 @@
         font-size: 18px;
     }
 }
-
-/* footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-} */
 </style>
