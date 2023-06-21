@@ -184,6 +184,11 @@ INSERT INTO `course_offering` (`course_code`, `coord_id`, `offered_by`, `offered
 ('CHEM101', 4, 5, 1, 2022, 2022, 1);
 
 
+INSERT INTO `following_courses` (`stu_id`, `course_code`, `year`, `final_grades`) VALUES
+(1, 'CS101', 2022, 'A'),
+(2, 'MATH201', 2022, 'B+'),
+(5, 'CS101', 2022, 'A-');
+
 
 
 INSERT INTO `assessment` (`course_code`, `a_id`, `a_type`, `max_marks`) VALUES
@@ -200,14 +205,3 @@ INSERT INTO `assessment_marks` (`stu_id`, `a_id`, `marks`) VALUES
 (1, 2, 80),
 (2, 2, 75),
 (5, 1, 42);
-
-
-
-
-
-
-
-INSERT INTO `following_courses` (`stu_id`, `course_code`, `year`, `final_grades`) VALUES
-(1, 'CS101', 2022, 'A'),
-(2, 'MATH201', 2022, 'B+'),
-(5, 'CS101', 2022, 'A-');
