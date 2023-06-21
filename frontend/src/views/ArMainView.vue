@@ -19,7 +19,7 @@
             </div>
         </nav>
         <router-view />
-        <footer class="fixed-bottom">
+        <footer>
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -43,6 +43,12 @@ export default {
 </script>
 
 <style scoped>
+.ar-main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .navbar {
     background: #2c3e50;
     height: 75px;
@@ -69,6 +75,7 @@ footer {
     font-size: 14px;
     justify-content: center;
     align-items: center;
+    margin-top: auto;
 }
 
 .list-inline-item {
