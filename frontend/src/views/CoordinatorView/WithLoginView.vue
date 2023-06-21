@@ -84,7 +84,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12 text-center">
+            <div class="col-lg-6 offset-lg-3 text-center">
                 <a class="btn btn-warning mt-4 mb-5" href="#" role="button">Submit</a>
             </div>
         </div>
@@ -101,7 +101,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .body {
     padding-top: 50px;
 }
@@ -135,12 +135,11 @@ h5 {
 
 .btn-warning {
     font-size: 18px;
-    width: 10%;
 }
 
 @media screen and (max-width: 992px) {
     .btn {
-        width: 22%;
+        
         font-size: 17px;
     }
     .card{
@@ -154,7 +153,7 @@ h5 {
 
 @media screen and (max-width: 768px) {
     .btn {
-        width: 30%;
+        
         font-size: 15px;
     }
     h5 {

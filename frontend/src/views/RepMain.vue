@@ -11,19 +11,21 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <ul class="navbar-nav ms-auto">
                         <li><router-link class="nav-item nav-link" to="/ar/home">Home</router-link></li>
-                        <li><router-link class="nav-item nav-link" to="/ar/user">View Users</router-link></li>
-                        <li><router-link class="nav-item nav-link" to="/ar/adduser">User Registration</router-link></li>
+                        <li><router-link class="nav-item nav-link" to="/ar/user">Dashboard</router-link></li>
+                        <li><router-link class="nav-item nav-link" to="/ar/adduser">Course Management</router-link></li>
+                        <li><router-link class="nav-item nav-link" to="/ar/logout">Courses</router-link></li>
                         <li><router-link class="nav-item nav-link" to="/ar/logout">Log Out</router-link></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <router-view />
-        <footer>
+        <footer class="fixed-bottom">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <ul class="list-inline text-center">
+                            <li class="list-inline-item">©Academetrix 2023</li>
                             <li class="list-inline-item"><router-link to="#">License</router-link></li>
                             <li class="list-inline-item"><router-link to="#">Terms</router-link></li>
                             <li class="list-inline-item"><router-link to="#">Privacy</router-link></li>
@@ -32,7 +34,6 @@
                 </div>
             </div>
         </footer>
-        <div class="copyright">©Academetrix 2023</div>
     </div>
 </template>
 
@@ -42,13 +43,7 @@ export default {
 }
 </script>
 
-<style scoped>
-.ar-main {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
+<style>
 .navbar {
     background: #2c3e50;
     height: 75px;
@@ -75,8 +70,6 @@ footer {
     font-size: 14px;
     justify-content: center;
     align-items: center;
-    margin-top: auto;
-    position: relative;
 }
 
 .list-inline-item {
@@ -99,14 +92,5 @@ footer {
 
 .list-inline li a:hover {
     color: white;
-}
-
-.copyright {
-    position: absolute;
-    bottom: 0.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 0.7rem;
 }
 </style>

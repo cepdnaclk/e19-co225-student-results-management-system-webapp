@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class CourseDTO {
 
-    private Integer c_id;
-    private String c_name;
+    private Integer courseId;
+    private String courseName;
 
 }
