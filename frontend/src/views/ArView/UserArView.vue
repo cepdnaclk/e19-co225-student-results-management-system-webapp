@@ -105,7 +105,7 @@
                         <td>1. Dissanayake D.M.I.G.</td>
                         <td>E/19/090</td>
                         <td>Computer Engineering</td>
-                        <td>
+                        <div>
                             <a class="btn btn-warning view" href="#" role="button">View</a>
                             <a class="btn btn-warning" href="#" role="button">Edit</a>
                         </div>
@@ -188,7 +188,7 @@
                         <div class="col-lg-12 col-sm-12">
                             <a class="btn btn-warning view" href="#" role="button">View</a>
                             <a class="btn btn-warning edit" href="#" role="button">Edit</a>
-                        </td>
+                        </div>
                     </tr>
 
                     <tr>
