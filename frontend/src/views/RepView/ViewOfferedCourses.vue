@@ -11,24 +11,30 @@
         <div class="container">
             <h4>Offered Courses In This Semester</h4>
             
+            <!-- row-cols-md-3 is used to control how many card in a row -->
             <div class="row row-cols-4 row-cols-md-3 g-4">
                 <div class="col">
                     <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">CO224</h5>
-                        <p class="card-text">Computer Architecture</p>
 
-                        
-                    </div>
+                        <!-- <h5 class="card-title">CO224</h5>
+                        <p class="card-text">Computer Architecture</p> -->
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">CO224</h5>
+                            <p class="card-text">Computer Architecture</p>
+
+                            
+                        </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card">
                     
-                    <div class="card-body">
-                        <h5 class="card-title">CO225</h5>
-                        <p class="card-text">Software Construction</p>
-                    </div>
+                        <div class="card-body">
+                            <h5 class="card-title">CO225</h5>
+                            <p class="card-text">Software Construction</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col">
@@ -55,7 +61,16 @@
 
 
 .card-body{
+    background-color: #f2f2f2;
+    padding: 5px;
+
+    /* border-radius:10%; */
+}
+
+.card{
     background-color: #f06e6e;
+    padding: 10px;
+    /* border-radius:10%; */
 }
 
 .btn {
