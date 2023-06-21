@@ -103,9 +103,84 @@ const routes = [
           import(
             /* webpackChunkName: "Coorwithoutlog" */ "../views/CoordinatorView/WithoutLoginView.vue"
           ),
+          
       }, 
     ],
   },
+  {
+    path: "/rep",
+    name: "Representative",
+    component: () =>
+      import(
+        /* webpackChunkName: "RepMain" */ "../views/RepMain.vue"
+      ),
+      children: [
+        //offered courses page
+        {
+          path: "viewofferedcourses",
+          name: "RepViewOfferedCourse",
+          component: () =>
+            import(
+              /* webpackChunkName: "CourseManawmwnt" */ "../views/RepView/ViewOfferedCourses.vue"
+            ),
+        },
+        //view courses page
+        {
+          path: "viewcourses",
+          name: "RepViewCourses",
+          component: () =>
+            import(
+              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/ViewCourses.vue"
+            ),
+        },
+        //add courses
+        {
+          path: "addcourses",
+          name: "RepAddCourses",
+          component: () =>
+            import(
+              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/AddEditCourses.vue"
+            ),
+        },
+        //edit courses
+        {
+          path: "editcourses",
+          name: "RepEditCourse",
+          component: () =>
+            import(
+              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/AddEditCourses.vue"
+            ),
+        },
+        //course inner page
+        {
+          path: "offeredcoursesinner",
+          name: "RepOfferedCoursesInner",
+          component: () =>
+            import(
+              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/OfferedCourseInner.vue"
+            ),
+        },
+        // offer courses
+        {
+          path: "courseoffering",
+          name: "RepCourseOfferings",
+          component: () =>
+            import(
+              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/CourseOffering.vue"
+            ),
+        },
+        //edit offered course
+        {
+          path: "editcourseoffering",
+          name: "RepEditCourseOffered",
+          component: () =>
+            import(
+              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/CourseOffering.vue"
+            ),
+        }
+      ]
+
+  }
 ];
 
 const router = createRouter({
