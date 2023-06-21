@@ -31,8 +31,8 @@
                     </div>
                 </div>
             </div>
+            <div class="copyright">©Academetrix 2023</div>
         </footer>
-        <div class="copyright">©Academetrix 2023</div>
     </div>
 </template>
 
