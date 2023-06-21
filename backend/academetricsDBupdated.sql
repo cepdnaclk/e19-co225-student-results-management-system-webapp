@@ -183,14 +183,21 @@ VALUES
     (4, 20,1, 2, 3.0, 4),
     (5, 19,2, 4, 3.9, 5);
 
+INSERT INTO course (C_id,C_name)
+VALUES
+      (1,'Python'),
+      (2,'C'),
+      (3,'Java'),
+      (4,'Maths');
+
 -- Insert data into the course_offering table
 INSERT INTO course_offering (Course_id, Coord_id, offered_by, offered_to, Course_code, year, batch, semester, credits)
 VALUES
     (1, 1, 3, 4, 'GP106', 2023, 20, 2, 3),
-    (2, 2, 3, 5, 'GP106', 2021, 19, 1, 3),
+    (1, 2, 3, 5, 'GP106', 2021, 19, 1, 3),
     (3, 3, 3, 1, 'CO225', 2023, 19, 4, 3),
     (4, 4, 8, 1, 'EM212', 2023, 19, 4, 2),
-    (5, 5, 3, 3, 'CO225', 2021, 18, 4, 3);
+    (3, 5, 3, 3, 'CO225', 2021, 18, 4, 3);
 
 -- Insert data into the assesment table
 INSERT INTO assesment (c_code, a_type, max_marks)
