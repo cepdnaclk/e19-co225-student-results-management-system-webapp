@@ -103,8 +103,7 @@ const routes = [
           import(
             /* webpackChunkName: "Coorwithoutlog" */ "../views/CoordinatorView/WithoutLoginView.vue"
           ),
-          
-      }, 
+      },
     ],
   },
   {
@@ -121,7 +120,7 @@ const routes = [
           name: "RepViewOfferedCourse",
           component: () =>
             import(
-              /* webpackChunkName: "CourseManagement" */ "../views/RepView/ViewOfferedCourses.vue"
+              /* webpackChunkName: "CourseManawmwnt" */ "../views/RepView/ViewOfferedCourses.vue"
             ),
         },
         //view courses page
@@ -130,7 +129,7 @@ const routes = [
           name: "RepViewCourses",
           component: () =>
             import(
-              /* webpackChunkName: "ViewCourses" */ "../views/RepView/ViewCourses.vue"
+              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/ViewCourses.vue"
             ),
         },
         //add courses
@@ -139,7 +138,7 @@ const routes = [
           name: "RepAddCourses",
           component: () =>
             import(
-              /* webpackChunkName: "RepAddCourses" */ "../views/RepView/AddEditCourses.vue"
+              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/AddEditCourses.vue"
             ),
         },
         //edit courses
@@ -148,7 +147,7 @@ const routes = [
           name: "RepEditCourse",
           component: () =>
             import(
-              /* webpackChunkName: "RepEditCourses" */ "../views/RepView/AddEditCourses.vue"
+              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/AddEditCourses.vue"
             ),
         },
         //course inner page
@@ -157,7 +156,7 @@ const routes = [
           name: "RepOfferedCoursesInner",
           component: () =>
             import(
-              /* webpackChunkName: "RepOfferedCoursesInner" */ "../views/RepView/OfferedCourseInner.vue"
+              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/OfferedCourseInner.vue"
             ),
         },
         // offer courses
@@ -166,7 +165,7 @@ const routes = [
           name: "RepCourseOfferings",
           component: () =>
             import(
-              /* webpackChunkName: "RepCourseOfferings" */ "../views/RepView/CourseOffering.vue"
+              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/CourseOffering.vue"
             ),
         },
         //edit offered course
@@ -175,7 +174,7 @@ const routes = [
           name: "RepEditCourseOffered",
           component: () =>
             import(
-              /* webpackChunkName: "RepEditCourseOffered" */ "../views/RepView/CourseOffering.vue"
+              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/CourseOffering.vue"
             ),
         }
       ]

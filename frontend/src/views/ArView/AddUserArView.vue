@@ -106,7 +106,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
 .form {
     padding-top: 80px;
 }
