@@ -10,8 +10,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt-3 align-items-center justify-content-center">
-                <div class="col-xl-2 col-md-2">
+            <div class="row mt-md-3 align-items-center justify-content-center gap-md-0 gap-3 mt-5">
+                <div class="col-lg-2 col-md-3">
                     <select class="form-select form-select-sm" aria-label="Default select example">
                         <option selected>Sort By</option>
                         <option>1</option>
@@ -20,7 +20,7 @@
                         <option>4</option>
                     </select>
                 </div>
-                <div class="col-xl-2 col-md-2">
+                <div class="col-lg-2 col-md-3">
                     <select class="form-select form-select-sm" aria-label="Default select example">
                         <option selected>Filter By</option>
                         <option>17</option>
@@ -29,7 +29,7 @@
                         <option>20</option>
                     </select>
                 </div>
-                <div class="col-xl-2 col-md-3">
+                <div class="col-lg-2 col-md-3">
                     <select class="form-select form-select-sm" aria-label="Default select example">
                         <option selected>Department</option>
                         <option>Computer Engineering</option>
@@ -40,7 +40,7 @@
                         <option>Civil Engineering</option>
                     </select>
                 </div>
-                <div class="col-xl-2 col-md-3">
+                <div class="col-lg-2 col-md-3">
                     <select class="form-select form-select-sm" aria-label="Default select example">
                         <option selected>User Type</option>
                         <option>Student</option>
@@ -49,41 +49,6 @@
                     </select>
                 </div>
             </div>
-            <!-- <div class="row mt-333">
-            <div class="col-sm-12">
-                <div class="row">
-                    <label for="filter" class="col-sm-2 col-md-2 col-form-label">Filter by</label>
-                    <div class="col-sm-4 col-md-2">
-                        <select class="form-select form-select-sm" aria-label="Default select example">
-                            <option selected>Batch</option>
-                            <option>17</option>
-                            <option>18</option>
-                            <option>19</option>
-                            <option>20</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-4 col-md-2">
-                        <select class="form-select form-select-sm" aria-label="Default select example">
-                            <option selected>Department</option>
-                            <option>Computer Engineering</option>
-                            <option>Electrical & Electronic Engineering</option>
-                            <option>Chemical & Process Engineering</option>
-                            <option>Mechanical Engineering</option>
-                            <option>Manufacturing & Industrial Engineering</option>
-                            <option>Civil Engineering</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-4 col-md-2">
-                        <select class="form-select form-select-sm" aria-label="Default select example">
-                            <option selected>User Type</option>
-                            <option>Student</option>
-                            <option>Representative</option>
-                            <option>Coordinator</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 
             <table class="table table-borderless mt-5">
                 <thead>
@@ -95,103 +60,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1. Dissanayake D.M.I.G.</td>
-                        <td>E/19/090</td>
-                        <td>Computer Engineering</td>
+                    <tr v-for="user in users" :key="user.id">
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.eno }}</td>
+                        <td>{{ user.dep }}</td>
                         <div>
                             <a class="btn btn-warning view" href="#" role="button">View</a>
-                            <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
-                    </tr>
-
-                    <tr>
-                        <td>2. Avinash K.T.D.</td>
-                        <td>E/19/029</td>
-                        <td>Computer Engineering</td>
-                        <div>
-                            <a class="btn btn-warning view" href="#" role="button">View</a>
-                            <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
-                    </tr>
-
-                    <tr>
-                        <td>2. Avinash K.T.D.</td>
-                        <td>E/19/029</td>
-                        <td>Computer Engineering</td>
-                        <div>
-                            <a class="btn btn-warning view" href="#" role="button">View</a>
-                            <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
-                    </tr>
-
-                    <tr>
-                        <td>2. Avinash K.T.D.</td>
-                        <td>E/19/029</td>
-                        <td>Computer Engineering</td>
-                        <div>
-                            <a class="btn btn-warning view" href="#" role="button">View</a>
-                            <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
-                    </tr>
-
-                    <tr>
-                        <td>2. Avinash K.T.D.</td>
-                        <td>E/19/029</td>
-                        <td>Computer Engineering</td>
-                        <div>
-                            <a class="btn btn-warning view" href="#" role="button">View</a>
-                            <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
-                    </tr>
-
-                    <tr>
-                        <td>2. Avinash K.T.D.</td>
-                        <td>E/19/029</td>
-                        <td>Computer Engineering</td>
-                        <div>
-                            <a class="btn btn-warning view" href="#" role="button">View</a>
-                            <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
-                    </tr>
-
-                    <tr>
-                        <td>2. Avinash K.T.D.</td>
-                        <td>E/19/029</td>
-                        <td>Computer Engineering</td>
-                        <div>
-                            <a class="btn btn-warning view" href="#" role="button">View</a>
-                            <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
-                    </tr>
-
-                    <tr>
-                        <td>2. Avinash K.T.D.</td>
-                        <td>E/19/029</td>
-                        <td>Computer Engineering</td>
-                        <div>
-                            <a class="btn btn-warning view" href="#" role="button">View</a>
-                            <a class="btn btn-warning" href="#" role="button">Edit</a>
-                        </div>
-                    </tr>
-
-                    <tr>
-                        <td>2. Avinash K.T.D.</td>
-                        <td>E/19/029</td>
-                        <td>Computer Engineering</td>
-                        <div class="col-lg-12 col-sm-12">
-                            <a class="btn btn-warning view" href="#" role="button">View</a>
-                            <a class="btn btn-warning edit" href="#" role="button">Edit</a>
-                        </div>
-                    </tr>
-
-                    <tr>
-                        <td>2. Avinash K.T.D.</td>
-                        <td>E/19/029</td>
-                        <td>Computer Engineering</td>
-                        <div>
-                            <a class="btn btn-warning view" href="#" role="button">View</a>
-                            <a class="btn btn-warning" href="#" role="button">Edit</a>
+                            <a class="btn btn-success" href="#" role="button">Edit</a>
                         </div>
                     </tr>
                 </tbody>
@@ -199,6 +74,35 @@
         </div>
     </div>
 </template>
+
+<script setup>
+import { ref } from "vue";
+
+const users = ref([
+    { id: 1, name: 'John Doe', eno: 'E/19/001', dep: 'Computer Engineering' },
+    { id: 2, name: 'Jane Smith', eno: 'E/18/002', dep: 'Electrical & Electronic Engineering' },
+    { id: 3, name: 'David Johnson', eno: 'E/17/003', dep: 'Chemical & Process Engineering' },
+    { id: 4, name: 'Sarah Williams', eno: 'E/20/004', dep: 'Mechanical Engineering' },
+    { id: 5, name: 'Michael Brown', eno: 'E/19/005', dep: 'Manufacturing & Industrial Engineering' },
+    { id: 6, name: 'Emily Davis', eno: 'E/18/006', dep: 'Civil Engineering' },
+    { id: 7, name: 'Robert Wilson', eno: 'E/17/007', dep: 'Computer Engineering' },
+    { id: 8, name: 'Jennifer Miller', eno: 'E/20/008', dep: 'Electrical & Electronic Engineering' },
+    { id: 9, name: 'William Taylor', eno: 'E/19/009', dep: 'Chemical & Process Engineering' },
+    { id: 10, name: 'Linda Anderson', eno: 'E/18/010', dep: 'Mechanical Engineering' },
+    { id: 11, name: 'Alex Johnson', eno: 'E/20/011', dep: 'Manufacturing & Industrial Engineering' },
+    { id: 12, name: 'Sophia Davis', eno: 'E/19/012', dep: 'Civil Engineering' },
+    { id: 13, name: 'Daniel Wilson', eno: 'E/18/013', dep: 'Computer Engineering' },
+    { id: 14, name: 'Olivia Taylor', eno: 'E/20/014', dep: 'Electrical & Electronic Engineering' },
+    { id: 15, name: 'Noah Brown', eno: 'E/19/015', dep: 'Chemical & Process Engineering' },
+    { id: 16, name: 'Ava Smith', eno: 'E/18/016', dep: 'Mechanical Engineering' },
+    { id: 17, name: 'William Davis', eno: 'E/20/017', dep: 'Manufacturing & Industrial Engineering' },
+    { id: 18, name: 'Isabella Anderson', eno: 'E/19/018', dep: 'Civil Engineering' },
+    { id: 19, name: 'James Johnson', eno: 'E/18/019', dep: 'Computer Engineering' },
+    { id: 20, name: 'Sophia Miller', eno: 'E/20/020', dep: 'Electrical & Electronic Engineering' },
+    // Add more sample user objects as needed
+]
+)
+</script>
 
 <style scoped>
 .bg {
@@ -242,6 +146,12 @@
 
 .table tr div {
     background: none;
+    margin: 0;
+    width: fit-content;
+}
+
+.table tr td:first-child {
+    text-align: left;
 }
 
 .view {
