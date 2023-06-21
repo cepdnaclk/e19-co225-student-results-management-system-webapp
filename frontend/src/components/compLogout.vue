@@ -1,7 +1,8 @@
 <template>
-    <div class="ar-logout">
+    <div class="logout">
         <img class="bg" src="@/assets/bg.png" alt="">
-        <div id="logout-confirmation" class="hidden">
+        <div id="logout-confirmation">
+            <div class="backdrop" @click="hideLogout"></div>
             <div class="confirmation-box">
                 <h4>Are you sure you want to log out?</h4>
                 <button @click="logout" class="btn btn-warning">Yes, log out</button>
@@ -26,6 +27,21 @@ const logout = () => {
 </script>
 
 <style scoped>
+.logout {
+    position: relative;
+    z-index: 1000000000000;
+}
+
+.logout .backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.196);
+    z-index: -1;
+}
+
 .btn {
     width: 80%;
     font-size: 30px;
@@ -74,10 +90,6 @@ const logout = () => {
     font-size: 17px;
 }
 
-.hidden {
-    /* Style to hide the logout confirmation box by default */
-    display: none;
-}
 
 @media screen and (max-width: 768px) {
     .confirmation-box .btn {

@@ -1,6 +1,8 @@
 <template>
   <div class="app">
-    <comp-logout v-if="store.state.showLogout" />
+    <transition name="fade">
+      <comp-logout v-if="store.state.showLogout" />
+    </transition>
     <router-view />
   </div>
 </template>
@@ -20,7 +22,7 @@ const store = useStore()
 /* CSS class for slide-left transition */
 .slide-left-enter-active,
 .slide-left-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
 }
 
 .slide-left-enter-from {
@@ -36,7 +38,7 @@ const store = useStore()
 /* CSS class for slide-right transition */
 .slide-right-enter-active,
 .slide-right-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
 }
 
 .slide-right-enter-from {
@@ -47,6 +49,17 @@ const store = useStore()
 .slide-right-leave-to {
   transform: translateX(100px);
   opacity: 0;
+}
+
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: 0.2s all ease;
 }
 </style>
 
