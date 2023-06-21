@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `addressline1` varchar(50) NULL,
   `addressline2` varchar(50) NULL,
   `addressline3` varchar(50) NULL,
-  `Dep_id` int NOT NULL,
+  `Dep_id` int UNSIGNED NOT NULL,
   `contact_no` varchar(20) NULL,
   `role` varchar(50) NOT NULL,
   PRIMARY KEY (`Id`),
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 DROP TABLE IF EXISTS `student`;
 CREATE TABLE IF NOT EXISTS `student` (
-  `S_id` int NOT NULL,
+  `S_id` int UNSIGNED NOT NULL,
   `Batch` int NOT NULL,
   `Academic_year` tinyint NOT NULL,
   `Semester` tinyint NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `student` (
 
 DROP TABLE IF EXISTS `course`;
 CREATE TABLE IF NOT EXISTS `course` (
-  `C_id` int NOT NULL,
+  `C_id` int UNSIGNED NOT NULL,
   `C_name` varchar(255) NOT NULL,
   PRIMARY KEY (`C_id`)
 );
@@ -87,10 +87,10 @@ CREATE TABLE IF NOT EXISTS `course` (
 
 DROP TABLE IF EXISTS `course_offering`;
 CREATE TABLE IF NOT EXISTS `course_offering` (
-  `Course_id` int NOT NULL,
-  `Coord_id` int NOT NULL,
-  `offered_by` int NOT NULL,
-  `offered_to` int NOT NULL,
+  `Course_id` int UNSIGNED NOT NULL,
+  `Coord_id` int UNSIGNED  NOT NULL,
+  `offered_by` int UNSIGNED  NOT NULL,
+  `offered_to` int UNSIGNED  NOT NULL,
   `Course_code` varchar(20) NOT NULL,
   `year` int NOT NULL,
   `batch` int NOT NULL,
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `course_offering` (
 
 DROP TABLE IF EXISTS `following_courses`;
 CREATE TABLE IF NOT EXISTS `following_courses` (
-  `Stu_id` int NOT NULL,
+  `Stu_id` int UNSIGNED  NOT NULL,
   `Course_code` varchar(10) NOT NULL,
   `Final_grades` varchar(2) NOT NULL,
   PRIMARY KEY (`Stu_id`,`Course_code`),
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `assesment` (
 
 DROP TABLE IF EXISTS `assesment_marks`;
 CREATE TABLE IF NOT EXISTS `assesment_marks` (
-  `stu_id` int NOT NULL,
+  `stu_id` int UNSIGNED  NOT NULL,
   `a_id` tinyint NOT NULL,
   `marks` tinyint NOT NULL,
   PRIMARY KEY (`stu_id`,`a_id`),
