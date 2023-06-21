@@ -1,0 +1,15 @@
+ENDPOINTS
+
+/course/ - PUT, GET, POST, DELETE
+/course/offerings/ - PUT, GET, POST, DELETE
+/user/ - PUT, GET, POST, DELETE
+
+/student/cgpa {id} - GET
+/student/tgpa {id, gpa} - GET
+/student/courses/ {id, sem} - GET
+/student/course/ {c_id}
+
+/course/grades/ {excel, offering_id}
+
+CHANGES TO DB
+Move credits field from offerings to course
