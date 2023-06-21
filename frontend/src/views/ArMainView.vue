@@ -24,7 +24,6 @@
                 <div class="row">
                     <div class="col-12">
                         <ul class="list-inline text-center">
-                            <li class="list-inline-item">©Academetrix 2023</li>
                             <li class="list-inline-item"><router-link to="#">License</router-link></li>
                             <li class="list-inline-item"><router-link to="#">Terms</router-link></li>
                             <li class="list-inline-item"><router-link to="#">Privacy</router-link></li>
@@ -33,6 +32,7 @@
                 </div>
             </div>
         </footer>
+        <div class="copyright">©Academetrix 2023</div>
     </div>
 </template>
 
@@ -76,6 +76,7 @@ footer {
     justify-content: center;
     align-items: center;
     margin-top: auto;
+    position: relative;
 }
 
 .list-inline-item {
@@ -98,5 +99,14 @@ footer {
 
 .list-inline li a:hover {
     color: white;
+}
+
+.copyright {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 0.7rem;
 }
 </style>
