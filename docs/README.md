@@ -22,7 +22,7 @@ This is a sample image, to show how to add images to your page. To learn more op
 ## Team
 -  E/18/059, De Silva D.M., [email](mailto:e18059@eng.pdn.ac.lk)
 -  E/19/029, Avinash K.T.D., [email](mailto:e19029@eng.pdn.ac.lk)
--  E/19/029, Disaanayake D.M.I.G., [email](mailto:e19090@eng.pdn.ac.lk)
+-  E/19/090, Disaanayake D.M.I.G., [email](mailto:e19090@eng.pdn.ac.lk)
 -  E/19/275, Peeris M.S., [email](mailto:ne190275@eng.pdn.ac.lk)
 -  E/19/309, Rambukwella H.M.W.K.G., [email](mailto:e19309@eng.pdn.ac.lk)
 -  E/19/366, Senevirathne W.A.M.P., [email](mailto:e19366@eng.pdn.ac.lk)
