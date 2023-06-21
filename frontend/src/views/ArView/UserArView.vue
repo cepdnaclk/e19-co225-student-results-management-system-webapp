@@ -105,49 +105,99 @@
                         <td>1. Dissanayake D.M.I.G.</td>
                         <td>E/19/090</td>
                         <td>Computer Engineering</td>
-                        <div class="col-lg-12">
+                        <td>
                             <a class="btn btn-warning view" href="#" role="button">View</a>
-                            <a class="btn btn-warning edit" href="#" role="button">Edit</a>
+                            <a class="btn btn-warning" href="#" role="button">Edit</a>
                         </div>
                     </tr>
 
                     <tr>
-                        <td>2. Dahanayake T.M.</td>
-                        <td>E/19/058</td>
-                        <td>Manufacturing & Industrial Engineering</td>
+                        <td>2. Avinash K.T.D.</td>
+                        <td>E/19/029</td>
+                        <td>Computer Engineering</td>
                         <div class="col-lg-12">
                             <a class="btn btn-warning view" href="#" role="button">View</a>
-                            <a class="btn btn-warning edit" href="#" role="button">Edit</a>
+                            <a class="btn btn-warning" href="#" role="button">Edit</a>
                         </div>
                     </tr>
 
                     <tr>
-                        <td>3. Dassanayake D.M.S.I.</td>
-                        <td>E/19/064</td>
-                        <td>Civil Engineering</td>
+                        <td>2. Avinash K.T.D.</td>
+                        <td>E/19/029</td>
+                        <td>Computer Engineering</td>
                         <div class="col-lg-12">
                             <a class="btn btn-warning view" href="#" role="button">View</a>
-                            <a class="btn btn-warning edit" href="#" role="button">Edit</a>
+                            <a class="btn btn-warning" href="#" role="button">Edit</a>
                         </div>
                     </tr>
 
                     <tr>
-                        <td>4. Liyanage A.L.D.N.</td>
-                        <td>E/19/218</td>
-                        <td>Mechanical Engineering</td>
+                        <td>2. Avinash K.T.D.</td>
+                        <td>E/19/029</td>
+                        <td>Computer Engineering</td>
                         <div class="col-lg-12">
                             <a class="btn btn-warning view" href="#" role="button">View</a>
-                            <a class="btn btn-warning edit" href="#" role="button">Edit</a>
+                            <a class="btn btn-warning" href="#" role="button">Edit</a>
                         </div>
                     </tr>
 
                     <tr>
-                        <td>5. Liyanage I.U.E.</td>
-                        <td>E/19/221</td>
-                        <td>Electrical & Electronic Engineering</td>
+                        <td>2. Avinash K.T.D.</td>
+                        <td>E/19/029</td>
+                        <td>Computer Engineering</td>
                         <div class="col-lg-12">
                             <a class="btn btn-warning view" href="#" role="button">View</a>
+                            <a class="btn btn-warning" href="#" role="button">Edit</a>
+                        </div>
+                    </tr>
+
+                    <tr>
+                        <td>2. Avinash K.T.D.</td>
+                        <td>E/19/029</td>
+                        <td>Computer Engineering</td>
+                        <div class="col-lg-12">
+                            <a class="btn btn-warning view" href="#" role="button">View</a>
+                            <a class="btn btn-warning" href="#" role="button">Edit</a>
+                        </div>
+                    </tr>
+
+                    <tr>
+                        <td>2. Avinash K.T.D.</td>
+                        <td>E/19/029</td>
+                        <td>Computer Engineering</td>
+                        <div class="col-lg-12">
+                            <a class="btn btn-warning view" href="#" role="button">View</a>
+                            <a class="btn btn-warning" href="#" role="button">Edit</a>
+                        </div>
+                    </tr>
+
+                    <tr>
+                        <td>2. Avinash K.T.D.</td>
+                        <td>E/19/029</td>
+                        <td>Computer Engineering</td>
+                        <div class="col-lg-12">
+                            <a class="btn btn-warning view" href="#" role="button">View</a>
+                            <a class="btn btn-warning" href="#" role="button">Edit</a>
+                        </div>
+                    </tr>
+
+                    <tr>
+                        <td>2. Avinash K.T.D.</td>
+                        <td>E/19/029</td>
+                        <td>Computer Engineering</td>
+                        <div class="col-lg-12 col-sm-12">
+                            <a class="btn btn-warning view" href="#" role="button">View</a>
                             <a class="btn btn-warning edit" href="#" role="button">Edit</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>2. Avinash K.T.D.</td>
+                        <td>E/19/029</td>
+                        <td>Computer Engineering</td>
+                        <div class="col-lg-12">
+                            <a class="btn btn-warning view" href="#" role="button">View</a>
+                            <a class="btn btn-warning" href="#" role="button">Edit</a>
                         </div>
                     </tr>
                 </tbody>
@@ -176,6 +226,8 @@
 .table {
     border: none;
     margin-bottom: 4rem;
+    width: 120%;
+    /*100% after md */
 }
 
 .table thead th {
@@ -210,84 +262,45 @@ div .col-lg-12 {
     padding-right: 1px;
 }
 
-@media screen and (min-width: 1200px) {
-    .filter {
-        padding-left: 30px;
-        padding-right: 20px;
-        width: fit-content;
-    }
+.col-lg-4 {
+    flex: 0 0 auto;
+    width: 16.66666667%;
 }
 
-@media screen and (max-width: 1440px) {
-    .view {
-        margin-left: 30px;
-        margin-right: 25px;
-    }
+.filter {
+    padding-right: 20px;
+    padding-left: 60px;
+    width: fit-content;
 }
 
-@media screen and (max-width: 1200px) {
-    .view {
-        margin-left: 11px;
-        margin-right: 12px;
-    }
+footer {
+    background-color: #2c3e50;
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
 }
 
-@media screen and (max-width: 992px) {
-    .view,
-    .edit {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 90px;
-        margin: 10px auto;
-        margin-left: 20px;
-    }
-    .table td {
-        font-size: 16px;
-    }
+.list-inline-item {
+    text-align: center;
+    padding: 20px 5px;
+    margin: 10px;
+    color: white;
 }
 
-@media screen and (max-width: 576px) {
-    .view {
-        margin-left: 5px;
-        margin-right: 5px;
-    }
+.list-inline li {
+    display: inline-block;
+    margin-right: 10px;
 }
 
-@media screen and (max-width: 768px) {
-    .view,
-    .edit {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 80px;
-        margin: 10px auto;
-        margin-left: 20px;
-    }
-    .table td {
-        font-size: 15px;
-    }
+.list-inline li a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
 }
 
-@media screen and (max-width: 576px) {
-    .view,
-    .edit {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 60px;
-        margin: 10px auto;
-        margin-left: 10px;
-    }
-    .table td {
-        font-size: 14px;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .col-form-label {
-        width: auto;
-        padding-right: 0;
-    }
+.list-inline li a:hover {
+    color: white;
 }
 </style>

@@ -23,7 +23,7 @@
 
 <script setup></script>
 
-<style>
+<style scoped>
 .login {
     height: 100vh;
     display: flex;
