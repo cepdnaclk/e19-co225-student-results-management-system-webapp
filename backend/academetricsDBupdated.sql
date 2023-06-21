@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `following_courses` (
 
 DROP TABLE IF EXISTS `assesment`;
 CREATE TABLE IF NOT EXISTS `assesment` (
-  `c_id` varchar(20) NOT NULL,
+  `c_id` int UNSIGNED NOT NULL,
   `a_id` tinyint NOT NULL AUTO_INCREMENT,
   `a_type` varchar(50) NOT NULL,
   `max_marks` tinyint NOT NULL,
