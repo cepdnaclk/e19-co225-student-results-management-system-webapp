@@ -55,14 +55,7 @@ const routes = [
           import(
             /* webpackChunkName: "ARhome" */ "../views/ArView/HomeArView.vue"
           ),
-      },
-      {
-        path: "adduser",
-        name: "ARadduser",
-        component: () =>
-          import(
-            /* webpackChunkName: "ARadduser" */ "../views/ArView/AddUserArView.vue"
-          ),
+        meta: { index: 1, transition: "slide-left" },
       },
       {
         path: "user",
@@ -71,6 +64,16 @@ const routes = [
           import(
             /* webpackChunkName: "ARuser" */ "../views/ArView/UserArView.vue"
           ),
+        meta: { index: 2, transition: "slide-right" },
+      },
+      {
+        path: "adduser",
+        name: "ARadduser",
+        component: () =>
+          import(
+            /* webpackChunkName: "ARadduser" */ "../views/ArView/AddUserArView.vue"
+          ),
+        meta: { index: 3, transition: "slide-right" },
       },
     ],
   },
@@ -174,6 +177,12 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.afterEach((to, from) => {
+  const toDepth = to.meta.index;
+  const fromDepth = from.meta.index;
+  to.meta.transition = toDepth < fromDepth ? "slide-right" : "slide-left";
 });
 
 export default router;

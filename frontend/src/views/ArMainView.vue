@@ -18,7 +18,11 @@
                 </div>
             </div>
         </nav>
-        <router-view />
+        <router-view v-slot="{ Component, route }">
+            <transition :name="route.meta.transition" mode="out-in">
+                <component :is="Component" />
+            </transition>
+        </router-view>
         <footer>
             <div class="container">
                 <div class="row">
