@@ -3,7 +3,7 @@
         <img class="bg" src="@/assets/bg.png" alt="">
         <div id="logout-confirmation" class="hidden">
             <div class="confirmation-box">
-                <h3>Are you sure you want to log out?</h3>
+                <h4>Are you sure you want to log out?</h4>
                 <a id="logout-yes" class="btn btn-warning" href="#">Yes, log out</a>
                 <a id="logout-no" class="btn btn-warning" href="#">Cancel</a>
             </div>
@@ -11,7 +11,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
 .body {
     padding-top: 100px;
 }
@@ -19,8 +19,8 @@
 .btn {
     width: 80%;
     font-size: 30px;
+    font-weight: 500;
 }
-
 
 .bg {
     background-size: cover;
@@ -33,7 +33,6 @@
     opacity: 0.1;
     background-attachment: fixed;
 }
-
 
 #logout-confirmation {
     /* Styles for the logout confirmation box overlay */
@@ -79,4 +78,11 @@
         font-size: 18px;
     }
 }
+
+/* footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+} */
 </style>

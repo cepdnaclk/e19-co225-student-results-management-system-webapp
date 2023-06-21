@@ -8,7 +8,7 @@
                 <label for="acc_type" class="col-sm-2 col-form-label">Account type</label>
                 <div class="col-sm-10">
                     <select class="form-select" aria-label="Default select example">
-                    <option selected>Account type</option>
+                    <option selected>Account typeeee</option>
                     <option value="1">Student</option>
                     <option value="2">Representative</option>
                     <option value="3">Coordinator</option>
@@ -17,7 +17,7 @@
             </div> -->
                 <div class="row mt-4">
                     <label for="acc_type" class="col-sm-2 col-form-label other">Account type</label>
-                    <div class="col-sm-9">
+                    <div class="col-lg-10 col-sm-11">
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="acc_type" id="option1" value="1">
                             <label class="form-check-label" for="option1">Student</label>
@@ -63,7 +63,7 @@
 
                 <div class="row mt-4">
                     <label for="dep" class="col-sm-2 col-form-label other">Department</label>
-                    <div class="col-lg-10 col-sm-9">
+                    <div class="col-lg-10 col-sm-11">
                         <select class="form-select" aria-label="Default select example">
                             <option selected>Department</option>
                             <option value="1">Computer Engineering</option>
@@ -106,7 +106,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
 .form {
     padding-top: 80px;
 }
@@ -128,27 +128,13 @@
     font-weight: 500;
 }
 
+.col-form-labe {
+    margin-right: 20px;
+}
+
 .btn {
     font-weight: 500;
 }
-
-/* @media screen and (max-width: 1200px) {
-    .col-form-label {
-        width: 20%;
-        font-size: 15px;
-    }
-    .form-control {
-        margin-left: 30px;
-        width: 94%;
-    }
-    .form-select {
-        margin-left: 30px; 
-        width: 100%;
-    }
-    .form-check {
-        margin-left: 30px;
-    }
-} */
 
 @media screen and (max-width: 1200px) {
 
