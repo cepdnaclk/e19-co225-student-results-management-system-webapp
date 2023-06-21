@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="col-lg-12 text-center">
-                    <a class="btn btn-warning mt-2 mb-4" href="#" role="button">Offer this Course</a>
+                    <a class="btn btn-warning mt-2 mb-4" href="#" role="button">Save Changes</a>
                 </div>
 
             </form>
