@@ -21,10 +21,25 @@
 
                         <div class="card-body">
 
-                            <h5 class="card-title">CO224</h5>
+                            <h5 class="card-title">CO224 - 2023</h5>
                             <p class="card-text">Computer Architecture</p>
 
                             
+                        </div>
+                        <div class ="button-panel">
+
+                            <div class="row">
+                                <div class="col-sm-4">
+                                <button class="btn btn-sm-3 btn-view">View</button>
+                                </div>
+                                <div class="col-sm-4">
+                                <button class="btn btn-sm-3 btn-edit">Edit</button>
+                                </div>
+                                <div class="col-sm-4">
+                                <button class="btn btn-sm-3 btn-delete">Delete</button>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -32,8 +47,23 @@
                     <div class="card">
                     
                         <div class="card-body">
-                            <h5 class="card-title">CO225</h5>
+                            <h5 class="card-title">CO225 - 2023</h5>
                             <p class="card-text">Software Construction</p>
+                        </div>
+                        <div class ="button-panel">
+
+                            <div class="row">
+                                <div class="col-sm-4">
+                                <button class="btn btn-sm-3 btn-view">View</button>
+                                </div>
+                                <div class="col-sm-4">
+                                <button class="btn btn-sm-3 btn-edit">Edit</button>
+                                </div>
+                                <div class="col-sm-4">
+                                <button class="btn btn-sm-3 btn-delete">Delete</button>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -41,8 +71,25 @@
                     <div class="card">
                     
                     <div class="card-body">
-                        <h5 class="card-title">CO226</h5>
+                        <h5 class="card-title">CO226 - 2023</h5>
                         <p class="card-text">Database Systems</p>
+                    
+                    </div>
+                    <div class ="button-panel">
+
+                        <div class="row">
+                            <div class="col-sm-4">
+                            <button class="btn btn-sm-3 btn-view">View</button>
+                            </div>
+                            <div class="col-sm-4">
+                            <button class="btn btn-sm-3 btn-edit">Edit</button>
+                            </div>
+                            <div class="col-sm-4">
+                            <button class="btn btn-sm-3 btn-delete">Delete</button>
+                            </div>
+                        </div>
+
+                    
                     </div>
                     </div>
                 </div>
@@ -74,7 +121,7 @@
 }
 
 .btn {
-    font-size: 35px;
+    font-size: 20px;
     font-weight: 400;
     padding: 15px 30px;
 }
@@ -87,6 +134,18 @@
     font-size: 25px;
     font-weight: 100px;
 }
+
+.btn-view, .btn-edit, .btn-delete {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 100px;
+    background-color: #f2f2f2;
+    width:100%;
+} 
+
 
 /* .view {
     margin-top: 120px;
