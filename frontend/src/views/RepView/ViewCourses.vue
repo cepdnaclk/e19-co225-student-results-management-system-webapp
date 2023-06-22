@@ -1,5 +1,5 @@
 <template>
-    <div class="ar-home">
+    <div class="rep-viewcourses">
         <img class="bg" src="@/assets/bg.png" alt="">
 
         <div class="text-center">
