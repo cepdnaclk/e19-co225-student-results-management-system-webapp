@@ -1,5 +1,5 @@
 <template>
-    <div class = "rep-addcourse">
+    <div class = "rep-editcourse">
         <img class="bg" src="@/assets/bg.png" alt="">
         <div class="container">
             <form class = "form">

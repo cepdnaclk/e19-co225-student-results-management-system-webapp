@@ -1,8 +1,8 @@
-package com.academetrics.controller;
+package com.academetrics.academetrics.Controller;
 
-import com.academetrics.dto.CourseDTO;
-import com.academetrics.entity.Course;
-import com.academetrics.service.CourseService;
+import com.academetrics.academetrics.DTO.CourseDTO;
+import com.academetrics.academetrics.Entity.Course;
+import com.academetrics.academetrics.Service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
