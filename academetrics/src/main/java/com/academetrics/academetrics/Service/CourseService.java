@@ -1,8 +1,8 @@
 package com.academetrics.academetrics.Service;
 
-import com.academetrics.dto.CourseDTO;
-import com.academetrics.entity.Course;
-import com.academetrics.repo.CourseRepository;
+import com.academetrics.academetrics.DTO.CourseDTO;
+import com.academetrics.academetrics.Entity.Course;
+import com.academetrics.academetrics.Repository.CourseRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

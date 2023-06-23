@@ -4,12 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
-public class CourseDTO {
-
-    private Integer courseId;
-    private String courseName;
-
+public class DepartmentDTO {
+    private String id;
+    private String name;
 }
