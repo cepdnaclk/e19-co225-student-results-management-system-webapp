@@ -20,12 +20,12 @@
                     </select>
                 </div>
                 <div class="col-lg-2 col-md-3">
-                    <select class="form-select form-select-sm" aria-label="Default select example">
-                        <option selected>Filter By</option>
-                        <option>17</option>
-                        <option>18</option>
-                        <option>19</option>
-                        <option>20</option>
+                    <select class="form-select form-select-sm" aria-label="Default select example" v-model="userYear">
+                        <option selected value="">Filter By</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
                     </select>
                 </div>
                 <div class="col-lg-2 col-md-3">
@@ -85,6 +85,7 @@ import { computed, ref } from "vue";
 const result = ref([])
 const searchTxt = ref("")
 const userRole = ref("")
+const userYear = ref("")
 const users = computed(() => {
     let array = []
     result.value.forEach((ele) => {
@@ -110,6 +111,11 @@ const filteredUsers = computed(() => {
     if (userRole.value != "") {
         array = array.filter(user =>
             user.role.toLowerCase().includes(userRole.value.toLowerCase())
+        )
+    }
+    if (userYear.value != "") {
+        array = array.filter(user =>
+            user.eno.toLowerCase().includes("e/" + userYear.value.toLowerCase())
         )
     }
     return array
