@@ -6,6 +6,7 @@ import store from "./store";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import axios from "axios";
 
 /* import the fontawesome core */
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -21,6 +22,8 @@ import {
 
 /* add icons to the library */
 library.add(faUserSecret, faUserGraduate);
+
+axios.defaults.baseURL = "http://localhost:8080/api";
 
 createApp(App)
   .use(store)
