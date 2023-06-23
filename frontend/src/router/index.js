@@ -203,10 +203,10 @@ const routes = [
         import(/* webpackChunkName: "StudentCourses" */ "../views/StudentView/CoursesView.vue"),  
       },
       {
-        path: "innercourses",
-        name: "StudentInnerCourses",
+        path: "coursesinner",
+        name: "StudentCoursesInner",
         component: () =>
-        import(/* webpackChunkName: "StudentInnerCourses" */ "../views/StudentView/CoursesInnerView.vue"),  
+        import(/* webpackChunkName: "StudentCoursesInner" */ "../views/StudentView/CoursesInnerView.vue"),  
       },
       {
         path: "edit",
