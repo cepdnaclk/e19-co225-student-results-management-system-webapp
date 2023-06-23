@@ -6,6 +6,7 @@ import store from "./store";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 /* import the fontawesome core */
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -17,10 +18,13 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
   faUserSecret,
   faUserGraduate,
+  faUser,
+  faRightFromBracket
+
 } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
-library.add(faUserSecret, faUserGraduate);
+library.add(faUserSecret, faUserGraduate, faUser, faRightFromBracket);
 
 createApp(App)
   .use(store)
