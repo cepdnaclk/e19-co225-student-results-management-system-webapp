@@ -11,17 +11,16 @@
             </div>
             <div class="row mt-md-3 align-items-center justify-content-center gap-md-0 gap-3 mt-5">
                 <div class="col-lg-2 col-md-3">
-                    <select class="form-select form-select-sm" aria-label="Default select example">
-                        <option selected>Sort By</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
+                    <select class="form-select form-select-sm" aria-label="Default select example" v-model="sortBy">
+                        <option value="" selected>Sort By</option>
+                        <option value="name">Name</option>
+                        <option value="eno">E no.</option>
+                        <option value="dept">Depertment</option>
                     </select>
                 </div>
                 <div class="col-lg-2 col-md-3">
                     <select class="form-select form-select-sm" aria-label="Default select example" v-model="userYear">
-                        <option selected value="">Filter By</option>
+                        <option selected value="">Batch</option>
                         <option value="17">17</option>
                         <option value="18">18</option>
                         <option value="19">19</option>
@@ -29,14 +28,14 @@
                     </select>
                 </div>
                 <div class="col-lg-2 col-md-3">
-                    <select class="form-select form-select-sm" aria-label="Default select example">
-                        <option selected>Department</option>
-                        <option>Computer Engineering</option>
-                        <option>Electrical & Electronic Engineering</option>
-                        <option>Chemical & Process Engineering</option>
-                        <option>Mechanical Engineering</option>
-                        <option>Manufacturing & Industrial Engineering</option>
-                        <option>Civil Engineering</option>
+                    <select class="form-select form-select-sm" aria-label="Default select example" v-model="userDept">
+                        <option value="" selected>Department</option>
+                        <option value="co">Computer Engineering</option>
+                        <option value="ee">Electrical & Electronic Engineering</option>
+                        <option value="cp">Chemical & Process Engineering</option>
+                        <option value="me">Mechanical Engineering</option>
+                        <option value="mi">Manufacturing & Industrial Engineering</option>
+                        <option value="ce">Civil Engineering</option>
                     </select>
                 </div>
                 <div class="col-lg-2 col-md-3">
@@ -86,6 +85,8 @@ const result = ref([])
 const searchTxt = ref("")
 const userRole = ref("")
 const userYear = ref("")
+const userDept = ref("")
+const sortBy = ref("")
 const users = computed(() => {
     let array = []
     result.value.forEach((ele) => {
@@ -93,7 +94,7 @@ const users = computed(() => {
             id: ele.id,
             name: ele.honorific + ". " + ele.initials + " " + ele.lastName,
             eno: ele.userName,
-            dept: ele.deptId,
+            dept: ele.deptId || "",
             role: ele.role,
         }
         array.push(objUser)
@@ -118,6 +119,17 @@ const filteredUsers = computed(() => {
             user.eno.toLowerCase().includes("e/" + userYear.value.toLowerCase())
         )
     }
+    if (userDept.value != "") {
+        array = array.filter(user =>
+            user.dept.toLowerCase().includes(userDept.value.toLowerCase())
+        )
+    }
+    if (sortBy.value != "") {
+        array = array.sort(function (a, b) {
+            return a[sortBy.value].localeCompare(b[sortBy.value]);
+        });
+    }
+
     return array
 })
 
