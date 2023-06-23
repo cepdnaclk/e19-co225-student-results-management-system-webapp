@@ -43,27 +43,47 @@
 
                         <div class="card-body">
 
-                            <h5 class="card-title">Assignments</h5>
-                            <p class="card-text">Software Construction</p>
+                            <div class ="row">
 
+                                <div class="col-sm">
+                                    <h5 class="card-title">Assignments</h5>
+                                </div>
+                                <div class="col-sm">
+                                    <button class="btn btn-sm-3 btn-activity-title" href="#">Edit</button>
+                                </div>
+                                <div class="col-sm">
+                                    <button class="btn btn-sm-3 btn-activity-title" href="#">Delete</button>
+                                </div>
+                                <div class="col-sm">
+                                    <h5 class="card-text">Allocated % : xx%</h5>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- after clicking add item button -->
 
                         <div class="card-body">
 
-                            <form>
+                            <form class="row">
 
-                                <label for="activity_name" class="col-sm-1 col-form-label">Activity Name</label>
+                                <label for="activity_name" class="col-sm-2 col-form-label text-field">Activity Name</label>
                                     <div class="col-sm">
                                         <input type="text" class="form-control" id="activity_name" placeholder="Enter name">
                                     </div>
 
-                                <label for="allocated_percentage" class="col-sm-2 col-form-label">Allocated %</label>
+                                <label for="allocated_percentage" class="col-sm-2 col-form-label text-field">Allocated %</label>
                                     <div class="col-sm">
                                         <input type="text" class="form-control" id="allocated_percentage" placeholder="xx%">
                                     </div>
                             </form>
 
+                            <div class="col-sm-4">
+                                <button class="btn btn-sm-3 btn-add-item" href="#">Save item</button>
+                            </div>
+
                         </div>
+
+                        <!-- add item button -->
 
                         <div class="card-body">
 
@@ -151,27 +171,38 @@
     font-weight: 100px;
 }
 
-.btn-view, .btn-edit, .btn-delete {
-    margin-top: 10px;
-    margin-bottom: 5px;
-    margin-right: 5px;
-    padding: 5px;
-    font-size: 20px;
-    font-weight: 100px;
-    background-color: #f2f2f2;
-    width:100%;
-} 
-
 .btn-request{
 
     background-color: #f06e6e;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
 .btn-add-item {
 
     border-color: black;
+    height: 20px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
+    
+}
+
+.btn-activity-title {
+
+border-color: black;
+height: 20px;
+width: 150px;
+display: flex;
+align-items: center;
+justify-content: center;
+
+
 }
 
 /* .view {
@@ -199,6 +230,11 @@
     width: 50%S;
 }
 
+.text-field {
+
+    font-size: 20px;
+    font-weight: 450;
+}
 
 @media screen and (max-width: 769px) {
     .btn {
