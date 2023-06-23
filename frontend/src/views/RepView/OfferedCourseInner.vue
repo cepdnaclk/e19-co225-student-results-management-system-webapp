@@ -23,33 +23,68 @@
 
                             <h5 class="card-title">Lab </h5>
                             <h6 class="card-text">Allocated % - [] %</h6>
-
-                            
+                        
                         </div>
 
                         <!-- Assignments component body -->
                         <div class="card-body">
+
                             <h5 class="card-title">Assignments</h5>
                             <p class="card-text">Software Construction</p>
+
                         </div>
-                    
 
-                        
-                    </div>
-
-                    
-
-
-
-                </div>
-
-                <div class="col">
-                    <div class="card">
-                    
                         <div class="card-body">
 
+                            <h5 class="card-title">Assignments</h5>
+                            <p class="card-text">Software Construction</p>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">Assignments</h5>
+                            <p class="card-text">Software Construction</p>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <form>
+
+                                <label for="activity_name" class="col-sm-1 col-form-label">Activity Name</label>
+                                    <div class="col-sm">
+                                        <input type="text" class="form-control" id="activity_name" placeholder="Enter name">
+                                    </div>
+
+                                <label for="allocated_percentage" class="col-sm-2 col-form-label">Allocated %</label>
+                                    <div class="col-sm">
+                                        <input type="text" class="form-control" id="allocated_percentage" placeholder="xx%">
+                                    </div>
+                            </form>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="col-sm-4">
+                                <button class="btn btn-sm-3 btn-add-item" href="#">+ Add item</button>
+                            </div>
+
+                        </div>
+
+
+                    
+                    </div>
+
+                </div>
+                <!-- End exam section  -->
+                <div class="col">
+                    <div class="card">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">End Exam</h5>
                             <div class = "row">
-                                <h5 class="card-title">End Exam</h5>
                                 <p class="card-text">End Exam results are not released yet</p>
 
                                 <div class="col-sm-4">
@@ -59,38 +94,26 @@
 
                             </div>
                             
-
-                            <!-- <div class="col-sm-4">
-                                <button class="btn btn-sm-3 btn-request" href="#">Request Results</button>
-                            </div> -->
                         </div>
-                        
-                        <!-- <div class ="button-panel">
-
-                            <div class="row">
-                                <div class="col-sm-4">
-                                <button class="btn btn-sm-3 btn-view" href="#">Request Results</button>
-                                </div>
-                                <div class="col-sm-4">
-                                <button class="btn btn-sm-3 btn-edit">Edit</button>
-                                </div>
-                                <div class="col-sm-4">
-                                <button class="btn btn-sm-3 btn-delete">Delete</button>
-                                </div>
+                    </div>
+                </div>  
+                
+                <div class="col">
+                    <div class="card">
+                    
+                        <div class="card-body">
+                            <h5 class="card-title">End Exam</h5>
+                            <div class = "row-result">
+                                <p class="card-text">End Exam results are released </p>
                             </div>
-
-                        </div> -->
+                            
+                        </div>
                     </div>
                 </div>
-                                  
-        </div>
+            </div>
         </div>
     </div>
 
-            
-            
-        
-    
 </template>
 
 <style scoped>
@@ -145,6 +168,12 @@
 
 }
 
+.btn-add-item {
+
+    border-color: black;
+    
+}
+
 /* .view {
     margin-top: 120px;
     margin-bottom: 100px;
@@ -163,6 +192,11 @@
     z-index: -1;
     opacity: 0.1;
     background-attachment: fixed;
+}
+
+.row-result {
+    background-color: aquamarine;
+    width: 50%S;
 }
 
 
