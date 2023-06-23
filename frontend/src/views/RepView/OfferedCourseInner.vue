@@ -1,5 +1,5 @@
 <template>
-    <div class="rep-viewcourses">
+    <div class="rep-courseofferinner">
         <img class="bg" src="@/assets/bg.png" alt="">
 
         <div class="text-center">
@@ -16,46 +16,142 @@
                 <div class="col">
                     <div class="card">
 
-                        <!-- <h5 class="card-title">CO224</h5>
-                        <p class="card-text">Computer Architecture</p> -->
-
+                        <!-- Activity complete look -->
                         <div class="card-body">
 
-                            <h5 class="card-title">Lab </h5>
-                            <h6 class="card-text">Allocated % - [] %</h6>
-                        
+                            <div class ="row">
+
+                                <div class="col-3">
+                                    <h5 class="card-title">Lab</h5>
+                                </div>
+                                <div class="col-2">
+                                    <button class="btn btn-sm-3 btn-assessment-title" href="#">Edit</button>
+                                </div>
+                                <div class="col-3">
+                                    <button class="btn btn-sm-3 btn-assessment-title" href="#">Delete</button>
+                                </div>
+                                <div class="col-2">
+                                    <h5 class="card-text text-end">Allocated % : 30%</h5>
+                                </div>
+                            </div>
+
+                            <hr class="horizontal-line">
+
+                            <div class="row">
+                                <div class="col-5">
+
+                                    <h5>Lab 1 : Name </h5>
+                                </div>
+
+                                <div class="col-2">
+                                    <button class="btn btn-sm-3 btn-assessment-title" href="#">Edit</button>
+                                </div>
+
+                                <div class="col-2">
+                                    <button class="btn btn-sm-3 btn-assessment-title" href="#">Delete</button>
+                                </div>
+
+                                <div class="col-2">
+                                    <button class="btn btn-sm-3 btn-activity-title" href="#">Request Results</button>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-5">
+
+                                    <h5>Lab 2 : Name </h5>
+
+                                </div>
+
+                                <div class="col-2">
+                                    <button class="btn btn-sm-3 btn-assessment-title" href="#">Edit</button>
+                                </div>
+
+                                <div class="col-2">
+                                    <button class="btn btn-sm-3 btn-assessment-title" href="#">Delete</button>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="card-body cb-left">
+                                        <h5 class="text-end">Results uploaded</h5>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <button class="btn btn-sm-3 btn-add-item" href="#">+ Add item</button>
+                                </div>
+                            </div>
+
                         </div>
 
-                        <!-- Assignments component body -->
-                        <div class="card-body">
-
-                            <h5 class="card-title">Assignments</h5>
-                            <p class="card-text">Software Construction</p>
-
-                        </div>
-
-                        <div class="card-body">
-
-                            <h5 class="card-title">Assignments</h5>
-                            <p class="card-text">Software Construction</p>
-
-                        </div>
+                        <!-- adding activity into assessments -->
 
                         <div class="card-body">
 
                             <div class ="row">
 
-                                <div class="col-sm">
+                                <div class="col-3">
                                     <h5 class="card-title">Assignments</h5>
                                 </div>
-                                <div class="col-sm">
-                                    <button class="btn btn-sm-3 btn-activity-title" href="#">Edit</button>
+
+                                <div class="col-7">
+                                    <h5 class="card-text text-end">Allocated % : xx%</h5>
                                 </div>
-                                <div class="col-sm">
-                                    <button class="btn btn-sm-3 btn-activity-title" href="#">Delete</button>
+
+                            </div>
+
+                            <hr class="horizontal-line">
+
+                            <form class="row">
+
+                            <label for="activity_name" class="col-sm-2 col-form-label text-field">Activity Name</label>
+                                <div class="col-3">
+                                    <input type="text" class="form-control" id="activity_name" placeholder="Enter name">
                                 </div>
-                                <div class="col-sm">
-                                    <h5 class="card-text">Allocated % : xx%</h5>
+
+                            <label for="max_marks" class="col-sm-2 col-form-label text-field">Max Marks</label>
+                                <div class="col-2">
+                                    <input type="text" class="form-control" id="max_marks" placeholder="Max Marks">
+                                </div>
+
+                                <div class="col-1">
+                                <button class="btn btn-sm-3 btn-save-item" href="#">Save item</button>
+                            </div>
+
+                            </form>
+                                                                             
+                        </div>
+
+                        <!-- after adding main items (labs, Assignments) not added sub items (lab1, lab2) -->
+
+                        <div class="card-body">
+
+                            <div class ="row">
+
+                                <div class="col-3">
+                                    <h5 class="card-title">Assignments</h5>
+                                </div>
+                                <div class="col-2">
+                                    <button class="btn btn-sm-3 btn-assessment-title" href="#">Edit</button>
+                                </div>
+                                <div class="col-3">
+                                    <button class="btn btn-sm-3 btn-assessment-title" href="#">Delete</button>
+                                </div>
+                                <div class="col-2">
+                                    <h5 class="card-text text-end">Allocated % : xx%</h5>
+                                </div>
+                            </div>
+
+                            <hr class="horizontal-line">
+                            
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <button class="btn btn-sm-3 btn-add-item" href="#">+ Add item</button>
                                 </div>
                             </div>
                         </div>
@@ -66,9 +162,9 @@
 
                             <form class="row">
 
-                                <label for="activity_name" class="col-sm-2 col-form-label text-field">Activity Name</label>
+                                <label for="assessment_name" class="col-sm-2 col-form-label text-field">Activity Name</label>
                                     <div class="col-sm">
-                                        <input type="text" class="form-control" id="activity_name" placeholder="Enter name">
+                                        <input type="text" class="form-control" id="assessment_name" placeholder="Enter name">
                                     </div>
 
                                 <label for="allocated_percentage" class="col-sm-2 col-form-label text-field">Allocated %</label>
@@ -77,13 +173,15 @@
                                     </div>
                             </form>
 
+                            <hr class="horizontal-line">
+
                             <div class="col-sm-4">
                                 <button class="btn btn-sm-3 btn-add-item" href="#">Save item</button>
                             </div>
 
                         </div>
 
-                        <!-- add item button -->
+                        <!-- add item (main) button -->
 
                         <div class="card-body">
 
@@ -93,22 +191,24 @@
 
                         </div>
 
-
-                    
                     </div>
 
                 </div>
-                <!-- End exam section  -->
+                <!-- End exam section - before results -->
                 <div class="col">
                     <div class="card">
                         
                         <div class="card-body">
                             <h5 class="card-title">End Exam</h5>
                             <div class = "row">
-                                <p class="card-text">End Exam results are not released yet</p>
 
-                                <div class="col-sm-4">
-                                    <button class="btn btn-sm-3 btn-request" href="#">Request Results</button>
+                                <div class="col-9">
+
+                                    <p class="card-text">End Exam results are not released yet</p>
+                                </div>
+
+                                <div class="col-3">
+                                    <button class="btn btn-sm-3 btn-activity-title" href="#">Request Results</button>
                                 </div>
 
 
@@ -118,18 +218,29 @@
                     </div>
                 </div>  
                 
+                <!-- End exam section - after results -->
                 <div class="col">
                     <div class="card">
-                    
+                        
                         <div class="card-body">
-                            <h5 class="card-title">End Exam</h5>
-                            <div class = "row-result">
-                                <p class="card-text">End Exam results are released </p>
+                            <div class="row">
+
+                                <h5 class="card-title">End Exam</h5>
+                                <div class = "col-9">
+                                    <p class="card-text">End Exam results are released </p>
+                                </div>
+                                
+                                <div class="col-2">
+                                    <div class="card-body cb-left">
+                                        <h5 class="text-end">Results uploaded</h5>
+                                    </div>
+                                </div>
                             </div>
                             
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -141,6 +252,10 @@
     padding-top: 100px;
 }
 
+.row{
+
+    padding: 5px;
+}
 
 .card-body{
     background-color: #f2f2f2;
@@ -156,6 +271,17 @@
     /* border-radius:10%; */
 }
 
+.cb-left{
+    border-color: black;
+    border-radius: 5px;
+    background-color: green;
+    height: 35px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
 .btn {
     font-size: 20px;
     font-weight: 400;
@@ -193,7 +319,16 @@
     
 }
 
-.btn-activity-title {
+.btn-save-item{
+    padding: 5px;
+    border-color: black;
+    height: 40px;
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-assessment-title {
 
 border-color: black;
 height: 20px;
@@ -201,17 +336,16 @@ width: 150px;
 display: flex;
 align-items: center;
 justify-content: center;
-
-
 }
 
-/* .view {
-    margin-top: 120px;
-    margin-bottom: 100px;
-    margin-left: 25px;
-    padding: 5px;
-} */
-
+.btn-activity-title{
+    border-color: black;
+    height: 20px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .bg {
     background-size: cover;
