@@ -10,9 +10,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item nav-link" to="#">Home</li>
-                        <li class="nav-item nav-link" to="#">Dashboard</li>
-                        <li class="nav-item nav-link" to="#">Courses</li>
+                        <li class="nav-item nav-link" to="/student/home">Home</li>
+                        <li class="nav-item nav-link" to="/student/dashboard">Dashboard</li>
+                        <li class="nav-item nav-link" to="/student/courses">Courses</li>
                     </ul>
                     <i class="bi bi-person-circle fa-xl"></i>
 
@@ -40,9 +40,7 @@
             </div>
         </nav>
 
-        <img class="bg" src="@/assets/bg.png" alt="">
-
-        <!-- <router-view /> -->
+        <router-view />
         <footer class="fixed-bottom">
             <div class="container">
                 <div class="row">
@@ -154,18 +152,6 @@ hr {
 
 .sub-menu-link:hover h6 {
     font-weight: 500;
-}
-
-.bg {
-    background-size: cover;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    opacity: 0.1;
-    background-attachment: fixed;
 }
 
 footer {
