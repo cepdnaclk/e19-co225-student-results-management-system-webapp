@@ -61,9 +61,9 @@
                 </thead>
                 <tbody>
                     <tr v-for="user in users" :key="user.id">
-                        <td>{{ user.name }}</td>
-                        <td>{{ user.eno }}</td>
-                        <td>{{ user.dep }}</td>
+                        <td>{{ user.honorific + ". " + user.initials + user.lastName }}</td>
+                        <td>{{ user.userName }}</td>
+                        <td>{{ user.deptId }}</td>
                         <div>
                             <a class="btn btn-warning view" href="#" role="button">View</a>
                             <a class="btn btn-success" href="#" role="button">Edit</a>
@@ -76,32 +76,19 @@
 </template>
 
 <script setup>
+import axios from "axios"
 import { ref } from "vue";
 
-const users = ref([
-    { id: 1, name: 'John Doe', eno: 'E/19/001', dep: 'Computer Engineering' },
-    { id: 2, name: 'Jane Smith', eno: 'E/18/002', dep: 'Electrical & Electronic Engineering' },
-    { id: 3, name: 'David Johnson', eno: 'E/17/003', dep: 'Chemical & Process Engineering' },
-    { id: 4, name: 'Sarah Williams', eno: 'E/20/004', dep: 'Mechanical Engineering' },
-    { id: 5, name: 'Michael Brown', eno: 'E/19/005', dep: 'Manufacturing & Industrial Engineering' },
-    { id: 6, name: 'Emily Davis', eno: 'E/18/006', dep: 'Civil Engineering' },
-    { id: 7, name: 'Robert Wilson', eno: 'E/17/007', dep: 'Computer Engineering' },
-    { id: 8, name: 'Jennifer Miller', eno: 'E/20/008', dep: 'Electrical & Electronic Engineering' },
-    { id: 9, name: 'William Taylor', eno: 'E/19/009', dep: 'Chemical & Process Engineering' },
-    { id: 10, name: 'Linda Anderson', eno: 'E/18/010', dep: 'Mechanical Engineering' },
-    { id: 11, name: 'Alex Johnson', eno: 'E/20/011', dep: 'Manufacturing & Industrial Engineering' },
-    { id: 12, name: 'Sophia Davis', eno: 'E/19/012', dep: 'Civil Engineering' },
-    { id: 13, name: 'Daniel Wilson', eno: 'E/18/013', dep: 'Computer Engineering' },
-    { id: 14, name: 'Olivia Taylor', eno: 'E/20/014', dep: 'Electrical & Electronic Engineering' },
-    { id: 15, name: 'Noah Brown', eno: 'E/19/015', dep: 'Chemical & Process Engineering' },
-    { id: 16, name: 'Ava Smith', eno: 'E/18/016', dep: 'Mechanical Engineering' },
-    { id: 17, name: 'William Davis', eno: 'E/20/017', dep: 'Manufacturing & Industrial Engineering' },
-    { id: 18, name: 'Isabella Anderson', eno: 'E/19/018', dep: 'Civil Engineering' },
-    { id: 19, name: 'James Johnson', eno: 'E/18/019', dep: 'Computer Engineering' },
-    { id: 20, name: 'Sophia Miller', eno: 'E/20/020', dep: 'Electrical & Electronic Engineering' },
-    // Add more sample user objects as needed
-]
-)
+const users = ref([]);
+
+axios
+    .get("/user/")
+    .then((res) => {
+        users.value = res.data;
+    })
+    .catch((err) => {
+        console.log(err)
+    })
 </script>
 
 <style scoped>
