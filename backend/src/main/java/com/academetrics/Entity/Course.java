@@ -1,9 +1,7 @@
-package com.academetrics.entity;
+package com.academetrics.academetrics.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,9 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class Course {
-
     @Id
-    private Integer id;
+    private String code;
     private String name;
-
+    private int credits;
 }

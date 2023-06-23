@@ -1,4 +1,4 @@
-package com.academetrics.dto;
+package com.academetrics.academetrics.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
