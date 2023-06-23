@@ -155,6 +155,7 @@ hr {
 .sub-menu-link:hover h6 {
     font-weight: 500;
 }
+
 .bg {
     background-size: cover;
     position: fixed;
