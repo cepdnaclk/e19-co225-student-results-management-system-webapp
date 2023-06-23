@@ -5,8 +5,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="input-group">
-                        <input type="text" class="form-control form-control-sm" placeholder="Search">
-                        <button class="btn btn-primary btn-md" type="button">Search</button>
+                        <input type="text" class="form-control form-control-sm" placeholder="Search" v-model="searchTxt">
                     </div>
                 </div>
             </div>
@@ -41,11 +40,11 @@
                     </select>
                 </div>
                 <div class="col-lg-2 col-md-3">
-                    <select class="form-select form-select-sm" aria-label="Default select example">
-                        <option selected>User Type</option>
-                        <option>Student</option>
-                        <option>Representative</option>
-                        <option>Coordinator</option>
+                    <select class="form-select form-select-sm" aria-label="Default select example" v-model="userRole">
+                        <option value="" selected>User Type</option>
+                        <option value="student">Student</option>
+                        <option value="representator">Representative</option>
+                        <option value="cordinator">Coordinator</option>
                     </select>
                 </div>
             </div>
@@ -56,20 +55,24 @@
                         <th scope="col">Name</th>
                         <th scope="col">Registration number</th>
                         <th scope="col">Department</th>
-
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr v-for="user in users" :key="user.id">
-                        <td>{{ user.honorific + ". " + user.initials + user.lastName }}</td>
-                        <td>{{ user.userName }}</td>
-                        <td>{{ user.deptId }}</td>
-                        <div>
-                            <a class="btn btn-warning view" href="#" role="button">View</a>
-                            <a class="btn btn-success" href="#" role="button">Edit</a>
-                        </div>
+                <transition name="fade" mode="out-in">
+                    <TransitionGroup v-if="filteredUsers.length" name="list" tag="tbody" appear>
+                        <tr v-for="user in filteredUsers" :key="user.id">
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.eno }}</td>
+                            <td>{{ user.dept }}</td>
+                            <td> <a class="btn btn-warning view" href="#" role="button">View</a> </td>
+                            <td><a class="btn btn-success" href="#" role="button">Edit</a></td>
+                        </tr>
+                    </TransitionGroup>
+                    <tr v-else>
+                        <td colspan="3" class="text-center mt-2">There are no users</td>
                     </tr>
-                </tbody>
+                </transition>
             </table>
         </div>
     </div>
@@ -77,14 +80,45 @@
 
 <script setup>
 import axios from "axios"
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
-const users = ref([]);
+const result = ref([])
+const searchTxt = ref("")
+const userRole = ref("")
+const users = computed(() => {
+    let array = []
+    result.value.forEach((ele) => {
+        const objUser = {
+            id: ele.id,
+            name: ele.honorific + ". " + ele.initials + " " + ele.lastName,
+            eno: ele.userName,
+            dept: ele.deptId,
+            role: ele.role,
+        }
+        array.push(objUser)
+    })
+    return array
+})
+const filteredUsers = computed(() => {
+    let array = users.value
+    if (searchTxt.value != "") {
+        array = array.filter(user =>
+            user.name.toLowerCase().includes(searchTxt.value.toLowerCase()) ||
+            user.eno.toLowerCase().includes(searchTxt.value.toLowerCase())
+        )
+    }
+    if (userRole.value != "") {
+        array = array.filter(user =>
+            user.role.toLowerCase().includes(userRole.value.toLowerCase())
+        )
+    }
+    return array
+})
 
 axios
     .get("/user/")
     .then((res) => {
-        users.value = res.data;
+        result.value = res.data;
     })
     .catch((err) => {
         console.log(err)
@@ -118,6 +152,11 @@ axios
     text-align: center;
 }
 
+.table thead th:nth-child(4),
+.table thead th:nth-child(5) {
+    width: 30px;
+}
+
 .table tbody td {
     text-align: center;
 }
@@ -141,9 +180,9 @@ axios
     text-align: left;
 }
 
-.view {
-    margin-left: 40px;
-    margin-right: 30px;
+.table thead tr th:first-child {
+    text-align: left !important;
+    padding-left: 1.1rem
 }
 
 .col-form-label {
@@ -160,5 +199,24 @@ axios
     padding-right: 20px;
     padding-left: 60px;
     width: fit-content;
+}
+
+.list-move,
+/* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+    transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.list-leave-active {
+    position: absolute;
 }
 </style>
