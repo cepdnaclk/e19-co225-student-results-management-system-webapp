@@ -6,20 +6,20 @@
                 <h5>Change password</h5>
             </div>
             <form class="form mt-4">
-                <div class="form-floating mb-3 col-lg-10 offset-lg-1">
+                <div class="form-floating mb-3 col-lg-8 offset-lg-1">
                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">Current Password</label>
                 </div>
-                <div class="form-floating mb-3 col-lg-10 offset-lg-1">
+                <div class="form-floating mb-3 col-lg-8 offset-lg-1">
                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">New Password</label>
                 </div>
-                <div class="form-floating mb-3 col-lg-10 offset-lg-1">
+                <div class="form-floating mb-3 col-lg-8 offset-lg-1">
                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">Re-type Password</label>
                 </div>
             </form>
-            <div class="col-lg-12 text-center">
+            <div class="offset-lg-1">
                 <a class="btn btn-warning mt-2" href="#" role="button">Save changes</a>
             </div>
         </div>
