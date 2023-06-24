@@ -48,6 +48,7 @@ export default {
 </script>
 
 <style>
+
 .navbar {
     background: #2c3e50;
     height: 75px;
@@ -59,12 +60,32 @@ export default {
 }
 
 .nav-item:hover {
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .navbar a.router-link-active.router-link-exact-active {
     color: white;
-    font-weight: 500;
+}
+
+.navbar-collapse {
+  background-color: #2c3e50;
+  padding: 10px;
+}
+
+.navbar-nav {
+  margin-top: 10px;
+}
+
+.nav-item {
+  margin-bottom: 0;
+}
+
+.nav-link {
+  color: #ffffff8c;
+}
+
+.nav-link:hover {
+  color: white;
 }
 
 footer {
