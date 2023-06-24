@@ -8,8 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class CourseOfferingDTO {
-
-    private String code;  // eg: GP106
+    
     private Integer year; //      2021
-
+    private CourseDTO course;
 }

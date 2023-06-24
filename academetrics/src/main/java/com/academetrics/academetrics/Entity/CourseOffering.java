@@ -16,27 +16,27 @@ public class CourseOffering {
     @EmbeddedId
     private CourseOfferingId courseOfferingId;
 
-    @ManyToOne
-    @JoinColumn(name = "join_course_id")
-    private Course course;
+//    @ManyToOne
+//    @JoinColumn(name = "join_course_id")
+//    private Course course;
 
     // Getters and Setters
 
-    public String getCode() {
-        return courseOfferingId.getCode();
-    }
-
-    public void setCode(String code) {
-        courseOfferingId.setCode(code);
-    }
-
-    public Integer getYear() {
-        return courseOfferingId.getYear();
-    }
-
-    public void setYear(Integer year) {
-        courseOfferingId.setYear(year);
-    }
+//    public String getCode() {
+//        return courseOfferingId.getCode();
+//    }
+//
+//    public void setCode(String code) {
+//        courseOfferingId.setCode(code);
+//    }
+//
+//    public Integer getYear() {
+//        return courseOfferingId.getYear();
+//    }
+//
+//    public void setYear(Integer year) {
+//        courseOfferingId.setYear(year);
+//    }
 
     public CourseOfferingId getCourseOfferingId() {
         return courseOfferingId;
@@ -46,11 +46,11 @@ public class CourseOffering {
         this.courseOfferingId = courseOfferingId;
     }
 
-    public Course getCourse() {
-        return course;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
+//    public Course getCourse() {
+//        return course;
+//    }
+//
+//    public void setCourse(Course course) {
+//        this.course = course;
+//    }
 }

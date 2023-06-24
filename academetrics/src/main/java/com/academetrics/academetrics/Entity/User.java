@@ -7,14 +7,16 @@ import lombok.NoArgsConstructor;
 
 import com.academetrics.academetrics.Entity.Department;
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Table(name="user")
 public class User {
+
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private int id;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
     private String userName;
     private String password;
     private String mail;

@@ -21,9 +21,9 @@ public class UserController {
     public List<UserDTO> getUser() {
         return userService.getAllUsers();
     }
-    @GetMapping(value = "/", params = {"id"})
-    public UserDTO getUser(@RequestParam int id){
-        return userService.getUser(id);
+    @GetMapping(value = "/", params = {"userName"})
+    public UserDTO getUser(@RequestParam String userName){
+        return userService.getUser(userName);
     }
     @PostMapping(value="/", consumes = {"application/json"})
     public String saveUser(@RequestBody UserRegistrationDTO userRegistrationDTO){
@@ -37,13 +37,13 @@ public class UserController {
         return "Updated";
     }
     @DeleteMapping("/")
-    public boolean deleteUser(@RequestParam int id){
-        return userService.deleteUser(id);
+    public boolean deleteUser(@RequestParam String userName){
+        return userService.deleteUser(userName);
     }
 
     @GetMapping("/login")
     public ResponseEntity<?> loginUser(@RequestParam String userName, @RequestParam String password){
-        UserRegistrationDTO user =  userService.getUserFromUserName(userName);
+        UserRegistrationDTO user =  userService.getUserRegistration(userName);
 
         if (user == null){
             return ResponseEntity.status(404).body("User doesn't exist");

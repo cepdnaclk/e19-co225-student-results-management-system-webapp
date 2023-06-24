@@ -1,6 +1,7 @@
 package com.academetrics.academetrics.Service;
 
 import com.academetrics.academetrics.DTO.UserRegistrationDTO;
+import com.academetrics.academetrics.Entity.Department;
 import com.academetrics.academetrics.Entity.User;
 import com.academetrics.academetrics.Repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -28,16 +29,16 @@ public class UserService {
     public void saveUser(UserRegistrationDTO userRegistrationDTO) {
         // relations should be explicitly mapped or we get null values refer resource below
         // https://amydegregorio.com/2018/08/02/deep-mapping-with-modelmapper/
-        PropertyMap<UserRegistrationDTO, User> departmentIdMapping = new PropertyMap<UserRegistrationDTO, User>() {
-            protected void configure() {
-                map().getDepartment().setId(source.getDeptId());
-            }
-        };
-        TypeMap<UserRegistrationDTO, User> typeMap = modelMapper.getTypeMap(UserRegistrationDTO.class, User.class);
-        if (typeMap == null) { // if not already added
-            this.modelMapper.addMappings(departmentIdMapping);
-        }
-        userRepository.save(modelMapper.map(userRegistrationDTO, User.class));
+//        PropertyMap<UserRegistrationDTO, User> departmentIdMapping = new PropertyMap<UserRegistrationDTO, User>() {
+//            protected void configure() {
+//                map().getDepartment().setId(source.getDeptId());
+//            }
+//        };
+//        TypeMap<UserRegistrationDTO, User> typeMap = modelMapper.getTypeMap(UserRegistrationDTO.class, User.class);
+//        if (typeMap == null) { // if not already added
+//            this.modelMapper.addMappings(departmentIdMapping);
+//        }
+        userRepository.save(userRegistrationDTOToEntity(userRegistrationDTO));
 //        return userRegistrationDTO;
     }
 
@@ -52,36 +53,95 @@ public class UserService {
         return userDTOList;
     }
 
-    public UserDTO getUser(int id) {
+    public UserDTO getUser(String userName) {
         User user = new User();
-        user = userRepository.findById(id).orElse(null);
+        user = userRepository.findById(userName).orElse(null);
         return userEntityToDTO(user);
+    }
+
+    public UserRegistrationDTO getUserRegistration(String userName){
+        User user = new User();
+        user = userRepository.findById(userName).orElse(null);
+        return userEntityToRegistrationDTO(user);
     }
 
     public UserDTO userEntityToDTO(User user){
         if (user == null) return null;
 
-        // setup
-        this.modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
-
         UserDTO userDTO = new UserDTO();
-        userDTO = modelMapper.map(user, UserDTO.class);
+        userDTO.setUserName(user.getUserName());
+        userDTO.setMail(user.getMail());
+        userDTO.setHonorific(user.getHonorific());
+        userDTO.setInitials(user.getInitials());
+        userDTO.setLastName(user.getLastName());
+        userDTO.setRole(user.getRole());
+        userDTO.setContact(user.getContact());
+        if (user.getDepartment() == null){
+            userDTO.setDeptId("");
+            userDTO.setDeptName("");
+        }else {
+            userDTO.setDeptId(user.getDepartment().getId());
+            userDTO.setDeptName(user.getDepartment().getName());
+        }
+        userDTO.setProfilePicture(user.getProfilePicture());
         return userDTO;
     }
 
-    public boolean deleteUser(Integer id){
+    public UserRegistrationDTO userEntityToRegistrationDTO(User user){
+        if (user == null) return null;
+
+        UserRegistrationDTO userRegistrationDTO = new UserRegistrationDTO();
+        userRegistrationDTO.setUserName(user.getUserName());
+        userRegistrationDTO.setPassword(user.getPassword());
+        userRegistrationDTO.setMail(user.getMail());
+        userRegistrationDTO.setHonorific(user.getHonorific());
+        userRegistrationDTO.setInitials(user.getInitials());
+        userRegistrationDTO.setLastName(user.getLastName());
+        userRegistrationDTO.setRole(user.getRole());
+        userRegistrationDTO.setContact(user.getContact());
+        if (user.getDepartment() == null){
+            userRegistrationDTO.setDeptId("");
+            userRegistrationDTO.setDeptName("");
+        }else {
+            userRegistrationDTO.setDeptId(user.getDepartment().getId());
+            userRegistrationDTO.setDeptName(user.getDepartment().getName());
+        }
+        userRegistrationDTO.setProfilePicture(user.getProfilePicture());
+        return userRegistrationDTO;
+    }
+
+    public User userRegistrationDTOToEntity(UserRegistrationDTO userRegistrationDTO){
+        User user = new User();
+        user.setUserName(userRegistrationDTO.getUserName());
+        user.setPassword(userRegistrationDTO.getPassword());
+        user.setMail(userRegistrationDTO.getMail());
+        user.setHonorific(userRegistrationDTO.getHonorific());
+        user.setInitials(userRegistrationDTO.getInitials());
+        user.setLastName(userRegistrationDTO.getLastName());
+        user.setRole(userRegistrationDTO.getRole());
+        user.setContact(userRegistrationDTO.getContact());
+        if (!userRegistrationDTO.getDeptId().equals("")){
+            Department department = new Department();
+            department.setId(userRegistrationDTO.getDeptId());
+            department.setName(userRegistrationDTO.getDeptName());
+        }
+        userRegistrationDTO.setProfilePicture(user.getProfilePicture());
+        return user;
+    }
+
+    public boolean deleteUser(String id){
         userRepository.deleteById(id);
         return true;
     }
 
-    public UserRegistrationDTO getUserFromUserName(String userName){
-        List<User> users = userRepository.getUserFromUserName(userName);
-
-        if (users.isEmpty()) return null;
-
-        // setup
-        this.modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
-
-        return modelMapper.map(users.get(0), UserRegistrationDTO.class);
-    }
+//    public UserRegistrationDTO getUserFromUserName(String userName){
+//        List<User> users = userRepository.getUserFromUserName(userName);
+//
+//        if (users.isEmpty()) return null;
+//
+//        // setup
+//        this.modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+//
+//        return modelMapper.map(users.get(0), UserRegistrationDTO.class);
+//    }
 }

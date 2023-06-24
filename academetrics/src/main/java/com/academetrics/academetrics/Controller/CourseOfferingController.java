@@ -7,6 +7,8 @@ import com.academetrics.academetrics.Service.CourseOfferingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/courseOffering")
 @CrossOrigin
@@ -16,34 +18,34 @@ public class CourseOfferingController {
     private CourseOfferingService courseOfferingService;
 
     // Insert new Course Offering
-    @PostMapping("/") // Map ONLY POST Requests
-    public String addNewCourseOffering(@RequestBody CourseOfferingDTO courseOfferingDTO) {
-        courseOfferingService.saveCourseOffering(courseOfferingDTO);
-        return "Course Offering Saved";
-    }
+//    @PostMapping("/") // Map ONLY POST Requests
+//    public String addNewCourseOffering(@RequestBody CourseOfferingDTO courseOfferingDTO) {
+//        courseOfferingService.saveCourseOffering(courseOfferingDTO);
+//        return "Course Offering Saved";
+//    }
 
 
     //  Show All Course Offerings
     @GetMapping("/") // Map only GET Requests
-    public @ResponseBody Iterable<CourseOffering> getAllCourseOfferings() {
+    public @ResponseBody List<CourseOfferingDTO> getAllCourseOfferings() {
         //returns a JSON or XML with the courses
         return courseOfferingService.getAllCourseOfferings();
     }
 
     //  Update a Course Offering
-    @PutMapping("/") // Map only PUT Requests
-    public String updateCourseOffering(@RequestBody CourseOfferingDTO courseOfferingDTO) {
-    //returns a JSON or XML with the courses
-         courseOfferingService.updateCourseOffering(courseOfferingDTO.getCode(), courseOfferingDTO);
-         return "Course Offering Updated";
-    }
+//    @PutMapping("/") // Map only PUT Requests
+//    public String updateCourseOffering(@RequestBody CourseOfferingDTO courseOfferingDTO) {
+//    //returns a JSON or XML with the courses
+//         courseOfferingService.updateCourseOffering(courseOfferingDTO.getCode(), courseOfferingDTO);
+//         return "Course Offering Updated";
+//    }
 
-    @DeleteMapping("/")
-    public String deleteCourseOffering(@RequestParam String code, CourseOfferingId courseOfferingId){
-        // check composite key for Course code and year
-        courseOfferingService.deleteCourseOffering(courseOfferingId);
-        return "Course Offering Deleted Successfully";
-    }
+//    @DeleteMapping("/")
+//    public String deleteCourseOffering(@RequestParam String code, CourseOfferingId courseOfferingId){
+//        // check composite key for Course code and year
+//        courseOfferingService.deleteCourseOffering(courseOfferingId);
+//        return "Course Offering Deleted Successfully";
+//    }
 
 }
 
