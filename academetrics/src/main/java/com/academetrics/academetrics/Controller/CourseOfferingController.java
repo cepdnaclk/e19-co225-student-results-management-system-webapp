@@ -33,14 +33,15 @@ public class CourseOfferingController {
     @PutMapping("/") // Map only PUT Requests
     public String updateCourseOffering(@RequestBody CourseOfferingDTO courseOfferingDTO) {
     //returns a JSON or XML with the courses
-         courseOfferingService.updateCourseOffering(courseOfferingDTO);
+         courseOfferingService.updateCourseOffering(courseOfferingDTO.getCode(), courseOfferingDTO);
          return "Course Offering Updated";
     }
 
     @DeleteMapping("/")
-    public String deleteCourseOffering(@RequestParam String Code, int Year){
+    public String deleteCourseOffering(@RequestParam String code, Integer Year){
         // check composite key for Course code and year
-        return CouurseOfferingService.deleteCourseOffering(Code);
+        courseOfferingService.deleteCourseOffering(code,Year);
+        return "Course Offering Deleted Successfully";
     }
 
 }

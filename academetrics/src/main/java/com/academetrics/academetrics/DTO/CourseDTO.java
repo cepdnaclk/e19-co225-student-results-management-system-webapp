@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class CourseDTO {
 
-    private Integer code;
-    private String name;
-    private int credits;
+    private String code; // eg: GP106
+    private String name; // Computing
+    private int credits; // 3
 
 }

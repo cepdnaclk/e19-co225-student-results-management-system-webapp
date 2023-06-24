@@ -18,10 +18,10 @@ public class CourseOffering {
     private String code; // eg: GP106
     private int year;    // eg: 2021
 
-    // many- one map to course
+    // many to one map to course
     @ManyToOne
     @JoinColumn(name="course_id")
-    private Course course ;
+    private Course course ; // eg: {code:GP106,name:"Computing",credits:3}
 
 
 }

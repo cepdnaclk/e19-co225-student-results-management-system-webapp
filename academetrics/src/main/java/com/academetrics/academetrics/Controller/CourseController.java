@@ -33,7 +33,7 @@ public class CourseController {
     @PutMapping("/") // Map only PUT Requests
     public String updateCourse(@RequestBody CourseDTO courseDTO) {
         //returns a JSON or XML with the courses
-        courseService.updateCourse(courseDTO);
+        courseService.updateCourse(courseDTO.getCode(),courseDTO);
         return "Course Updated";
     }
 
@@ -41,7 +41,9 @@ public class CourseController {
     @DeleteMapping("/")
     public String deleteCourse(@RequestParam String Code){
 
-        return courseService.deleteCourse(Code);
+        courseService.deleteCourse(Code);
+        return "Course Deleted Succesfully";
+
     }
 
 }
