@@ -1,7 +1,6 @@
 package com.academetrics.academetrics.Entity;
-
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
@@ -13,15 +12,45 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class CourseOffering {
-    // check composite key
-    @Id
-    private String code; // eg: GP106
-    private int year;    // eg: 2021
 
-    // many to one map to course
+    @EmbeddedId
+    private CourseOfferingId courseOfferingId;
+
     @ManyToOne
-    @JoinColumn(name="course_id")
-    private Course course ; // eg: {code:GP106,name:"Computing",credits:3}
+    @JoinColumn(name = "join_course_id")
+    private Course course;
 
+    // Getters and Setters
 
+    public String getCode() {
+        return courseOfferingId.getCode();
+    }
+
+    public void setCode(String code) {
+        courseOfferingId.setCode(code);
+    }
+
+    public Integer getYear() {
+        return courseOfferingId.getYear();
+    }
+
+    public void setYear(Integer year) {
+        courseOfferingId.setYear(year);
+    }
+
+    public CourseOfferingId getCourseOfferingId() {
+        return courseOfferingId;
+    }
+
+    public void setCourseOfferingId(CourseOfferingId courseOfferingId) {
+        this.courseOfferingId = courseOfferingId;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
 }

@@ -2,6 +2,7 @@ package com.academetrics.academetrics.Controller;
 
 import com.academetrics.academetrics.DTO.CourseOfferingDTO;
 import com.academetrics.academetrics.Entity.CourseOffering;
+import com.academetrics.academetrics.Entity.CourseOfferingId;
 import com.academetrics.academetrics.Service.CourseOfferingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -38,9 +39,9 @@ public class CourseOfferingController {
     }
 
     @DeleteMapping("/")
-    public String deleteCourseOffering(@RequestParam String code, Integer Year){
+    public String deleteCourseOffering(@RequestParam String code, CourseOfferingId courseOfferingId){
         // check composite key for Course code and year
-        courseOfferingService.deleteCourseOffering(code,Year);
+        courseOfferingService.deleteCourseOffering(courseOfferingId);
         return "Course Offering Deleted Successfully";
     }
 

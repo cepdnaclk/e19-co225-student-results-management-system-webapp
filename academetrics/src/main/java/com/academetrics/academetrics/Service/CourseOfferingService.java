@@ -2,6 +2,7 @@ package com.academetrics.academetrics.Service;
 
 import com.academetrics.academetrics.DTO.CourseOfferingDTO;
 import com.academetrics.academetrics.Entity.CourseOffering;
+import com.academetrics.academetrics.Entity.CourseOfferingId;
 import com.academetrics.academetrics.Repository.CourseOfferingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,10 +23,11 @@ public class CourseOfferingService {
         CourseOffering courseOffering = new CourseOffering();
         courseOffering.setCode(courseOfferingDTO.getCode());
         courseOffering.setYear(courseOfferingDTO.getYear());
-        // Set other properties manually if needed
+
         courseOfferingRepository.save(courseOffering);
         return courseOfferingDTO;
     }
+
 
     public Iterable<CourseOffering> getAllCourseOfferings() {
         return courseOfferingRepository.findAll();
@@ -33,6 +35,7 @@ public class CourseOfferingService {
 
     public CourseOfferingDTO updateCourseOffering(String courseCode, CourseOfferingDTO updatedCourseOfferingDTO) {
         CourseOffering existingCourseOffering = courseOfferingRepository.findByCode(courseCode);
+
         if (existingCourseOffering != null) {
             existingCourseOffering.setYear(updatedCourseOfferingDTO.getYear());
 
@@ -44,8 +47,8 @@ public class CourseOfferingService {
         }
         return updatedCourseOfferingDTO;
     }
-    public void deleteCourseOffering(String courseCode,Integer year) {
-        courseOfferingRepository.deleteByCodeAndYear(courseCode,year);
+    public void deleteCourseOffering(CourseOfferingId courseOfferingId) {
+        courseOfferingRepository.deleteByCodeAndYear(courseOfferingId);
     }
 
 }
