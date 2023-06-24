@@ -93,7 +93,7 @@ const users = computed(() => {
         const objUser = {
             id: ele.id,
             name: ele.honorific + ". " + ele.initials + " " + ele.lastName,
-            eno: ele.userName,
+            eno: ele.userName || "",
             dept: ele.deptId || "",
             role: ele.role,
         }
