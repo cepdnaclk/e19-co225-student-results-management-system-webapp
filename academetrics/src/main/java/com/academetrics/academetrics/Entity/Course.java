@@ -14,5 +14,5 @@ public class Course {
     @Id
     private String code; // eg: GP106
     private String name; // eg: Computing
-    private int credits; // eg: 3
+    private Integer credits; // eg: 3
 }
