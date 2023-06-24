@@ -33,7 +33,7 @@ public class AssesmentController {
     @PutMapping("/") // Map only PUT Requests
     public String updateAssesment(@RequestBody AssesmentDTO assesmentDTO) {
         // Returns a JSON or XML with the assesments
-        assesmentService.updateAssesment(assesmentDTO.getId(), assesmentDTO);
+        assesmentService.updateAssesment(assesmentDTO.getAssesId(), assesmentDTO);
         return "Assesment Updated";
     }
 

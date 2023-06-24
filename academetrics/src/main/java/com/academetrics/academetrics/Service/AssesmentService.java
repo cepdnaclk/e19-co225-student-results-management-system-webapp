@@ -22,7 +22,7 @@ public class AssesmentService {
         Assesment assesment = new Assesment();
         assesment.setType(assesmentDTO.getType());
         assesment.setMax_marks(assesmentDTO.getMax_marks());
-        // Set other properties manually if needed
+
         assesmentRepository.save(assesment);
         return assesmentDTO;
     }
@@ -32,7 +32,7 @@ public class AssesmentService {
     }
 
     public AssesmentDTO updateAssesment(Integer assesmentId, AssesmentDTO updatedAssesmentDTO) {
-        Assesment existingAssesment = assesmentRepository.findById(assesmentId).orElse(null);
+        Assesment existingAssesment = assesmentRepository.findByAssesId(assesmentId);
         if (existingAssesment != null) {
             existingAssesment.setType(updatedAssesmentDTO.getType());
             existingAssesment.setMax_marks (updatedAssesmentDTO.getMax_marks ());
@@ -45,7 +45,7 @@ public class AssesmentService {
     }
 
     public void deleteAssesment(Integer assesmentId) {
-        assesmentRepository.deleteById(assesmentId);
+        assesmentRepository.deleteByAssesId(assesmentId);
     }
 
 }
