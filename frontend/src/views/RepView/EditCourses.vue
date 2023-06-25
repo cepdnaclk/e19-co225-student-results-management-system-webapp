@@ -4,21 +4,22 @@
         <div class="container">
             <form class="form" @submit="submitHandle">
 
+
+                <div class="row mt-4">
+                    <label for="coursecode" class="col-sm-2 col-form-label">Course Code</label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" id="coursecourse" placeholder="Course Name"
+                            v-model="course.code" disabled>
+                        <p v-if="validate.code.$error">{{ validate.code.$errors[0].$message }}</p>
+                    </div>
+                </div>
+
                 <div class="row mt-4">
                     <label for="coursename" class="col-sm-2 col-form-label">Course Name</label>
                     <div class="col-sm">
                         <input type="text" class="form-control" id="coursename" placeholder="Course Name"
                             v-model="course.name">
                         <p v-if="validate.name.$error">{{ validate.name.$errors[0].$message }}</p>
-                    </div>
-                </div>
-
-                <div class="row mt-4">
-                    <label for="coursecode" class="col-sm-2 col-form-label">Course Code</label>
-                    <div class="col-sm">
-                        <input type="text" class="form-control" id="coursecourse" placeholder="Course Name"
-                            v-model="course.code">
-                        <p v-if="validate.code.$error">{{ validate.code.$errors[0].$message }}</p>
                     </div>
                 </div>
 
@@ -32,7 +33,7 @@
                 </div>
 
                 <div class="col-lg-12 text-center mt-3">
-                    <button class="btn btn-warning mt-2 mb-4">Create Course</button>
+                    <button class="btn btn-warning mt-2 mb-4">Save Changes</button>
                 </div>
 
             </form>
@@ -46,7 +47,7 @@
 import axios from 'axios';
 import { useVuelidate } from '@vuelidate/core'
 import { required, maxValue, maxLength, helpers } from '@vuelidate/validators'
-import { reactive } from 'vue';
+import { onMounted, reactive } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { useStore } from 'vuex';
 
@@ -54,20 +55,25 @@ const router = useRouter()
 const store = useStore()
 const route = useRoute()
 
-axios
-    .get("/course/", {
-        params: {
-            courseCode: route.params.code
-        }
-    })
-    .then((res) => {
-        course.name = res.data.name
-        course.code = res.data.code
-        course.credits = res.data.credits
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+onMounted(() => {
+    if (!route.params.code)
+        router.push("/rep/viewcourses")
+
+    axios
+        .get("/course/", {
+            params: {
+                courseCode: route.params.code
+            }
+        })
+        .then((res) => {
+            course.name = res.data.name
+            course.code = res.data.code
+            course.credits = res.data.credits
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+})
 
 
 const course = reactive({
@@ -99,7 +105,7 @@ const submitHandle = async (e) => {
     if (!pass) {
         return
     }
-    const res = await addCourse()
+    const res = await updateCourse()
     store.commit("addSuccess", res)
     setTimeout(() => {
         store.commit("removeSuccess")
