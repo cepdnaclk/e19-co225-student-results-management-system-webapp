@@ -64,7 +64,7 @@ public class CourseService {
         CourseDTO courseDTO = new CourseDTO();
         courseDTO.setName(course.getName());
         courseDTO.setCode(course.getCode());
-        courseDTO.setCredits(courseDTO.getCredits());
+        courseDTO.setCredits(course.getCredits());
 
         return courseDTO;
     }
