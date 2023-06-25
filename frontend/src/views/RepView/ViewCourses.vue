@@ -4,7 +4,8 @@
 
         <div class="text-center">
             <router-link class="btn btn-warning col-lg-4 add" to="/rep/addcourses">+ Add New Course</router-link>
-            <router-link class="btn btn-warning col-lg-4 view" to="/rep/editcourses">View Offered Courses</router-link>
+            <router-link class="btn btn-warning col-lg-4 view" to="/rep/viewofferedcourses">View Offered
+                Courses</router-link>
         </div>
 
         <!-- subject cards -->

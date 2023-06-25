@@ -143,6 +143,14 @@ const routes = [
             /* webpackChunkName: "Coorwithlog" */ "../views/RepView/EditCourses.vue"
           ),
       },
+      {
+        path: "editcourses/",
+        name: "RepEditCourseFall",
+        component: () =>
+          import(
+            /* webpackChunkName: "Coorwithlog" */ "../views/RepView/EditCourses.vue"
+          ),
+      },
       //course inner page
       {
         path: "offeredcoursesinner",
