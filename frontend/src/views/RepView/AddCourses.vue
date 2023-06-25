@@ -1,33 +1,95 @@
 <template>
-    <div class = "rep-addcourse">
+    <div class="rep-addcourse">
         <img class="bg" src="@/assets/bg.png" alt="">
         <div class="container">
-            <form class = "form">
+            <form class="form" @submit="submitHandle">
 
                 <div class="row mt-4">
                     <label for="coursename" class="col-sm-2 col-form-label">Course Name</label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" id="coursename" placeholder="Course Name">
+                        <input type="text" class="form-control" id="coursename" placeholder="Course Name"
+                            v-model="course.name">
+                        <p v-if="validate.name.$error">{{ validate.name.$errors[0].$message }}</p>
                     </div>
                 </div>
 
                 <div class="row mt-4">
                     <label for="coursecode" class="col-sm-2 col-form-label">Course Code</label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" id="coursecourse" placeholder="Course Name">
+                        <input type="text" class="form-control" id="coursecourse" placeholder="Course Name"
+                            v-model="course.code">
+                        <p v-if="validate.code.$error">{{ validate.code.$errors[0].$message }}</p>
                     </div>
                 </div>
 
-                <div class="col-lg-12 text-center">
-                    <a class="btn btn-warning mt-2 mb-4" href="#" role="button">Create Course</a>
+                <div class="row mt-4">
+                    <label for="coursecredit" class="col-sm-2 col-form-label">Course Credits</label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" id="coursecredit" placeholder="Course Credits"
+                            v-model="course.credits">
+                        <p v-if="validate.credits.$error">{{ validate.credits.$errors[0].$message }}</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 text-center mt-3">
+                    <button class="btn btn-warning mt-2 mb-4">Create Course</button>
                 </div>
 
             </form>
 
-        </div>   
+        </div>
 
     </div>
 </template>
+
+<script setup>
+import axios from 'axios';
+import { useVuelidate } from '@vuelidate/core'
+import { required, maxValue, maxLength, helpers } from '@vuelidate/validators'
+import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+
+const router = useRouter()
+const store = useStore()
+
+const course = reactive({
+    name: '',
+    code: '',
+    credits: '',
+})
+const rules = reactive({
+    name: { required },
+    code: { required, maxLength: helpers.withMessage("Enter Valid course Code", maxLength(5)) },
+    credits: { required, maxValue: helpers.withMessage("Enter a valid credit score", maxValue(4)) },
+})
+
+const validate = useVuelidate(rules, course)
+
+const addCourse = async () => {
+    try {
+        const res = await axios.post("/course/", course)
+        return res.data
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
+const submitHandle = async (e) => {
+    e.preventDefault()
+    const pass = await validate.value.$validate()
+    if (!pass) {
+        return
+    }
+    const res = await addCourse()
+    store.commit("addSuccess", res)
+    setTimeout(() => {
+        store.commit("removeSuccess")
+        router.push("/rep/viewcourses")
+    }, 1000)
+}
+</script>
 
 <style scoped>
 .form {
@@ -72,6 +134,12 @@
         margin-left: 30px;
     }
 } */
+
+input+p {
+    font-size: 0.8rem;
+    color: red;
+    margin: 5px;
+}
 
 @media screen and (max-width: 1200px) {
 
@@ -137,5 +205,4 @@
         margin-bottom: 0px;
     }
 }
-
 </style>
