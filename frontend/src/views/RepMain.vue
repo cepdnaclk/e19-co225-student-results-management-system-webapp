@@ -1,9 +1,9 @@
 <template>
     <div class="rep-main">
         <comp-navbar-vue>
-            <li><router-link class="nav-item nav-link" to="/ar/home">Home</router-link></li>
-            <li><router-link class="nav-item nav-link" to="/ar/user">View Users</router-link></li>
-            <li><router-link class="nav-item nav-link" to="/ar/adduser">User Registration</router-link></li>
+            <li><router-link class="nav-item nav-link" to="/rep/viewcourses">Courses</router-link></li>
+            <li><router-link class="nav-item nav-link" to="/rep/viewofferedcourses">Offered Courses</router-link></li>
+            <li><router-link class="nav-item nav-link" to="/rep/offeredcoursesinner">Result Manage</router-link></li>
             <li><button @click="toggleLogout" class="nav-item nav-link">Log Out</button></li>
         </comp-navbar-vue>
         <router-view v-slot="{ Component, route }">
