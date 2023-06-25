@@ -39,7 +39,7 @@ public class CourseController {
 
     // Delete a Course
     @DeleteMapping("/")
-    public String deleteCourse(@RequestParam String Code){
+    public String deleteCourse(@RequestBody String Code){
 
         courseService.deleteCourse(Code);
         return "Course Deleted Succesfully";
