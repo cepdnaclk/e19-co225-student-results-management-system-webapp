@@ -60,7 +60,7 @@
                 </thead>
                 <transition name="fade" mode="out-in">
                     <TransitionGroup v-if="filteredUsers.length" name="list" tag="tbody" appear>
-                        <tr v-for="user in filteredUsers" :key="user.id">
+                        <tr v-for="(user, index) in filteredUsers" :key="index">
                             <td>{{ user.name }}</td>
                             <td>{{ user.eno }}</td>
                             <td>{{ user.dept }}</td>

@@ -16,7 +16,7 @@
                     </ul>
                     <i class="bi bi-person-circle fa-xl"></i>
 
-                    <div class="sub-menu-wrap">
+                    <!-- <div class="sub-menu-wrap">
                         <div class="sub-menu">
                             <div class="user-info">
                                 <i class="bi bi-person-circle fa-3x"></i>
@@ -35,7 +35,7 @@
                                 <span>></span>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </nav>

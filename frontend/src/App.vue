@@ -3,12 +3,16 @@
     <transition name="fade">
       <comp-logout v-if="store.state.showLogout" />
     </transition>
+    <transition name="alert">
+      <comp-success-alert v-if="store.state.sucList.length" :msg="store.state.sucList[0]" />
+    </transition>
     <router-view />
   </div>
 </template>
 
 <script setup>
 import compLogout from './components/compLogout.vue';
+import compSuccessAlert from './components/compSuccessAlert.vue';
 import { useStore } from 'vuex';
 
 const store = useStore()
@@ -59,6 +63,17 @@ const store = useStore()
 
 .fade-enter-active,
 .fade-leave-active {
+  transition: 0.2s all ease;
+}
+
+.alert-enter-from,
+.alert-leave-to {
+  transform: translateY(-6rem);
+  opacity: 0;
+}
+
+.alert-enter-active,
+.alert-leave-active {
   transition: 0.2s all ease;
 }
 </style>

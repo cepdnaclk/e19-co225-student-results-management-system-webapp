@@ -1,6 +1,7 @@
 package com.academetrics.academetrics.Controller;
 
 import com.academetrics.academetrics.DTO.CourseDTO;
+import com.academetrics.academetrics.DTO.UserDTO;
 import com.academetrics.academetrics.Entity.Course;
 import com.academetrics.academetrics.Service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,11 @@ public class CourseController {
         return courseService.getAllCourses();
     }
 
+    @GetMapping(value = "/", params = {"courseCode"})
+    public CourseDTO getCourse(@RequestParam String courseCode){
+        return courseService.getCourse(courseCode);
+    }
+
     //  Update a Course
     @PutMapping("/") // Map only PUT Requests
     public String updateCourse(@RequestBody CourseDTO courseDTO) {
@@ -39,7 +45,7 @@ public class CourseController {
 
     // Delete a Course
     @DeleteMapping("/")
-    public String deleteCourse(@RequestParam String Code){
+    public String deleteCourse(@RequestBody String Code){
 
         courseService.deleteCourse(Code);
 
