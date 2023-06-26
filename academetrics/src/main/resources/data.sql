@@ -23,11 +23,12 @@ INSERT INTO course (code, name, credits) VALUES
     ("EE285", "Electronics I", 3);
 
 INSERT INTO user (user_name, password, mail, honorific, initials, last_name, role, contact, dept_id, profile_picture) VALUES
-    ("admin", "123", "admin@eng.pdn.ac.lk", "Mr", "A.", "Mihindu", "admin", "0777123456", null, null),
-    ("E/19/275", "456", "e19275@eng.pdn.ac.lk", "Mr", "M. S.", "Peeris", "student", "0777199768", "CO", null),
+    ("admin", "$2a$12$Hish978AZuwUquegBl4NruwMXrMPs6iKYm90pvl9X90e2g3qyAkyi", "admin@eng.pdn.ac.lk", "Mr", "A.", "Mihindu", "admin", "0777123456", null, null),
+    ("E/19/275", "$2a$12$XsvDjpRjIik/0hZV5MoWOuGmbtgqPTlRvYkaj99mAd2oInVXOpWfC", "e19275@eng.pdn.ac.lk", "Mr", "M. S.", "Peeris", "student", "0777199768", "CO", null),
     ("co-Kernighan", "789", "kernighan@eng.pdn.ac.lk", "Mr", "B.", "Kernighan", "lecturer", "0777987654", "CO", null),
     ("co-Torvalds", "bash", "torvalds@eng.pdn.ac.lk", "Mr", "L.", "Torvalds", "lecturer", "0777111111", "CO", null),
     ("em-Woo", "314", "woo@eng.pdn.ac.lk", "Mr", "E.", "Woo", "lecturer", "0777678678", "EM", null);
 
-
+--admin pwd 123
+--e/19/275 456
 
