@@ -115,6 +115,7 @@ const routes = [
           import(
             /* webpackChunkName: "CourseManawmwnt" */ "../views/RepView/ViewOfferedCourses.vue"
           ),
+        meta: { index: 2, transition: "slide-right" },
       },
       //view courses page
       {
@@ -124,6 +125,7 @@ const routes = [
           import(
             /* webpackChunkName: "Coorwithlog" */ "../views/RepView/ViewCourses.vue"
           ),
+        meta: { index: 1, transition: "slide-right" },
       },
       //add courses
       {
@@ -133,15 +135,26 @@ const routes = [
           import(
             /* webpackChunkName: "Coorwithlog" */ "../views/RepView/AddCourses.vue"
           ),
+        meta: { index: 4, transition: "slide-right" },
       },
       //edit courses
       {
-        path: "editcourses",
+        path: "editcourses/:code",
         name: "RepEditCourse",
         component: () =>
           import(
             /* webpackChunkName: "Coorwithlog" */ "../views/RepView/EditCourses.vue"
           ),
+        meta: { index: 4, transition: "slide-right" },
+      },
+      {
+        path: "editcourses/",
+        name: "RepEditCourseFall",
+        component: () =>
+          import(
+            /* webpackChunkName: "Coorwithlog" */ "../views/RepView/EditCourses.vue"
+          ),
+        meta: { index: 4, transition: "slide-right" },
       },
       //course inner page
       {
@@ -168,6 +181,64 @@ const routes = [
         component: () =>
           import(
             /* webpackChunkName: "Coorwithlog" */ "../views/RepView/EditCourseOffering.vue"
+          ),
+      },
+    ],
+  },
+  {
+    path: "/student",
+    name: "Student",
+    component: () =>
+      import(
+        /* webpackChunkName: "Studenttemp" */ "../views/StudentMainView.vue"
+      ),
+    children: [
+      {
+        path: "home",
+        name: "StudentHome",
+        component: () =>
+          import(
+            /* webpackChunkName: "StudentHome" */ "../views/StudentView/HomeView.vue"
+          ),
+      },
+      {
+        path: "dashboard",
+        name: "StudentDashboard",
+        component: () =>
+          import(
+            /* webpackChunkName: "StudentDashboard" */ "../views/StudentView/DashboardView.vue"
+          ),
+      },
+      {
+        path: "targetdashboard",
+        name: "StudentTargetDashboard",
+        component: () =>
+          import(
+            /* webpackChunkName: "StudentTargetDashboard" */ "../views/StudentView/TargetDashboardView.vue"
+          ),
+      },
+      {
+        path: "courses",
+        name: "StudentCourses",
+        component: () =>
+          import(
+            /* webpackChunkName: "StudentCourses" */ "../views/StudentView/CoursesView.vue"
+          ),
+      },
+      {
+        path: "coursesinner",
+        name: "StudentCoursesInner",
+        component: () =>
+          import(
+            /* webpackChunkName: "StudentCoursesInner" */ "../views/StudentView/CoursesInnerView.vue"
+          ),
+      },
+      {
+        path: "edit",
+        name: "StudentEdit",
+        component: () =>
+          import(
+            /* webpackChunkName: "StudentEdit" */ "../views/StudentView/EditProfileView.vue"
           ),
       },
     ],

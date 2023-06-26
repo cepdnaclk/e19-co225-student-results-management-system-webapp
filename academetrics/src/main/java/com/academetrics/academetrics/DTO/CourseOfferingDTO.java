@@ -7,10 +7,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class CourseDTO {
-
-    private String code; // eg: GP106
-    private String name; // Computing
-    private int credits; // 3
-
+public class CourseOfferingDTO {
+    
+    private Integer year; //      2021
+    private CourseDTO course;
 }

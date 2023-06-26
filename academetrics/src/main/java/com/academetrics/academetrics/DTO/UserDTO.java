@@ -9,8 +9,6 @@ import lombok.Data;
 @Data
 public class UserDTO {
     // DTO for viewing users - Fields like password are not transferred
-
-    private int id;
     private String userName;
     private String mail;
     private String honorific;
@@ -19,5 +17,6 @@ public class UserDTO {
     private String role;
     private String contact;
     private String deptId;
+    private String deptName;
     private String profilePicture;
 }

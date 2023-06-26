@@ -23,9 +23,9 @@ public class UserController {
     public List<UserDTO> getUser() {
         return userService.getAllUsers();
     }
-    @GetMapping(value = "/", params = {"id"})
-    public UserDTO getUser(@RequestParam int id){
-        return userService.getUser(id);
+    @GetMapping(value = "/", params = {"userName"})
+    public UserDTO getUser(@RequestParam String userName){
+        return userService.getUser(userName);
     }
 
     @GetMapping(value = "/welcome")
@@ -45,8 +45,8 @@ public class UserController {
         return "Updated";
     }
     @DeleteMapping("/")
-    public boolean deleteUser(@RequestParam int id){
-        return userService.deleteUser(id);
+    public boolean deleteUser(@RequestParam String userName){
+        return userService.deleteUser(userName);
     }
 
 //    @GetMapping("/login")

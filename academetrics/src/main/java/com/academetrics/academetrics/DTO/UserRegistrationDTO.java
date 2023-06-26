@@ -8,7 +8,6 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 public class UserRegistrationDTO {
-    private int id;
     private String userName;
     private String password;
     private String mail;
@@ -18,5 +17,6 @@ public class UserRegistrationDTO {
     private String role;
     private String contact;
     private String deptId;
+    private String deptName;
     private String profilePicture;
 }

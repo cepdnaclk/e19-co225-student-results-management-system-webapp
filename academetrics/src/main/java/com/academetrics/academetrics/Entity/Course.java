@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class Course {
     @Id
-    private String code;
-    private String name;
-    private int credits;
+    private String code; // eg: GP106
+    private String name; // eg: Computing
+    private Integer credits; // eg: 3
 }
