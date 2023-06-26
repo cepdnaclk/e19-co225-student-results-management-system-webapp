@@ -115,6 +115,7 @@ const routes = [
           import(
             /* webpackChunkName: "CourseManawmwnt" */ "../views/RepView/ViewOfferedCourses.vue"
           ),
+        meta: { index: 2, transition: "slide-right" },
       },
       //view courses page
       {
@@ -124,6 +125,7 @@ const routes = [
           import(
             /* webpackChunkName: "Coorwithlog" */ "../views/RepView/ViewCourses.vue"
           ),
+        meta: { index: 1, transition: "slide-right" },
       },
       //add courses
       {
@@ -133,6 +135,7 @@ const routes = [
           import(
             /* webpackChunkName: "Coorwithlog" */ "../views/RepView/AddCourses.vue"
           ),
+        meta: { index: 4, transition: "slide-right" },
       },
       //edit courses
       {
@@ -142,6 +145,7 @@ const routes = [
           import(
             /* webpackChunkName: "Coorwithlog" */ "../views/RepView/EditCourses.vue"
           ),
+        meta: { index: 4, transition: "slide-right" },
       },
       {
         path: "editcourses/",
@@ -150,6 +154,7 @@ const routes = [
           import(
             /* webpackChunkName: "Coorwithlog" */ "../views/RepView/EditCourses.vue"
           ),
+        meta: { index: 4, transition: "slide-right" },
       },
       //course inner page
       {
