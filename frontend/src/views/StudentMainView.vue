@@ -161,6 +161,7 @@ footer {
     font-size: 14px;
     justify-content: center;
     align-items: center;
+    height: auto;
 }
 
 .list-inline-item {
