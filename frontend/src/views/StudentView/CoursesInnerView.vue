@@ -1,5 +1,5 @@
 <template>
-    <div class="rep-courseofferinner">
+    <div class="student-courseinner">
       <img class="bg" src="@/assets/bg.png" alt="">
       <div class="container">
         <h4>All courses available in the [dept name] department</h4>
@@ -83,7 +83,7 @@
   </template>
   
   <style scoped>
-  .rep-courseofferinner {
+  .student-courseinner {
     padding-top: 7rem;
   }
   

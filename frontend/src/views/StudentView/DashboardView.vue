@@ -1,82 +1,83 @@
 <template>
-    <div class="student-dashboard">
-  <div class="container">
-    <div class="card">
-      <h2>Your GPA after sem 3</h2>
-      <div class="result" id="gpa-result"></div>
+  <div class="student-dashboard">
+    <img class="bg" src="@/assets/bg.png" alt="">
+    <div class="container">
+      <div class="card">
+        <h2>Your GPA after sem 3</h2>
+        <div class="result" id="gpa-result"></div>
+      </div>
+      <div class="card">
+        <h2>Departmental Rank</h2>
+        <div class="result" id="rank-result"></div>
+      </div>
     </div>
-    <div class="card">
-      <h2>Departmental Rank</h2>
-      <div class="result" id="rank-result"></div>
-    </div>
-  </div>
 
-  <div class="box-list">
-    <div class="card-panel">
-      <h2>Targeted GPA for Semester 4:</h2>
-      <input
-        type="number"
-        id="target-gpa-4"
-        min="0"
-        max="4"
-        step="0.01"
-        placeholder="Enter targeted GPA"
-      />
+    <div class="box-list">
+      <div class="card-panel">
+        <h2>Targeted GPA for Semester 4:</h2>
+        <input
+          type="number"
+          id="target-gpa-4"
+          min="0"
+          max="4"
+          step="0.01"
+          placeholder="Enter targeted GPA"
+        />
+      </div>
+      <div class="card-panel">
+        <h2>Targeted GPA for Semester 5:</h2>
+        <input
+          type="number"
+          id="target-gpa-5"
+          min="0"
+          max="4"
+          step="0.01"
+          placeholder="Enter targeted GPA"
+        />
+      </div>
+      <div class="card-panel">
+        <h2>Targeted GPA for Semester 6:</h2>
+        <input
+          type="number"
+          id="target-gpa-6"
+          min="0"
+          max="4"
+          step="0.01"
+          placeholder="Enter targeted GPA"
+        />
+      </div>
+      <div class="card-panel">
+        <h2>Targeted GPA for Semester 7:</h2>
+        <input
+          type="number"
+          id="target-gpa-7"
+          min="0"
+          max="4"
+          step="0.01"
+          placeholder="Enter targeted GPA"
+        />
+      </div>
+      <div class="card-panel">
+        <h2>Targeted GPA for Semester 8:</h2>
+        <input
+          type="number"
+          id="target-gpa-8"
+          min="0"
+          max="4"
+          step="0.01"
+          placeholder="Enter targeted GPA"
+        />
+      </div>
+      <!-- Calculate button -->
+      <div class="calculate-button">
+        <button onclick="calculate()">Calculate</button>
+      </div>
     </div>
-    <div class="card-panel">
-      <h2>Targeted GPA for Semester 5:</h2>
-      <input
-        type="number"
-        id="target-gpa-5"
-        min="0"
-        max="4"
-        step="0.01"
-        placeholder="Enter targeted GPA"
-      />
-    </div>
-    <div class="card-panel">
-      <h2>Targeted GPA for Semester 6:</h2>
-      <input
-        type="number"
-        id="target-gpa-6"
-        min="0"
-        max="4"
-        step="0.01"
-        placeholder="Enter targeted GPA"
-      />
-    </div>
-    <div class="card-panel">
-      <h2>Targeted GPA for Semester 7:</h2>
-      <input
-        type="number"
-        id="target-gpa-7"
-        min="0"
-        max="4"
-        step="0.01"
-        placeholder="Enter targeted GPA"
-      />
-    </div>
-    <div class="card-panel">
-      <h2>Targeted GPA for Semester 8:</h2>
-      <input
-        type="number"
-        id="target-gpa-8"
-        min="0"
-        max="4"
-        step="0.01"
-        placeholder="Enter targeted GPA"
-      />
-    </div>
-    <!-- Calculate button -->
-    <div class="calculate-button">
-      <button onclick="calculate()">Calculate</button>
-    </div>
-  </div>
   </div>
 </template>
 
 <style scoped>
-/* .body {
+.body {
   padding-top: 100px;
 }
 
@@ -90,8 +91,7 @@
   z-index: -1;
   opacity: 0.1;
   background-attachment: fixed;
-} */
-
+}
 
 .container {
   margin-top: 120px;
@@ -227,21 +227,20 @@ export default {
   },
   methods: {
     fetchData() {
-      fetch('gpa-data.json')
-        .then(response => response.json())
-        .then(data => {
+      fetch("gpa-data.json")
+        .then((response) => response.json())
+        .then((data) => {
           this.gpaResult = data.gpa.toFixed(2);
         })
-        .catch(error => console.error(error));
+        .catch((error) => console.error(error));
 
-      fetch('rank-data.json')
-        .then(response => response.json())
-        .then(data => {
+      fetch("rank-data.json")
+        .then((response) => response.json())
+        .then((data) => {
           this.rankResult = data.rank;
         })
-        .catch(error => console.error(error));
+        .catch((error) => console.error(error));
     },
   },
 };
 </script>
-

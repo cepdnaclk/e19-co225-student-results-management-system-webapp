@@ -1,5 +1,6 @@
 <template>
   <div>
+    <img class="bg" src="@/assets/bg.png" alt="">
     <div class="container">
       <div class="card">
         <h2>Your GPA after sem 3</h2>
@@ -53,6 +54,17 @@ export default {
 
 <style scoped>
 /* Add the CSS styles here */
+.bg {
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  background-attachment: fixed;
+}
 
 body {
   font-family: Arial, sans-serif;
