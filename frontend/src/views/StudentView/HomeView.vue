@@ -64,12 +64,7 @@ window.addEventListener("DOMContentLoaded", function () {
   background-attachment: fixed;
 }
 
-@media screen and (max-width: 769px) {
-  .btn {
-    font-size: 30px;
-    padding: 15px 40px;
-  }
-}
+
 
 .container {
   margin-top: 120px;

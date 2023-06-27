@@ -1,4 +1,5 @@
 <template>
+    <div class="student-dashboard">
   <div class="container">
     <div class="card">
       <h2>Your GPA after sem 3</h2>
@@ -71,10 +72,11 @@
       <button onclick="calculate()">Calculate</button>
     </div>
   </div>
+  </div>
 </template>
 
-<style>
-.body {
+<style scoped>
+/* .body {
   padding-top: 100px;
 }
 
@@ -88,7 +90,7 @@
   z-index: -1;
   opacity: 0.1;
   background-attachment: fixed;
-}
+} */
 
 
 .container {
