@@ -108,7 +108,7 @@ h2 {
   margin-right: auto;
   max-width: 800px;
   width: 100%;
-  margin-bottom: 100vh;
+  margin-bottom: 25vh;
 }
 
 .card-panel {
