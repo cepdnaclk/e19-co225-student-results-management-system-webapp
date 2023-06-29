@@ -61,6 +61,7 @@
 .card-body{
     background-color: #f2f2f2;
     padding: 5px;
+    
 
     /* border-radius:10%; */
 }
@@ -69,6 +70,7 @@
     margin-top: 120px;
     background-color: #f06e6e;
     padding: 10px;
+    height: auto;
     /* border-radius:10%; */
 }
 

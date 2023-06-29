@@ -48,6 +48,7 @@ public class CourseController {
     public String deleteCourse(@RequestBody String Code){
 
         courseService.deleteCourse(Code);
+
         return "Course Deleted Succesfully";
 
     }
