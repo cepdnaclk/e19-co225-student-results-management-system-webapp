@@ -1,17 +1,12 @@
 <template>
   <div class="student-home">
-<<<<<<< HEAD
     <img class="bg" src="@/assets/bg.png" alt="">
-=======
-    <img class="bg" src="@/assets/bg.png" alt="" />
->>>>>>> ea2f1f46bcd35e5e8bf581a40c56100fe16e6ee5
     <div class="container">
       <div class="card">
         <h2 class="name">John Doe</h2>
       </div>
 
       <div class="card">
-<<<<<<< HEAD
         <p class="quote">"The future belongs to those who believe in the beauty of their dreams."</p>
       </div>
     </div>
@@ -31,47 +26,10 @@
           <h3 class="notification-title">Notification 3</h3>
           <p class="notification-message">This is the third notification.</p>
         </div>
-=======
-        <p class="quote">
-          "The future belongs to those who believe in the beauty of their
-          dreams."
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="notification-container">
-    <div class="notification-box">
-      <div class="notification-card">
-        <h3 class="notification-title">Notification 1</h3>
-        <p class="notification-message">This is the first notification.</p>
-      </div>
-
-      <div class="notification-card">
-        <h3 class="notification-title">Notification 2</h3>
-        <p class="notification-message">This is the second notification.</p>
-      </div>
-
-      <div class="notification-card">
-        <h3 class="notification-title">Notification 3</h3>
-        <p class="notification-message">This is the third notification.</p>
->>>>>>> ea2f1f46bcd35e5e8bf581a40c56100fe16e6ee5
       </div>
     </div>
   </div>
 </template>
-
-<script>
-window.addEventListener("DOMContentLoaded", function () {
-  var notificationCards = document.querySelectorAll(".notification-card");
-
-  notificationCards.forEach(function (card) {
-    card.addEventListener("click", function () {
-      this.classList.toggle("expanded");
-    });
-  });
-});
-</script>
 
 <style scoped>
 .body {
@@ -92,7 +50,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
 
-<<<<<<< HEAD
 
 @media screen and (max-width: 769px) {
   .btn {
@@ -102,8 +59,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
 }
 
-=======
->>>>>>> ea2f1f46bcd35e5e8bf581a40c56100fe16e6ee5
 .container {
   margin-top: 120px;
   display: flex;
@@ -163,16 +118,6 @@ window.addEventListener("DOMContentLoaded", function () {
 .notification-message {
   font-size: 14px;
   font-style: italic;
-<<<<<<< HEAD
-=======
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s;
-}
-
-.expanded .notification-message {
-  max-height: 100px;
->>>>>>> ea2f1f46bcd35e5e8bf581a40c56100fe16e6ee5
 }
 
 /* footer {
