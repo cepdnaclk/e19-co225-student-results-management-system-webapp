@@ -5,6 +5,8 @@ export default createStore({
     showLogout: false,
     sucList: [],
     errList: [],
+    username: "",
+    role: "",
   },
   getters: {},
   mutations: {

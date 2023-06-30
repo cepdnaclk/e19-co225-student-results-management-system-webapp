@@ -1,27 +1,81 @@
 <template>
     <div class="login">
         <img class="bg" src="@/assets/loginback.jpg" alt="">
-        <div class="container col-lg-4 col-md-5">
+        <form @submit="onLogin" class="container col-lg-4 col-md-5">
             <h3 class="mb-5">Welcome to Academetrix</h3>
             <p class="mb-md-5">Enter your User ID and Password to Log in to the system</p>
-            <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingID" placeholder="E/XX/XXX">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingID" placeholder="E/XX/XXX" v-model="user.username">
                 <label for="floatingID">User ID</label>
             </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <p class="errmsg" v-if="validate.username.$error">{{ validate.username.$errors[0].$message }}</p>
+            <div class="form-floating mt-3">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                    v-model="user.password">
                 <label for="floatingPassword">Password</label>
             </div>
+            <p class="errmsg" v-if="validate.password.$error">{{ validate.password.$errors[0].$message }}</p>
             <button class="btn btn-primary">LOGIN</button>
             <a href="">Forgot Password?</a>
-        </div>
+        </form>
         <div class="copyright">
             ©Academetrix 2023
         </div>
     </div>
 </template>
 
-<script setup></script>
+<script setup>
+import axios from 'axios';
+import { useVuelidate } from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
+import { reactive } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+
+const store = useStore()
+const router = useRouter()
+
+const user = reactive({
+    username: "",
+    password: ""
+})
+
+const rules = {
+    username: { required },
+    password: { required }
+}
+
+const validate = useVuelidate(rules, user)
+
+const onLogin = async (e) => {
+    e.preventDefault()
+    const pass = await validate.value.$validate()
+    if (!pass) {
+        return
+    }
+
+    let addUser = new FormData()
+    addUser.append("username", user.username)
+    addUser.append("password", user.password)
+
+    try {
+        const res = await axios.post("/login", addUser, {
+            withCredentials: true,
+        })
+        store.state.username = res.data.username;
+        store.state.role = res.data.authorities[0].authority;
+        setTimeout(() => {
+            if (store.state.role == 'Student')
+                router.push("/student/dashboard")
+            else if (store.state.role == 'admin')
+                router.push("/ar/home")
+        }, 500)
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+</script>
 
 <style scoped>
 .login {

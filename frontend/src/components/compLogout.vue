@@ -14,6 +14,7 @@
 
 <script setup>
 import { useStore } from 'vuex';
+import axios from 'axios';
 
 const store = useStore()
 
@@ -22,7 +23,14 @@ const hideLogout = () => {
 }
 
 const logout = () => {
-
+    axios.post("/logout", { withCredentials: true })
+        .then(res => {
+            console.log(res)
+            hideLogout()
+        })
+        .catch(err => {
+            console.log(err)
+        })
 }
 </script>
 
