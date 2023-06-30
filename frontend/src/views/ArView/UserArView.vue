@@ -94,7 +94,7 @@ const users = computed(() => {
             id: ele.id,
             name: ele.honorific + ". " + ele.initials + " " + ele.lastName,
             eno: ele.userName || "",
-            dept: ele.deptId || "",
+            dept: ele.deptName || "",
             role: ele.role,
         }
         array.push(objUser)
@@ -134,9 +134,18 @@ const filteredUsers = computed(() => {
 })
 
 axios
-    .get("/user/")
+    .get("/user/", { withCredentials: true })
     .then((res) => {
         result.value = res.data;
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+
+axios
+    .get("/user/welcome", { withCredentials: true })
+    .then((res) => {
+        console.log(res);
     })
     .catch((err) => {
         console.log(err)

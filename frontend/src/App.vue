@@ -76,5 +76,12 @@ const store = useStore()
 .alert-leave-active {
   transition: 0.2s all ease;
 }
+
+.errmsg {
+  font-size: 0.8rem !important;
+  text-align: left;
+  color: red;
+  margin: 2px 5px;
+}
 </style>
 
