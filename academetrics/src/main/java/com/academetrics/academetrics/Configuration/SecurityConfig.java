@@ -1,5 +1,6 @@
 package com.academetrics.academetrics.Configuration;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
@@ -24,10 +25,14 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.WebUtils;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
@@ -65,7 +70,6 @@ public class SecurityConfig {
                     .successHandler(mp_successHandler())
                     .failureHandler(mp_failureHandler())
                     .loginPage("/login").permitAll()
-    //                .defaultSuccessUrl("/login/Success",true)
                 .and()
                     .authorizeHttpRequests().requestMatchers("/**").authenticated()
                 .and()
@@ -78,15 +82,15 @@ public class SecurityConfig {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         };
     }
-    @Bean
-    public LogoutSuccessHandler logoutSuccessHandler() {
-        return (request, response, authentication) -> {
-            SecurityContextHolder.getContext().setAuthentication(null);
-            request.getSession().invalidate();
-            // Custom logout logic here
-            response.setStatus(HttpServletResponse.SC_OK);
-        };
-    }
+//    @Bean
+//    public LogoutSuccessHandler logoutSuccessHandler() {
+//        return (request, response, authentication) -> {
+//            SecurityContextHolder.getContext().setAuthentication(null);
+//            request.getSession().invalidate();
+//            // Custom logout logic here
+//            response.setStatus(HttpServletResponse.SC_OK);
+//        };
+//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
