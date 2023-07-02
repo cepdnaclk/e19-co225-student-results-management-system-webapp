@@ -67,6 +67,7 @@ public class SecurityConfig {
                 .csrf().disable()
                 .authorizeHttpRequests()
                     .requestMatchers("/user/welcome").permitAll()    // change this for welcome page or else
+//                    .requestMatchers("/**").permitAll()
                 .and()
                     .formLogin()
                     .successHandler(mp_successHandler())
@@ -83,7 +84,8 @@ public class SecurityConfig {
                             }
                         })
                 .and()
-                    .authorizeHttpRequests().requestMatchers("/**").authenticated()
+//                    .authorizeHttpRequests().requestMatchers("/**").authenticated()
+                .authorizeHttpRequests().requestMatchers("/**").permitAll()
                 .and()
                     .build();
     }

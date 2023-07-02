@@ -1,11 +1,11 @@
 package com.academetrics.academetrics.Entity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -15,6 +15,9 @@ public class CourseOffering {
 
     @EmbeddedId
     private CourseOfferingId courseOfferingId;
+
+//    @OneToMany
+//    private List<Assessment> assessments = new ArrayList<>();
 
 //    @ManyToOne
 //    @JoinColumn(name = "join_course_id")

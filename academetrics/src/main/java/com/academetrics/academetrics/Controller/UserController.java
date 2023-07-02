@@ -4,6 +4,8 @@ import com.academetrics.academetrics.DTO.UserDTO;
 import com.academetrics.academetrics.DTO.UserRegistrationDTO;
 import com.academetrics.academetrics.Entity.User;
 import com.academetrics.academetrics.Service.UserService;
+import jakarta.persistence.PersistenceException;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -24,8 +26,14 @@ public class UserController {
         return userService.getAllUsers();
     }
     @GetMapping(value = "/", params = {"userName"})
-    public UserDTO getUser(@RequestParam String userName){
-        return userService.getUser(userName);
+    public ResponseEntity<?> getUser(@RequestParam String userName){
+        UserDTO userDTO = userService.getUser(userName);
+        if (userDTO == null){
+            return ResponseEntity.status(404).body("User not found");
+        }
+        else{
+            return ResponseEntity.status(200).body(userDTO);
+        }
     }
 
     @GetMapping(value = "/welcome")
@@ -34,9 +42,18 @@ public class UserController {
     }
 
     @PostMapping(value="/", consumes = {"application/json"})
-    public String saveUser(@RequestBody UserRegistrationDTO userRegistrationDTO){
-        userService.saveUser(userRegistrationDTO);
-        return "Saved";
+    public ResponseEntity<?> saveUser(@RequestBody UserRegistrationDTO userRegistrationDTO){
+        // check if user all ready exists
+        if (getUser(userRegistrationDTO.getUserName()) == null){
+            try{
+                userService.saveUser(userRegistrationDTO);
+                return ResponseEntity.status(200).body("Saved");
+            }catch (Exception e) {
+                return ResponseEntity.status(400).body("Save failed: " + e.getMessage());
+            }
+        }else {
+            return ResponseEntity.status(409).body("User already exists");
+        }
     }
     @PutMapping("/")
     public String updateUser(@RequestBody UserRegistrationDTO userRegistrationDTO){

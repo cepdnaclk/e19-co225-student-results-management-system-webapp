@@ -1,6 +1,9 @@
 package com.academetrics.academetrics.Entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +20,9 @@ public class User {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private int id;
     @Id
+    @NotNull(message = "Username may not be null")
+    @NotBlank(message = "Username may not be blank")
+    @NotEmpty(message = "Username may not be empty")
     private String userName;
     private String password;
     private String mail;
