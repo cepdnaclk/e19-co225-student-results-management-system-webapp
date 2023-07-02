@@ -54,14 +54,15 @@ const onLogin = async (e) => {
         return
     }
 
-    let addUser = new FormData()
-    addUser.append("username", user.username)
-    addUser.append("password", user.password)
+    let logUser = new FormData()
+    logUser.append("username", user.username)
+    logUser.append("password", user.password)
 
     try {
-        const res = await axios.post("/login", addUser, {
+        const res = await axios.post("/login", logUser, {
             withCredentials: true,
         })
+        console.log(res)
         store.state.username = res.data.username;
         store.state.role = res.data.authorities[0].authority;
         setTimeout(() => {

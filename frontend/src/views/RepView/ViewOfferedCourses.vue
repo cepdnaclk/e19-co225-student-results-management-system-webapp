@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <button class="btn btn-sm-3 btn-delete"
-                                        @click="deleteCourse(course.code)">Delete</button>
+                                        @click="deleteOfferedCourse(course.code)">Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -55,9 +55,9 @@ const getCoursesOffered = async () => {
     }
 }
 
-const deleteCourse = (courseCode) => {
+const deleteOfferedCourse = (courseCode) => {
     axios
-        .delete("/course/", {
+        .delete("/courseOffering/", {
             data: {
                 Code: courseCode
             }
