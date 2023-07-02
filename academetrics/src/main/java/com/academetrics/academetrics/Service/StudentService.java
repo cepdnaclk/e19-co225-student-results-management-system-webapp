@@ -1,10 +1,11 @@
 package com.academetrics.academetrics.Service;
 
-import com.academetrics.academetrics.DTO.StudentProfileDTO;
-import com.academetrics.academetrics.DTO.UserRegistrationDTO;
+import com.academetrics.academetrics.DTO.*;
 import com.academetrics.academetrics.Entity.Student;
 import com.academetrics.academetrics.Entity.StudentCourse;
 import com.academetrics.academetrics.Entity.User;
+import com.academetrics.academetrics.Repository.CourseOfferingRepository;
+import com.academetrics.academetrics.Repository.CourseRepository;
 import com.academetrics.academetrics.Repository.StudentRepository;
 import com.academetrics.academetrics.Repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -12,7 +13,13 @@ import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.academetrics.academetrics.Entity.CourseOfferingId;
+import com.academetrics.academetrics.Entity.CourseOffering;
+import com.academetrics.academetrics.Entity.Course;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -20,6 +27,10 @@ import java.util.Map;
 public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
+    @Autowired
+    private CourseOfferingRepository courseOfferingRepository;
+    @Autowired
+    private CourseRepository courseRepository;
 
     public StudentProfileDTO getStudentDetails(String userName){
         Student student = studentRepository.findById(userName).orElse(null);
@@ -88,5 +99,66 @@ public class StudentService {
 
     public void saveStudent(StudentProfileDTO studentProfileDTO) {
         studentRepository.save(studentProfileDTOToEntity(studentProfileDTO));
+    }
+
+    public void updateSemester(String userName, int academicYear, int semester){
+        studentRepository.updateStudentSemester(userName, academicYear, semester);
+    }
+
+    public void assignCourseToStudent(String userName, String courseCode, int year){
+        // get student entity
+        Student student = studentRepository.findById(userName).orElse(null);
+
+        // TODO: better error handling
+        if (student == null)
+            return;
+
+        // get course offering entity
+        Course course = courseRepository.findById(courseCode).orElse(null);
+
+        // TODO: better error handling
+        if (course == null)
+            return;
+
+        CourseOfferingId courseOfferingID =  new CourseOfferingId();
+        courseOfferingID.setCourse(course);
+        courseOfferingID.setYear(year);
+
+        CourseOffering courseOffering = courseOfferingRepository.findById(courseOfferingID).orElse(null);
+
+        // TODO: better error handling
+        if (courseOffering == null)
+            return;
+
+        student.addCourse(courseOffering);
+
+        studentRepository.save(student);
+    }
+
+    public List<StudentCourseDTO> getFollowingCourses(String userName){
+        Student student = studentRepository.findById(userName).orElse(null);
+
+        if (student == null)
+            return null;
+
+        List<StudentCourseDTO> studentCourseDTOList = new ArrayList<>();
+        if (!student.getFollowingCourses().isEmpty()){
+            for (StudentCourse studentCourse : student.getFollowingCourses()) {
+                Course course = courseRepository.findById(studentCourse.getCourseOffering().getCourseOfferingId().getCourse().getCode()).orElse(null);
+                if (course == null) continue;
+                CourseDTO courseDTO = new CourseDTO();
+                courseDTO.setCode(course.getCode());
+                courseDTO.setName(course.getName());
+                courseDTO.setCredits(course.getCredits());
+                CourseOfferingDTO courseOfferingDTO = new CourseOfferingDTO();
+                courseOfferingDTO.setCourse(courseDTO);
+                courseOfferingDTO.setYear(studentCourse.getCourseOffering().getCourseOfferingId().getYear());
+                StudentCourseDTO studentCourseDTO = new StudentCourseDTO();
+                studentCourseDTO.setCourseOffering(courseOfferingDTO);
+                studentCourseDTO.setGrade(studentCourse.getGrade());
+                studentCourseDTOList.add(studentCourseDTO);
+            }
+        }
+        return studentCourseDTOList;
     }
 }
