@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -76,11 +77,15 @@ public class SecurityConfig {
                 .and()
                     .logout()
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/login")
                         .logoutSuccessHandler(new LogoutSuccessHandler() {
                             @Override
                             public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-                                System.out.println("This user logged out: " + authentication.getName());
+                                try{
+                                    System.out.println("This user logged out: " + authentication.getName());
+                                }
+                                catch(Exception exp){
+                                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "You are not logged in");
+                                }
                             }
                         })
                 .and()
@@ -127,7 +132,7 @@ public class SecurityConfig {
             response.setStatus(HttpServletResponse.SC_OK);
             response.setContentType(MediaType.APPLICATION_JSON_VALUE);
             response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(new ObjectMapper().writeValueAsString(authentication.getPrincipal()));
+            response.getWriter().write(new ObjectMapper().writeValueAsString(authentication.getDetails()));
         };
     }
 

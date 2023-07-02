@@ -25,6 +25,7 @@ public class UserController {
     public List<UserDTO> getUser() {
         return userService.getAllUsers();
     }
+
     @GetMapping(value = "/", params = {"userName"})
     public ResponseEntity<?> getUser(@RequestParam String userName){
         UserDTO userDTO = userService.getUser(userName);
@@ -36,6 +37,16 @@ public class UserController {
         }
     }
 
+    private boolean checkUser(@RequestParam String userName){
+        UserDTO userDTO = userService.getUser(userName);
+        if (userDTO == null){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
     @GetMapping(value = "/welcome")
     public String welcome(){
         return "Welcome User";
@@ -44,15 +55,15 @@ public class UserController {
     @PostMapping(value="/", consumes = {"application/json"})
     public ResponseEntity<?> saveUser(@RequestBody UserRegistrationDTO userRegistrationDTO){
         // check if user all ready exists
-        if (getUser(userRegistrationDTO.getUserName()) == null){
+        if (checkUser(userRegistrationDTO.getUserName())){
+            return ResponseEntity.status(409).body("User already exists");
+        }else {
             try{
                 userService.saveUser(userRegistrationDTO);
                 return ResponseEntity.status(200).body("Saved");
             }catch (Exception e) {
                 return ResponseEntity.status(400).body("Save failed: " + e.getMessage());
             }
-        }else {
-            return ResponseEntity.status(409).body("User already exists");
         }
     }
     @PutMapping("/")

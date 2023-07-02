@@ -35,13 +35,4 @@ public class User {
     @ManyToOne
     @JoinColumn(name="dept_id")
     private Department department;
-
-    private String profilePicture;
-
-//    public void setDeptId(String deptId){
-//        this.department.setId(deptId);
-//    }
-
-
-
 }

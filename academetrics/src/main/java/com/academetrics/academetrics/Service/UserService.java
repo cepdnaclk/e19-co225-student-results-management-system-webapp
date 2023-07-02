@@ -1,8 +1,10 @@
 package com.academetrics.academetrics.Service;
 
+import com.academetrics.academetrics.Configuration.SecurityConfig;
 import com.academetrics.academetrics.DTO.UserRegistrationDTO;
 import com.academetrics.academetrics.Entity.Department;
 import com.academetrics.academetrics.Entity.User;
+import com.academetrics.academetrics.Repository.DepartmentRepository;
 import com.academetrics.academetrics.Repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
@@ -25,7 +27,10 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
     @Autowired
-    private ModelMapper modelMapper;
+    private DepartmentRepository departmentRepository;
+    @Autowired
+    private SecurityConfig securityConfig;
+
     public void saveUser(UserRegistrationDTO userRegistrationDTO) {
         // relations should be explicitly mapped or we get null values refer resource below
         // https://amydegregorio.com/2018/08/02/deep-mapping-with-modelmapper/
@@ -59,12 +64,6 @@ public class UserService {
         return userEntityToDTO(user);
     }
 
-    public UserRegistrationDTO getUserRegistration(String userName){
-        User user = new User();
-        user = userRepository.findById(userName).orElse(null);
-        return userEntityToRegistrationDTO(user);
-    }
-
     public UserDTO userEntityToDTO(User user){
         if (user == null) return null;
 
@@ -83,37 +82,13 @@ public class UserService {
             userDTO.setDeptId(user.getDepartment().getId());
             userDTO.setDeptName(user.getDepartment().getName());
         }
-        userDTO.setProfilePicture(user.getProfilePicture());
         return userDTO;
-    }
-
-    public UserRegistrationDTO userEntityToRegistrationDTO(User user){
-        if (user == null) return null;
-
-        UserRegistrationDTO userRegistrationDTO = new UserRegistrationDTO();
-        userRegistrationDTO.setUserName(user.getUserName());
-        userRegistrationDTO.setPassword(user.getPassword());
-        userRegistrationDTO.setMail(user.getMail());
-        userRegistrationDTO.setHonorific(user.getHonorific());
-        userRegistrationDTO.setInitials(user.getInitials());
-        userRegistrationDTO.setLastName(user.getLastName());
-        userRegistrationDTO.setRole(user.getRole());
-        userRegistrationDTO.setContact(user.getContact());
-        if (user.getDepartment() == null){
-            userRegistrationDTO.setDeptId("");
-            userRegistrationDTO.setDeptName("");
-        }else {
-            userRegistrationDTO.setDeptId(user.getDepartment().getId());
-            userRegistrationDTO.setDeptName(user.getDepartment().getName());
-        }
-        userRegistrationDTO.setProfilePicture(user.getProfilePicture());
-        return userRegistrationDTO;
     }
 
     public User userRegistrationDTOToEntity(UserRegistrationDTO userRegistrationDTO){
         User user = new User();
         user.setUserName(userRegistrationDTO.getUserName());
-        user.setPassword(userRegistrationDTO.getPassword());
+        user.setPassword(securityConfig.passwordEncoder().encode(userRegistrationDTO.getPassword()));
         user.setMail(userRegistrationDTO.getMail());
         user.setHonorific(userRegistrationDTO.getHonorific());
         user.setInitials(userRegistrationDTO.getInitials());
@@ -121,11 +96,9 @@ public class UserService {
         user.setRole(userRegistrationDTO.getRole());
         user.setContact(userRegistrationDTO.getContact());
         if (!userRegistrationDTO.getDeptId().equals("")){
-            Department department = new Department();
-            department.setId(userRegistrationDTO.getDeptId());
-            department.setName(userRegistrationDTO.getDeptName());
+            Department department = departmentRepository.findById(userRegistrationDTO.getDeptId()).orElseThrow(() -> new RuntimeException("Department not found")); ;
+            user.setDepartment(department);
         }
-        userRegistrationDTO.setProfilePicture(user.getProfilePicture());
         return user;
     }
 

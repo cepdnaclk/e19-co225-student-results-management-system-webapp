@@ -17,6 +17,4 @@ public class UserRegistrationDTO {
     private String role;
     private String contact;
     private String deptId;
-    private String deptName;
-    private String profilePicture;
 }
