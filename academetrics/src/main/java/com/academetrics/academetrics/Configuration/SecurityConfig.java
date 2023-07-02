@@ -24,10 +24,13 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.logout.HeaderWriterLogoutHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
+import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+import org.springframework.security.web.header.writers.ClearSiteDataHeaderWriter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -61,6 +64,9 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
+        HeaderWriterLogoutHandler clearSiteData = new HeaderWriterLogoutHandler(new ClearSiteDataHeaderWriter(ClearSiteDataHeaderWriter.Directive.COOKIES));
+
         return http
                 .cors()
                 .configurationSource(corsConfigurationSource())
@@ -76,7 +82,8 @@ public class SecurityConfig {
                     .loginPage("/login").permitAll()
                 .and()
                     .logout()
-                        .logoutUrl("/logout")
+                        .logoutUrl("/logout").permitAll()
+                        .addLogoutHandler(clearSiteData)
                         .logoutSuccessHandler(new LogoutSuccessHandler() {
                             @Override
                             public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
@@ -89,8 +96,8 @@ public class SecurityConfig {
                             }
                         })
                 .and()
-//                    .authorizeHttpRequests().requestMatchers("/**").authenticated()
-                .authorizeHttpRequests().requestMatchers("/**").permitAll()
+                    .authorizeHttpRequests().requestMatchers("/**").authenticated()
+//                .authorizeHttpRequests().requestMatchers("/**").permitAll()
                 .and()
                     .build();
     }

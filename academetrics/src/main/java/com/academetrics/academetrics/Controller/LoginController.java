@@ -1,7 +1,11 @@
 package com.academetrics.academetrics.Controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -58,4 +62,13 @@ public class LoginController {
 //            return ResponseEntity.status(401).body("Invalid password");
 //        }
 //    }
+
+    SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
+
+    @GetMapping("logout")
+    public String performLogout(Authentication authentication, HttpServletRequest request, HttpServletResponse response) {
+        // .. perform logout
+        this.logoutHandler.logout(request, response, authentication);
+        return "logout successful";
+    }
 }
