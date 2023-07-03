@@ -59,19 +59,25 @@ const onLogin = async (e) => {
     logUser.append("password", user.password)
 
     try {
-        const res = await axios.post("/login", logUser, {
-            withCredentials: true,
-        })
+        const res = await axios.post("/login", logUser)
         store.state.username = res.data.username;
         store.state.role = res.data.authorities[0].authority;
+        store.commit("addSuccess", res.statusText)
         setTimeout(() => {
-            if (store.state.role == 'Student')
+            store.commit("removeSuccess")
+        }, 500)
+        setTimeout(() => {
+            if (store.state.role == 'student')
                 router.push("/student/dashboard")
             else if (store.state.role == 'admin')
                 router.push("/ar/home")
         }, 500)
     }
     catch (err) {
+        store.commit("addError", err.response.data)
+        setTimeout(() => {
+            store.commit("removeError")
+        }, 1500)
         console.log(err)
     }
 }

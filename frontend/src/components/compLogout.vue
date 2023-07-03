@@ -15,18 +15,21 @@
 <script setup>
 import { useStore } from 'vuex';
 import axios from 'axios';
+import { useRouter } from 'vue-router';
 
 const store = useStore()
+const router = useRouter()
 
 const hideLogout = () => {
     store.state.showLogout = false
 }
 
 const logout = () => {
-    axios.post("/logout", { withCredentials: true })
+    axios.post("/logout")
         .then(res => {
             console.log(res)
             hideLogout()
+            router.push("/login")
         })
         .catch(err => {
             console.log(err)

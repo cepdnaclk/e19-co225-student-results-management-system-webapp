@@ -109,6 +109,9 @@ import { reactive } from "vue";
 import { useVuelidate } from '@vuelidate/core'
 import { required, email } from '@vuelidate/validators'
 import axios from "axios";
+import { useStore } from "vuex"
+
+const store = useStore()
 
 const user = reactive({
     userName: "",
@@ -144,10 +147,16 @@ const addUser = async () => {
     axios
         .post("/user/", user)
         .then(res => {
-            console.log(res)
+            store.commit("addSuccess", res.data)
+            setTimeout(() => {
+                store.commit("removeSuccess")
+            }, 1500)
         })
         .catch(err => {
-            console.log(err)
+            store.commit("addError", err.response.data)
+            setTimeout(() => {
+                store.commit("removeError")
+            }, 1500)
         })
 }
 </script>
