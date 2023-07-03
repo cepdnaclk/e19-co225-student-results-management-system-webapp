@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface CourseOfferingRepository extends JpaRepository<CourseOffering, CourseOfferingId> {
 //    CourseOffering findByCourseOfferingId(CourseOfferingId courseOfferingId);
 
-//    void deleteByCodeAndYear(CourseOfferingId courseOfferingId);
+    void deleteByCourseOfferingId(CourseOfferingId courseOfferingId);
 }
 

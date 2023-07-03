@@ -139,7 +139,7 @@ public class SecurityConfig {
             response.setStatus(HttpServletResponse.SC_OK);
             response.setContentType(MediaType.APPLICATION_JSON_VALUE);
             response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(new ObjectMapper().writeValueAsString(authentication.getDetails()));
+            response.getWriter().write(new ObjectMapper().writeValueAsString(authentication.getPrincipal()));
         };
     }
 

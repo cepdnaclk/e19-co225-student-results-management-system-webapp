@@ -53,8 +53,8 @@ public class CourseOfferingService {
 //        }
 //        return updatedCourseOfferingDTO;
 //    }
-//    public void deleteCourseOffering(CourseOfferingId courseOfferingId) {
-//        courseOfferingRepository.deleteByCodeAndYear(courseOfferingId);
-//    }
+    public void deleteCourseOffering(CourseOfferingId courseOfferingId) {
+        courseOfferingRepository.deleteByCourseOfferingId(courseOfferingId);
+    }
 
 }

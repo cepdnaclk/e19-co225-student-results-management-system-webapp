@@ -40,12 +40,12 @@ public class CourseOfferingController {
 //         return "Course Offering Updated";
 //    }
 
-//    @DeleteMapping("/")
-//    public String deleteCourseOffering(@RequestParam String code, CourseOfferingId courseOfferingId){
-//        // check composite key for Course code and year
-//        courseOfferingService.deleteCourseOffering(courseOfferingId);
-//        return "Course Offering Deleted Successfully";
-//    }
+    @DeleteMapping("/")
+    public String deleteCourseOffering(@RequestParam String code, CourseOfferingId courseOfferingId){
+        // check composite key for Course code and year
+        courseOfferingService.deleteCourseOffering(courseOfferingId);
+        return "Course Offering Deleted Successfully";
+    }
 
 }
 

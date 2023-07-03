@@ -43,10 +43,10 @@ public class LoginController {
             "  </body>\n" +
             "</html>";}
 
-    @PostMapping("login")
-    public String checklogin(){
-        return "loginCheck";
-    }
+//    @PostMapping("login")
+//    public String checklogin(){
+//        return "loginCheck";
+//    }
 
 //    @GetMapping("/loggingError")
 //    public ResponseEntity<?> loginUser(@RequestParam String userName, @RequestParam String password){
@@ -65,7 +65,7 @@ public class LoginController {
 
     SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
 
-    @GetMapping("logout")
+    @PostMapping("logout")
     public String performLogout(Authentication authentication, HttpServletRequest request, HttpServletResponse response) {
         // .. perform logout
         this.logoutHandler.logout(request, response, authentication);
