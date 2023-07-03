@@ -55,14 +55,14 @@ INSERT INTO student(user_name, academic_year, semester, dept_rank) VALUES
 
 
 INSERT INTO student_course (course_offering_course_code, course_offering_year, student_user_name, grade) VALUES
-    ("CO221", "2023" ,"E/10/001", "A"),
-    ("CO222", "2023" ,"E/10/001", "A-"),
+    ("CO221", "2023" ,"E/10/001", "B"),
+    ("CO222", "2023" ,"E/10/001", "C-"),
     ("CO223", "2023" ,"E/10/001", "B+"),
-    ("CO224", "2023" ,"E/10/001", "A+"),
+    ("CO224", "2023" ,"E/10/001", "D+"),
     ("CO225", "2023" ,"E/10/001", "B-"),
     ("CO226", "2023" ,"E/10/001", "A-"),
     ("EM211", "2023" ,"E/10/001", "C"),
-    ("EM212", "2023" ,"E/10/001", "A+"),
+    ("EM212", "2023" ,"E/10/001", "B-"),
     ("EM213", "2023" ,"E/10/001", null),
     ("EM214", "2023" ,"E/10/001", null),
     ("EM215", "2023" ,"E/10/001", null),
