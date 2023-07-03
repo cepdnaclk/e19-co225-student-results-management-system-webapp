@@ -7,11 +7,12 @@ The Student Result Management System is a web application designed to manage and
 ## Welcome to Academetrix!
 
 Meet the Academetrix Team
-Group 12                               Group 07       
-Inesha Dissanayake:  **E/19/090**      Dinuka Avinash:        **E/19/029**
-Manodya Senevirathne:**E/19/366**      Sanka Peeris:          **E/19/275**
-Kalindu Wijerathna:  **E/19/446**      Kavishka Rambukwella:  **E/19/309**
-Dhanushka De Silva:  **E/18/059**      Geethal Wickramasignhe:**E/19/436**
+
+Group 12                              &emsp;Group 07       
+Inesha Dissanayake:  **E/19/090**     &emsp;Dinuka Avinash:        **E/19/029**
+Manodya Senevirathne:**E/19/366**     &emsp;Sanka Peeris:          **E/19/275**
+Kalindu Wijerathna:  **E/19/446**     &emsp;Kavishka Rambukwella:  **E/19/309**
+Dhanushka De Silva:  **E/18/059**     &emsp;Geethal Wickramasignhe:**E/19/436**
 
 ## Features
 
