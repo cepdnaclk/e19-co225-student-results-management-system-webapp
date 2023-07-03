@@ -2,7 +2,7 @@
     <div class="ar-adduser">
         <img class="bg" src="@/assets/bg.png" alt="">
         <div class="container">
-            <form class="form">
+            <form class="form" @submit.prevent="addUser">
                 <div class="row mt-4">
                     <label for="acc_type" class="col-sm-2 col-form-label other">Account type</label>
                     <div class="col-lg-10 col-sm-11">
@@ -25,72 +25,79 @@
                 </div>
 
                 <div class="row mt-4">
-                    <label for="fullname" class="col-sm-2 col-form-label">Full Name</label>
+                    <label for="fullname" class="col-sm-2 col-form-label">Honorofic</label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" id="fullname" placeholder="Full name">
+                        <input type="text" class="form-control" id="fullname" v-model="user.honorific" placeholder="Mr.">
                     </div>
                 </div>
 
                 <div class="row mt-4">
-                    <label for="name" class="col-sm-2 col-form-label">Name with initials</label>
+                    <label for="lname" class="col-sm-2 col-form-label">initials</label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" id="name" placeholder="Name with initials">
+                        <input type="text" class="form-control" id="lname" v-model="user.initials" placeholder="initials">
                     </div>
                 </div>
 
                 <div class="row mt-4">
-                    <label for="regno" class="col-sm-2 col-form-label">Regestration number</label>
+                    <label for="name" class="col-sm-2 col-form-label">Lastname</label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" id="regno" placeholder="E/XX/XXX">
+                        <input type="text" class="form-control" id="name" v-model="user.lastName" placeholder="lastname">
                     </div>
                 </div>
 
                 <div class="row mt-4">
-                    <label for="batch" class="col-sm-2 col-form-label">Batch</label>
+                    <label for="regno" class="col-sm-2 col-form-label">Username</label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" id="batch" placeholder="Batch">
+                        <input type="text" class="form-control" id="regno" v-model="user.userName"
+                            placeholder="E/XX/XXX or adminXX">
                     </div>
+                    <p class="errmsg" v-if="validate.userName.$error">{{ validate.userName.$errors[0].$message }}</p>
+                </div>
+
+                <div class="row mt-4">
+                    <label for="pass" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm">
+                        <input type="password" class="form-control" v-model="user.password" id="pass">
+                    </div>
+                    <p class="errmsg" v-if="validate.password.$error">{{ validate.password.$errors[0].$message }}</p>
                 </div>
 
                 <div class="row mt-4">
                     <label for="dep" class="col-sm-2 col-form-label other">Department</label>
                     <div class="col-lg-10 col-sm-11">
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" v-model="user.deptId">
                             <option selected>Department</option>
-                            <option value="1">Computer Engineering</option>
-                            <option value="2">Electrical & Electronic Engineering</option>
-                            <option value="3">Chemical & Process Engineering</option>
-                            <option value="4">Mechanical Engineering</option>
-                            <option value="5">Manufacturing & Industrial Engineering</option>
-                            <option value="6">Civil Engineering</option>
+                            <option value="CO">Computer Engineering</option>
+                            <option value="EE">Electrical & Electronic Engineering</option>
+                            <option value="EM">Engineering Mathematics</option>
+                            <option value="CP">Chemical & Process Engineering</option>
+                            <option value="ME">Mechanical Engineering</option>
+                            <option value="PR">Manufacturing & Industrial Engineering</option>
+                            <option value="CE">Civil Engineering</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="row mt-4">
-                    <label for="uni_email" class="col-sm-2 col-form-label">University Email</label>
+                    <label for="uni_email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm">
-                        <input type="email" class="form-control" id="uni_email" placeholder="University email">
+                        <input type="email" class="form-control" id="uni_email" v-model="user.email"
+                            placeholder="University email">
                     </div>
-                </div>
-
-                <div class="row mt-4">
-                    <label for="personal_email" class="col-sm-2 col-form-label">Personal Email</label>
-                    <div class="col-sm">
-                        <input type="email" class="form-control" id="personal_email" placeholder="Personal email">
-                    </div>
+                    <p class="errmsg" v-if="validate.email.$error">{{ validate.email.$errors[0].$message }}</p>
                 </div>
 
                 <div class="row mt-4 mb-3">
                     <label for="contact" class="col-sm-2 col-form-label">Contact number</label>
                     <div class="col-sm">
-                        <input type="tel" class="form-control" id="contact" placeholder="Contact number">
+                        <input type="tel" class="form-control" id="contact" v-model="user.contact"
+                            placeholder="Contact number">
                     </div>
                 </div>
 
 
                 <div class="col-lg-12 text-center">
-                    <a class="btn btn-warning mt-2 mb-4" href="#" role="button">Create Account</a>
+                    <button class="btn btn-warning mt-2 mb-4" role="button">Create Account</button>
                 </div>
             </form>
         </div>
@@ -99,10 +106,50 @@
 
 <script setup>
 import { reactive } from "vue";
+import { useVuelidate } from '@vuelidate/core'
+import { required, email } from '@vuelidate/validators'
+import axios from "axios";
 
 const user = reactive({
-
+    userName: "",
+    password: "",
+    honorific: "",
+    initials: "",
+    lastName: "",
+    role: "student",
+    deptId: "CO",
+    email: "",
+    contact: ""
 })
+
+const rules = {
+    userName: { required },
+    password: { required },
+    honorific: {},
+    initials: {},
+    lastName: {},
+    role: { required },
+    deptId: { required },
+    email: { email },
+    contact: {}
+}
+
+const validate = useVuelidate(rules, user)
+
+const addUser = async () => {
+    const pass = await validate.value.$validate()
+    if (!pass) {
+        return
+    }
+    axios
+        .post("/user/", user)
+        .then(res => {
+            console.log(res)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
 </script>
 
 <style scoped>
