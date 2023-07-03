@@ -1,35 +1,35 @@
-# Student Result Management System Web Application
+<h1 align="center">Welcome to Academetrix!</h1>
 
-Project Idea 01 and 02:
+<p align="center">
+  <img src="https://your-image-url.com" alt="Academetrix Logo" width="200">
+</p>
 
-The Student Result Management System is a web application designed to manage and analyze undergraduate students' marks. It provides a user-friendly interface for students, administrators, and course coordinators to efficiently handle the result management process.
+<p align="center">A Student Result Management System</p>
 
-## Welcome to Academetrix!
+---
 
-Meet the Academetrix Team
+## 🚀 Project Overview
 
-Group 12 (Project Idea 1)
+Academetrix is a powerful web application designed to manage and analyze undergraduate students' marks. It provides a comprehensive set of features to streamline the result management process and empower students and administrators.
 
-Inesha Dissanayake:  **E/19/090**  
+## 🌟 Meet the Team
 
-Manodya Senevirathne:**E/19/366**   
+### Group 12 (Project Idea 1)
 
-Kalindu Wijerathna:  **E/19/446**  
+- Inesha Dissanayake: **E/19/090**
+- Manodya Senevirathne: **E/19/366**
+- Kalindu Wijerathna: **E/19/446**
+- Dhanushka De Silva: **E/18/059**
 
-Dhanushka De Silva:  **E/18/059**    
+### Group 07 (Project Idea 2)
 
-Group 07 (Project Idea 2)
+- Dinuka Avinash: **E/19/029**
+- Anka Peeris: **E/19/275**
+- Kavishka Rambukwella: **E/19/309**
+- Geethal Wickramasignhe: **E/19/436**
 
-Dinuka Avinash:        **E/19/029**
+## 📋 Features
 
-anka Peeris:           **E/19/275**
-
-Kavishka Rambukwella:  **E/19/309**
-
-Geethal Wickramasignhe:**E/19/436**
-
-
-## Features
 
 1. **User Registration:** Allow undergraduate students to register and create an account in the system.
 
@@ -51,4 +51,81 @@ Geethal Wickramasignhe:**E/19/436**
 
 10. **Student Rank:** Based on the confirmed marks entered, the system should display the rank of the student within the batch and field.
 
+
+## 📞 Contact Us
+
+If you have any questions, suggestions, or need assistance with Academetrix, feel free to reach out to any member of our team!
+
+
 ## Installation and Usage
+
+### Prerequisites
+
+- Node.js: Ensure that Node.js is installed on your system. You can download it from [here](https://nodejs.org).
+- Java Development Kit (JDK): Make sure you have JDK 8 or higher installed on your machine. You can download it from [here](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html).
+- Git: Install Git version control system from [here](https://git-scm.com/downloads).
+
+### Clone the Repository
+
+1. Open your terminal or command prompt.
+2. Change the current working directory to the location where you want to clone the repository.
+3. Execute the following command to clone the repository:
+
+   ```
+   git clone https://github.com/your-username/your-repository.git
+   ```
+
+### Frontend (Vue.js) Setup
+
+1. Navigate to the frontend directory:
+
+   ```
+   cd your-repository/frontend
+   ```
+
+2. Install the dependencies using npm:
+
+   ```
+   npm install
+   ```
+
+3. Start the Vue.js development server:
+
+   ```
+   npm run serve
+   ```
+
+   The application will be accessible at `http://localhost:8080`.
+
+### Backend (Java Spring Boot) Setup
+
+1. Open another terminal or command prompt.
+2. Navigate to the backend directory:
+
+   ```
+   cd your-repository/backend
+   ```
+
+3. Build the Java Spring Boot application using Maven:
+
+   ```
+   ./mvnw clean package
+   ```
+
+4. Start the Spring Boot application:
+
+   ```
+   ./mvnw spring-boot:run
+   ```
+
+   The backend server will be running at `http://localhost:8081`.
+
+### Access the Application
+
+1. Open your web browser.
+2. Enter `http://localhost:8080` in the address bar.
+3. You should now be able to see and interact with the application.
+
+### Shutting Down the Application
+
+To stop the Vue.js development server or the Spring Boot backend, simply press `Ctrl + C` in the respective terminal or command prompt windows.
