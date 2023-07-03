@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to Academetrix!</h1>
 
 <p align="center">
-  <img src="https://your-image-url.com" alt="Academetrix Logo" width="200">
+  <img src="images/academetrix-logo.png" alt="Academetrix Logo" width="200">
 </p>
 
 <p align="center">A Student Result Management System</p>
@@ -51,11 +51,13 @@ Academetrix is a powerful web application designed to manage and analyze undergr
 
 10. **Student Rank:** Based on the confirmed marks entered, the system should display the rank of the student within the batch and field.
 
+## Screenshots
 
-## 📞 Contact Us
+![Screenshot 1](/images/screenshot1.png)
+*Caption for Screenshot 1.*
 
-If you have any questions, suggestions, or need assistance with Academetrix, feel free to reach out to any member of our team!
-
+![Screenshot 2](/images/screenshot2.png)
+*Caption for Screenshot 2.*
 
 ## Installation and Usage
 
@@ -129,3 +131,7 @@ If you have any questions, suggestions, or need assistance with Academetrix, fee
 ### Shutting Down the Application
 
 To stop the Vue.js development server or the Spring Boot backend, simply press `Ctrl + C` in the respective terminal or command prompt windows.
+
+## 📞 Contact Us
+
+If you have any questions, suggestions, or need assistance with Academetrix, feel free to reach out to any member of our team!
