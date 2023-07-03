@@ -3,6 +3,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.CascadeType;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -12,7 +13,7 @@ import java.io.Serializable;
 public class CourseOfferingId implements Serializable {
 //    @Column(name = "code")
 //    private String code;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "course_code")
     private Course course;
 
