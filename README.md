@@ -4,7 +4,7 @@
   <img src="images/academetrix-logo.png" alt="Academetrix Logo" width="200">
 </p>
 
-<p align="center">A Student Result Management System: Web Apllication</p>
+<p align="center">A Student Result Management System: Web Application</p>
 
 ---
 
@@ -21,7 +21,7 @@ Academetrix is a powerful web application designed to manage and analyze undergr
 - Kalindu Wijerathna: **E/19/446**
 - Dhanushka De Silva: **E/18/059**
 
-### Group 07 (Project Idea 2)
+### Group 07 (Project Idea 1)
 
 - Dinuka Avinash: **E/19/029**
 - Anka Peeris: **E/19/275**
