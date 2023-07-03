@@ -50,7 +50,7 @@ INSERT INTO user (user_name, password, mail, honorific, initials, last_name, rol
 --admin pwd 123
 --e/19/275 456
 INSERT INTO student(user_name, academic_year, semester, dept_rank) VALUES
-    ("E/19/275", "2", "4", "50"),
+    ("E/19/275", "2", "4", "1"),
     ("E/10/001", "2", "4", "51");
 
 
