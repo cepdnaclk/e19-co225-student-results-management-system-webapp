@@ -72,11 +72,17 @@ Academetrix is a powerful web application designed to manage and analyze undergr
     
 ## Screenshots
 
-![Screenshot 1](/images/screenshot1.png)
-*Caption for Screenshot 1.*
+![Screenshot 1](/images/IMG-20230701-WA0023.jpg)
+*User Registration*
 
-![Screenshot 2](/images/screenshot2.png)
-*Caption for Screenshot 2.*
+![Screenshot 2](/images/IMG-20230701-WA0050.jpg)
+*Course Registration*
+
+![Screenshot 3](/images/IMG-20230701-WA0097.jpg)
+**Expected GPA Calculation**
+
+![Screenshot 4](/images/IMG-20230701-WA0173.jpg)
+**Assesment Upload**
 
 ## Tech Stack
 
