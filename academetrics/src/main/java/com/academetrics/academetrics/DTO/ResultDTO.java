@@ -1,8 +1,11 @@
 package com.academetrics.academetrics.DTO;
 
+import com.academetrics.academetrics.DTO.CourseOfferingDTO;
+
 public class ResultDTO {
     private String regNo;
     private String grade;
+    private CourseOfferingDTO courseOfferingDTO;
 
     // Constructors
     public ResultDTO() {

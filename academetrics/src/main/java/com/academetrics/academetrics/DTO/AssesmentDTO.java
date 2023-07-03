@@ -1,6 +1,6 @@
 package com.academetrics.academetrics.DTO;
 
-import com.academetrics.academetrics.Entity.CourseOffering;
+import com.academetrics.academetrics.DTO.CourseOfferingDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +13,6 @@ public class AssesmentDTO {
     private Integer assesId; // eg: assesment id
     private String type; // eg: lab/project/mid/quiz/tutorial/assignment
     private Integer max_marks; // Out of Total( x% ) eg: 10
-    private CourseOffering courseOffering; // regarding courseOffering eg: CO221-2023
+    private CourseOfferingDTO courseOfferingDTO; // regarding courseOffering eg: CO221-2023
 
 }
