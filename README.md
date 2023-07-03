@@ -30,27 +30,46 @@ Academetrix is a powerful web application designed to manage and analyze undergr
 
 ## 📋 Features
 
+**Allocated to Group 12**
 
-1. **User Registration:** Allow undergraduate students to register and create an account in the system.
+1. **Course Registration:** Enable batch administrators or student field administrators to register courses, providing course details such as course code, name, credits, and coordinator.
 
-2. **Course Registration:** Enable batch administrators or student field administrators to register courses, providing course details such as course code, name, credits, and coordinator.
+2. **Result Editing Restrictions:** Once the coordinator uploads the results, students cannot edit those results further (results in a closed state). Coordinator's results replace any manually entered results by students.
 
-3. **Grade Upload:** Allow administrators to request course coordinators to upload final grades for courses. Course coordinators can upload grades without login/signup or choose to sign up.
+3. **Grade Privacy:** Students can only view their own grades and cannot see others' grades.
 
-4. **Result Editing Restrictions:** Once the coordinator uploads the results, students cannot edit those results further (results in a closed state). Coordinator's results replace any manually entered results by students.
+4. **Required Exam Marks Calculation:** When continuous assessment marks are entered, students should be able to calculate the required exam marks needed to achieve an expected grade for a particular course.
 
-5. **Manual Result Entry:** If the coordinator hasn't uploaded the results, students can enter their total final confirmed marks or grades through the application (results in an open state).
+5. **Student Rank:** Based on the confirmed marks entered, the system should display the rank of the student within the batch and field.
 
-6. **Grade Privacy:** Students can only view their own grades and cannot see others' grades.
 
-7. **GPA Calculation:** Provide a feature for students to calculate their current Grade Point Average (GPA) based on the entered grades.
+**Allocated to Group 07**
 
-8. **Expected GPA Calculation:** Allow users to enter their expected GPA, and the system calculates the necessary grades for each semester to achieve the expected GPA in upcoming semesters.
+6. **User Registration:** Allow undergraduate students to register and create an account in the system.
 
-9. **Required Exam Marks Calculation:** When continuous assessment marks are entered, students should be able to calculate the required exam marks needed to achieve an expected grade for a particular course.
+7. **Grade Upload:** Allow administrators to request course coordinators to upload final grades for courses. Course coordinators can upload grades without login/signup or choose to sign up.
 
-10. **Student Rank:** Based on the confirmed marks entered, the system should display the rank of the student within the batch and field.
+8. **Manual Result Entry:** If the coordinator hasn't uploaded the results, students can enter their total final confirmed marks or grades through the application (results in an open state).
+   
+9. **GPA Calculation:** Provide a feature for students to calculate their current Grade Point Average (GPA) based on the entered grades.
 
+10. **Expected GPA Calculation:** Allow users to enter their expected GPA, and the system calculates the necessary grades for each semester to achieve the expected GPA in upcoming semesters.
+
+## 📋 Additional Implementations
+
+**Implemented By Group 12**
+
+11. JUnit Testing on Course/Assesment Handling
+  
+12. Spring Secure on Course/Assesment System
+
+**Implemented By Group 07**
+
+13. JUnit Testing on User/Results Handling
+  
+14. Spring Secure on User/Grade System
+
+    
 ## Screenshots
 
 ![Screenshot 1](/images/screenshot1.png)
