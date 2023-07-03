@@ -1,8 +1,11 @@
 package com.academetrics.academetrics.Service;
 
 import com.academetrics.academetrics.DTO.AssesmentDTO;
+import com.academetrics.academetrics.DTO.CourseOfferingDTO;
 import com.academetrics.academetrics.Entity.Assesment;
+import com.academetrics.academetrics.Entity.CourseOffering;
 import com.academetrics.academetrics.Repository.AssesmentRepository;
+import com.academetrics.academetrics.Repository.CourseOfferingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,23 +15,29 @@ import org.springframework.transaction.annotation.Transactional;
 public class AssesmentService {
 
     private final AssesmentRepository assesmentRepository;
+    private CourseOfferingService courseOfferingService;
 
     @Autowired
-    public AssesmentService(AssesmentRepository assesmentRepository) {
+    public AssesmentService(AssesmentRepository assesmentRepository, CourseOfferingService courseOfferingService) {
+
         this.assesmentRepository = assesmentRepository;
+        this.courseOfferingService = courseOfferingService;
     }
 
     public AssesmentDTO saveAssesment(AssesmentDTO assesmentDTO) {
         Assesment assesment = new Assesment();
         assesment.setType(assesmentDTO.getType());
+        assesment.setName(assesmentDTO.getName());
         assesment.setMax_marks(assesmentDTO.getMax_marks());
+        assesment.setCourseOffering(courseOfferingService.CourseOfferingDTOtoEntity(assesmentDTO.getCourseOfferingDTO()));
 
         assesmentRepository.save(assesment);
         return assesmentDTO;
     }
 
-    public Iterable<Assesment> getAllAssesments() {
-        return assesmentRepository.findAll();
+    public Iterable<Assesment> getAllAssesments(CourseOfferingDTO courseOfferingDTO) {
+        CourseOffering courseOffering = courseOfferingService.CourseOfferingDTOtoEntity(courseOfferingDTO);
+        return assesmentRepository.findAllByCourseOffering(courseOffering);
     }
 
     public AssesmentDTO updateAssesment(Integer assesmentId, AssesmentDTO updatedAssesmentDTO) {

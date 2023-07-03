@@ -1,6 +1,7 @@
 package com.academetrics.academetrics.Controller;
 
 import com.academetrics.academetrics.DTO.AssesmentDTO;
+import com.academetrics.academetrics.DTO.CourseOfferingDTO;
 import com.academetrics.academetrics.Entity.Assesment;
 import com.academetrics.academetrics.Service.AssesmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +24,10 @@ public class AssesmentController {
 
 
     //  Show All Assesments
-    @GetMapping("/") // Map only GET Requests
-    public @ResponseBody Iterable<Assesment> getAllAssesments() {
+    @PostMapping("/get") // Map only GET Requests
+    public @ResponseBody Iterable<Assesment> getAllAssesments(@RequestBody CourseOfferingDTO courseOfferingDTO) {
         // Returns a JSON or XML with the assesments
-        return assesmentService.getAllAssesments();
+        return assesmentService.getAllAssesments(courseOfferingDTO);
     }
 
     //  Update an Assesment
