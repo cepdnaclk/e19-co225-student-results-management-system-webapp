@@ -1,2 +1,28 @@
-# e19-co225-student-results-management-system-webapp
-Project 01 & Project 02 : Web Application
+# Student Result Management System
+
+Project Idea 01 and 02:
+The Student Result Management System is a web application designed to manage and analyze undergraduate students' marks. It provides a user-friendly interface for students, administrators, and course coordinators to efficiently handle the result management process.
+
+## Features
+
+1. **User Registration:** Allow undergraduate students to register and create an account in the system.
+
+2. **Course Registration:** Enable batch administrators or student field administrators to register courses, providing course details such as course code, name, credits, and coordinator.
+
+3. **Grade Upload:** Allow administrators to request course coordinators to upload final grades for courses. Course coordinators can upload grades without login/signup or choose to sign up.
+
+4. **Result Editing Restrictions:** Once the coordinator uploads the results, students cannot edit those results further (results in a closed state). Coordinator's results replace any manually entered results by students.
+
+5. **Manual Result Entry:** If the coordinator hasn't uploaded the results, students can enter their total final confirmed marks or grades through the application (results in an open state).
+
+6. **Grade Privacy:** Students can only view their own grades and cannot see others' grades.
+
+7. **GPA Calculation:** Provide a feature for students to calculate their current Grade Point Average (GPA) based on the entered grades.
+
+8. **Expected GPA Calculation:** Allow users to enter their expected GPA, and the system calculates the necessary grades for each semester to achieve the expected GPA in upcoming semesters.
+
+9. **Required Exam Marks Calculation:** When continuous assessment marks are entered, students should be able to calculate the required exam marks needed to achieve an expected grade for a particular course.
+
+10. **Student Rank:** Based on the confirmed marks entered, the system should display the rank of the student within the batch and field.
+
+## Installation and Usage
