@@ -34,7 +34,7 @@ public class ResultService {
         for (ResultDTO resultDTO : resultDTOs) {
             Result result = new Result();
             result.setRegNo(resultDTO.getRegNo());
-            result.setGrade(resultDTO.getGrade());
+//            result.setGrade(resultDTO.getGrade());
 
 
             results.add(result);
@@ -55,7 +55,7 @@ public class ResultService {
     private Result convertDTOToEntity(ResultDTO resultDTO) {
         Result result = new Result();
         result.setRegNo(resultDTO.getRegNo());
-        result.setGrade(resultDTO.getGrade());
+
         return result;
     }
 
