@@ -5,7 +5,7 @@ import router from "./router";
 import store from "./store";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap/dist/js/bootstrap.bundle';
+import "bootstrap/dist/js/bootstrap.bundle";
 import "bootstrap/dist/js/bootstrap.min.js";
 import axios from "axios";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -28,6 +28,7 @@ import {
 library.add(faUserSecret, faUserGraduate, faUser, faRightFromBracket);
 
 axios.defaults.baseURL = "http://localhost:8080/api";
+axios.defaults.headers["Content-Type"] = "application/json";
 
 createApp(App)
   .use(store)

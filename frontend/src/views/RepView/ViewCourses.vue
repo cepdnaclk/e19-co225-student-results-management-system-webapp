@@ -23,7 +23,7 @@
                         <div class="button-panel">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <button class="btn btn-sm-3 btn-view">Offer</button>
+                                    <button @click="offerCourse(course)" class="btn btn-sm-3 btn-view">Offer</button>
                                 </div>
                                 <div class="col-sm-4">
                                     <router-link :to="`/rep/editcourses/${course.code}`"
@@ -56,6 +56,22 @@ const getCourses = async () => {
     catch (err) {
         console.log(err)
     }
+}
+
+const offerCourse = (course) => {
+    const offercourse = {
+        year: new Date().getFullYear(),
+        courseDTO: {
+            ...course
+        }
+    }
+    axios.post("/course-offering/", offercourse)
+        .then((res) => {
+            console.log(res)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 }
 
 const deleteCourse = (courseCode) => {

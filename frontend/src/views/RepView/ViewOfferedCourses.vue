@@ -57,7 +57,7 @@ const getCoursesOffered = async () => {
 
 const deleteOfferedCourse = (courseCode) => {
     axios
-        .delete("/courseOffering/", {
+        .delete("/course-offering/", {
             data: {
                 Code: courseCode
             }
