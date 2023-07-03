@@ -111,6 +111,8 @@ Academetrix is a powerful web application designed to manage and analyze undergr
   Relational database management system.
 </p>
 
+## UI/UX Figma Design
+To get an in-depth look at our UI/UX design, please visit our [Figma](https://www.figma.com) design file at [Figma Design Link](https://www.figma.com/link-to-your-design](https://www.figma.com/file/0RmvXAizeRa0dsmwBqyXiA/Figma-basics?type=design&node-id=201%3A80&t=6JK4w3UyIpPGecPX-1)).
 
 ## Installation and Usage
 
