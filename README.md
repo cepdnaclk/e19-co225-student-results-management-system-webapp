@@ -4,7 +4,7 @@
   <img src="images/academetrix-logo.png" alt="Academetrix Logo" width="200">
 </p>
 
-<p align="center">A Student Result Management System</p>
+<p align="center">A Student Result Management System: Web Apllication</p>
 
 ---
 
