@@ -23,4 +23,20 @@ public interface StudentRepository extends JpaRepository<Student, String> {
     @Transactional
     @Query(value = "UPDATE student SET target_gpa=?2 WHERE user_name = ?1", nativeQuery = true)
     void updateTargetGpa(String userName, double targetGpa);
+
+    @Query(value = "SELECT " +
+            "row_number() OVER () AS 'rank' " +
+            "FROM " +
+            "(SELECT u.user_name " +
+            "FROM student as s " +
+            "INNER JOIN user as u " +
+            "ON (s.user_name = u.user_name) " +
+            "AND u.dept_id = ?1 " +
+            "AND s.academic_year = ?2 " +
+            "AND s.semester = ?3 " +
+            "ORDER BY s.gpa) as t " +
+            "WHERE " +
+            "t.user_name = ?4 " +
+            ";", nativeQuery = true)
+    Integer getDeptRank(String department, Integer academicYear, Integer semester, String userName);
 }

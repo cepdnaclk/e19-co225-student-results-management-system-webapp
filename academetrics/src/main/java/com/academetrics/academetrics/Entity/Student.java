@@ -1,5 +1,6 @@
 package com.academetrics.academetrics.Entity;
 
+import com.academetrics.academetrics.Globals;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,34 +24,34 @@ import java.util.Map;
 public class Student extends User {
     private int academicYear;
     private int semester;
-    @Transient
-    private double gpa;
+//    @Transient
+    private Double gpa = null;
     private Double targetGpa = null;
-    private int deptRank;
-
-
-//    @ManyToMany
-//    private Map<CourseOffering, Assesment> followingCourses = new HashMap<CourseOffering, Assesment>();
+//    @Transient
+//    private Integer deptRank;
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
     private List<StudentCourse> followingCourses = new ArrayList<>();
 
-    @PostLoad
-    public void calculateGPA() {
-        Map<String, Double> gpaOfGrade = new HashMap<>();
-        gpaOfGrade.put("A+", 4.0);
-        gpaOfGrade.put("A", 4.0);
-        gpaOfGrade.put("A-", 3.7);
-        gpaOfGrade.put("B+", 3.3);
-        gpaOfGrade.put("B", 3.0);
-        gpaOfGrade.put("B-", 2.7);
-        gpaOfGrade.put("C+", 2.3);
-        gpaOfGrade.put("C", 2.0);
-        gpaOfGrade.put("C-", 1.7);
-        gpaOfGrade.put("D+", 1.3);
-        gpaOfGrade.put("D", 1.8);
-        gpaOfGrade.put("E", 0.0);
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    private List<StudentAssesment> assesments = new ArrayList<>();
 
+    @PostLoad
+    public void postLoad() {
+        calculateGPA();
+    }
+
+    @PostUpdate
+    public void postUpdate(){
+        calculateGPA();
+    }
+
+//    @PostPersist
+//    public void postPersist(){
+//        calculateGPA();
+//    }
+
+    public void calculateGPA(){
         double sumCiGi = 0.0;
         double sumCi = 0.0;
 
@@ -58,13 +59,18 @@ public class Student extends User {
             String currGrade = studentCourse.getGrade();
 
             if (currGrade != null){
-                sumCiGi += studentCourse.getCourseOffering().getCourseOfferingId().getCourse().getCredits() * gpaOfGrade.get(currGrade);
+                sumCiGi += studentCourse.getCourseOffering().getCourseOfferingId().getCourse().getCredits() * Globals.gpaOfGrade.get(currGrade);
                 sumCi += studentCourse.getCourseOffering().getCourseOfferingId().getCourse().getCredits();
             }
         }
         this.gpa = sumCiGi / sumCi;
         this.gpa = Math.round(this.gpa * 100.0) / 100.0;
     }
+
+
+//    public void calculateDeptRank(){
+//
+//    }
 
     public int getTotalCredits(){
        int totalCredits = 0;
@@ -84,5 +90,17 @@ public class Student extends User {
         studentCourse.setCourseOffering(courseOffering);
         studentCourse.setGrade(null);
         followingCourses.add(studentCourse);
+    }
+
+    public boolean addCourseGrade(CourseOffering courseOffering, String grade){
+        for (StudentCourse studentCourse : this.followingCourses){
+            if (studentCourse.getCourseOffering() == courseOffering){
+                studentCourse.setGrade(grade);
+                // recalculate gpa
+                calculateGPA();
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -12,6 +12,6 @@ public class StudentProfileDTO {
     private int academicYear;
     private int semester;
     private double GPA;
-    private int deptRank;
+    private Integer deptRank;
     private Double targetGPA;
 }

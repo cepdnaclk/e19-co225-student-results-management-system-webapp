@@ -49,9 +49,9 @@ INSERT INTO user (user_name, password, mail, honorific, initials, last_name, rol
 
 --admin pwd 123
 --e/19/275 456
-INSERT INTO student(user_name, academic_year, semester, dept_rank) VALUES
-    ("E/19/275", "2", "4", "1"),
-    ("E/10/001", "2", "4", "51");
+INSERT INTO student(user_name, academic_year, semester, gpa) VALUES
+    ("E/19/275", "2", "4", "2.3"),
+    ("E/10/001", "2", "4", "3");
 
 
 INSERT INTO student_course (course_offering_course_code, course_offering_year, student_user_name, grade) VALUES

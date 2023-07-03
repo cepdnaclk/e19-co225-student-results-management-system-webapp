@@ -108,6 +108,15 @@ public class StudentController {
         }
     }
 
+    @PutMapping(value = "/course-result")
+    public ResponseEntity<?> putCourseGrade(){
+        try{
+            return ResponseEntity.status(200).body("ok");
+        }catch (Exception e){
+            return ResponseEntity.status(400).body(e.getMessage());
+        }
+    }
+
     // TODO: Add assignments to a list of students
     // TODO: Save expected gpa and sent expected results
 
