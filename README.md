@@ -10,16 +10,22 @@ Meet the Academetrix Team
 
 Group 12       
 
-Inesha Dissanayake:  **E/19/090**     
-Manodya Senevirathne:**E/19/366**     
-Kalindu Wijerathna:  **E/19/446**    
+Inesha Dissanayake:  **E/19/090**  
+
+Manodya Senevirathne:**E/19/366**   
+
+Kalindu Wijerathna:  **E/19/446**  
+
 Dhanushka De Silva:  **E/18/059**    
 
 Group 07  
 
 Dinuka Avinash:        **E/19/029**
+
 anka Peeris:           **E/19/275**
+
 Kavishka Rambukwella:  **E/19/309**
+
 Geethal Wickramasignhe:**E/19/436**
 
 ## Features
