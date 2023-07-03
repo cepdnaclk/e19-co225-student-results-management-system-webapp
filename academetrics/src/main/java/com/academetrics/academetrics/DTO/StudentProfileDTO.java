@@ -13,4 +13,5 @@ public class StudentProfileDTO {
     private int semester;
     private double GPA;
     private int deptRank;
+    private Double targetGPA;
 }

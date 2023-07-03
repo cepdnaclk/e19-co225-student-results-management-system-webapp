@@ -66,6 +66,17 @@ public class Student extends User {
         this.gpa = Math.round(this.gpa * 100.0) / 100.0;
     }
 
+    public int getTotalCredits(){
+       int totalCredits = 0;
+
+       if (!this.followingCourses.isEmpty()){
+           for (StudentCourse studentCourse : this.followingCourses){
+               totalCredits += studentCourse.getCourseOffering().getCourseOfferingId().getCourse().getCredits();
+           }
+       }
+
+       return totalCredits;
+    }
 
     public void addCourse(CourseOffering courseOffering){
         StudentCourse studentCourse = new StudentCourse();

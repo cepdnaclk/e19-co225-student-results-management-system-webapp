@@ -17,10 +17,7 @@ import com.academetrics.academetrics.Entity.CourseOfferingId;
 import com.academetrics.academetrics.Entity.CourseOffering;
 import com.academetrics.academetrics.Entity.Course;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @Transactional
@@ -82,6 +79,7 @@ public class StudentService {
         studentProfileDTO.setAcademicYear(student.getAcademicYear());
         studentProfileDTO.setGPA(student.getGpa());
         studentProfileDTO.setDeptRank(student.getDeptRank());
+        studentProfileDTO.setTargetGPA(student.getTargetGpa());
 
         return studentProfileDTO;
     }
@@ -93,6 +91,9 @@ public class StudentService {
         student.setAcademicYear(studentProfileDTO.getAcademicYear());
         student.setGpa(studentProfileDTO.getGPA());
         student.setDeptRank(studentProfileDTO.getDeptRank());
+        if (studentProfileDTO.getTargetGPA() != null){
+            student.setTargetGpa(studentProfileDTO.getTargetGPA());
+        }
 
         return student;
     }
@@ -135,11 +136,11 @@ public class StudentService {
         studentRepository.save(student);
     }
 
-    public List<StudentCourseDTO> getFollowingCourses(String userName){
+    public List<StudentCourseDTO> getFollowingCourses(String userName) throws Exception{
         Student student = studentRepository.findById(userName).orElse(null);
 
         if (student == null)
-            return null;
+            throw new Exception("Student not found");
 
         List<StudentCourseDTO> studentCourseDTOList = new ArrayList<>();
         if (!student.getFollowingCourses().isEmpty()){
@@ -160,5 +161,89 @@ public class StudentService {
             }
         }
         return studentCourseDTOList;
+    }
+
+    public void updateTargetGpa(String userName, Double targetGpa){
+        studentRepository.updateTargetGpa(userName, targetGpa);
+    }
+
+    public Map<String, String> getTargetResults (String userName) throws Exception{
+        Map<String, Double> gpaOfGrade = new HashMap<>();
+        gpaOfGrade.put("A+", 4.0);
+        gpaOfGrade.put("A", 4.0);
+        gpaOfGrade.put("A-", 3.7);
+        gpaOfGrade.put("B+", 3.3);
+        gpaOfGrade.put("B", 3.0);
+        gpaOfGrade.put("B-", 2.7);
+        gpaOfGrade.put("C+", 2.3);
+        gpaOfGrade.put("C", 2.0);
+        gpaOfGrade.put("C-", 1.7);
+        gpaOfGrade.put("D+", 1.3);
+        gpaOfGrade.put("D", 1.8);
+        gpaOfGrade.put("E", 0.0);
+
+        Map<String, String> targetResults = new HashMap<>();
+
+        Student student = studentRepository.findById(userName).orElse(null);
+
+        if (student == null)
+            throw new Exception("Student not found");
+
+        if (student.getTargetGpa() == null || student.getTargetGpa() < 0.0 || student.getTargetGpa() > 4.0 || student.getTargetGpa() < student.getGpa())
+            throw new Exception("Student has invalid target gpa");
+
+        // get current list of courses followed by the student and set target gpa to D;
+        Map<Course, String> currentCourses = new HashMap<>();
+
+        if(student.getFollowingCourses().isEmpty())
+            throw new Exception("Student doesn't follow any courses");
+
+        for (StudentCourse studentCourse : student.getFollowingCourses()){
+            if (studentCourse.getGrade() == null){
+                currentCourses.put(studentCourse.getCourseOffering().getCourseOfferingId().getCourse(), "D");
+            }
+        }
+
+        // check if target gpa is possible
+        double maxPossibleGpa = student.getGpa();
+        double maxCiGi = 0.0;
+
+        for (Course course : currentCourses.keySet()) {
+            maxCiGi += course.getCredits() * 4.0;
+        }
+
+        maxPossibleGpa += maxCiGi / student.getTotalCredits();
+        maxPossibleGpa = Math.round(maxPossibleGpa * 100.0) / 100.0;
+
+        if (student.getTargetGpa() > maxPossibleGpa)
+            throw new Exception("Achieving target GPA is impossible");
+
+
+
+        // each grade will be advanced until the target gpa is achieved
+        List<String> gradesInDescOrder = new ArrayList<>(Arrays.asList("D+", "C-", "C", "C+",
+                "B-", "B", "B+", "A-", "A", "A+"));
+
+        outerloop:
+        for (String nextGrade : gradesInDescOrder){
+            for (Course course : currentCourses.keySet()){
+                currentCourses.put(course, nextGrade);
+                double currGpa = student.getGpa();
+                double currCiGi = 0.0;
+                for (Course tempCourse : currentCourses.keySet()) {
+                    currCiGi += tempCourse.getCredits() * gpaOfGrade.get(currentCourses.get(tempCourse));
+                }
+                currGpa += currCiGi / student.getTotalCredits();
+                currGpa = Math.round(currGpa * 100.0) / 100.0;
+
+                if (currGpa >= student.getTargetGpa())
+                    break outerloop;
+            }
+        }
+
+        for (Course course : currentCourses.keySet()){
+            targetResults.put(course.getCode(), currentCourses.get(course));
+        }
+        return targetResults;
     }
 }

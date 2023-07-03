@@ -52,12 +52,6 @@ public class StudentController {
         }
     }
 
-    // TODO: Add courses to a list of students
-//    @PutMapping("/course")
-//    public ResponseEntity<?> addOfferingToStudents(@RequestBody){
-//
-//    }
-
     @PutMapping("/update-semester")
     public ResponseEntity<?> updateSemester(@RequestBody StudentSemesterUpdateDTO studentSemesterUpdateDTO){
         try{
@@ -84,12 +78,33 @@ public class StudentController {
 
     @GetMapping(value = "/view-courses", params={"userName"})
     public ResponseEntity<?> viewFollowingCourses(@RequestParam String userName){
-        List<StudentCourseDTO> studentCourseDTOList = studentService.getFollowingCourses(userName);
-        if (studentCourseDTOList == null){
-            return ResponseEntity.status(404).body("Student not found");
-        }
-        else{
+        try {
+            List<StudentCourseDTO> studentCourseDTOList = studentService.getFollowingCourses(userName);
+
             return ResponseEntity.status(200).body(studentCourseDTOList);
+        }catch (Exception e){
+            return ResponseEntity.status(400).body(e.getMessage());
+        }
+    }
+
+    @PutMapping(value="/target-gpa", params = {"userName", "targetGPA"})
+    public ResponseEntity<?> putTargetGpa(@RequestParam String userName, @RequestParam Double targetGPA){
+        try{
+            studentService.updateTargetGpa(userName, targetGPA);
+            return ResponseEntity.status(200).body("Target GPA updated");
+        }catch (Exception e)
+        {
+            return ResponseEntity.status(400).body(e.getMessage());
+        }
+    }
+
+     // Get the required results in the current semester by a get request
+    @GetMapping(value="/target-results", params={"userName"})
+    public ResponseEntity<?> getTargetResults(@RequestParam String userName){
+        try{
+           return ResponseEntity.status(200).body(studentService.getTargetResults(userName));
+        }catch (Exception e){
+            return ResponseEntity.status(400).body(e.getMessage());
         }
     }
 

@@ -18,4 +18,9 @@ public interface StudentRepository extends JpaRepository<Student, String> {
     @Transactional
     @Query(value = "UPDATE student SET academic_year=?2, semester=?3 WHERE user_name = ?1", nativeQuery = true)
     void updateStudentSemester(String userName, int academicYear, int semester);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE student SET target_gpa=?2 WHERE user_name = ?1", nativeQuery = true)
+    void updateTargetGpa(String userName, double targetGpa);
 }
