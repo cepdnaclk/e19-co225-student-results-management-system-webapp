@@ -29,16 +29,7 @@ public class CourseOfferingService {
 
     public void saveCourseOffering(CourseOfferingDTO courseOfferingDTO) {
         // Convert the CourseOfferingDTO to a CourseOffering entity
-        CourseOffering courseOffering = new CourseOffering();
-
-        // Create a new CourseOfferingId and set its properties from the DTO
-        CourseOfferingId courseOfferingId = new CourseOfferingId(courseRepository.findByCode(courseOfferingDTO.getCourseDTO().getCode()),courseOfferingDTO.getYear());
-//        courseOfferingId.setCourse(courseOfferingDTO.getCoursDTO());
-        courseOfferingId.setYear(courseOfferingDTO.getYear());
-        courseOfferingId.setCourse(courseRepository.findByCode(courseOfferingDTO.getCourseDTO().getCode()));
-
-        // Set the CourseOfferingId in the CourseOffering entity
-        courseOffering.setCourseOfferingId(courseOfferingId);
+        CourseOffering courseOffering = CourseOfferingDTOtoEntity(courseOfferingDTO);
 
         // Save the CourseOffering entity in the repository
         courseOfferingRepository.save(courseOffering);
@@ -75,6 +66,23 @@ public class CourseOfferingService {
     public void deleteCourseOffering(CourseOfferingDTO courseOfferingDTO) {
         CourseOfferingId courseOfferingId = new CourseOfferingId(courseRepository.findByCode(courseOfferingDTO.getCourseDTO().getCode()),courseOfferingDTO.getYear());
         courseOfferingRepository.deleteByCourseOfferingId(courseOfferingId);
+    }
+
+    public CourseOffering CourseOfferingDTOtoEntity(CourseOfferingDTO courseOfferingDTO) {
+        // Convert the CourseOfferingDTO to a CourseOffering entity
+        CourseOffering courseOffering = new CourseOffering();
+
+        // Create a new CourseOfferingId and set its properties from the DTO
+        CourseOfferingId courseOfferingId = new CourseOfferingId(courseRepository.findByCode(courseOfferingDTO.getCourseDTO().getCode()),courseOfferingDTO.getYear());
+//        courseOfferingId.setCourse(courseOfferingDTO.getCoursDTO());
+        courseOfferingId.setYear(courseOfferingDTO.getYear());
+        courseOfferingId.setCourse(courseRepository.findByCode(courseOfferingDTO.getCourseDTO().getCode()));
+
+        // Set the CourseOfferingId in the CourseOffering entity
+        courseOffering.setCourseOfferingId(courseOfferingId);
+
+        // Save the CourseOffering entity in the repository
+        return courseOffering;
     }
 
 }

@@ -13,6 +13,7 @@ public class Assesment {
  @Id
  @GeneratedValue(strategy = GenerationType.IDENTITY)
  private Integer assesId; // eg: assesment id
+ private String name;
  private String type; // eg: lab/project/mid/quiz/tutorial/assignment
  private Integer max_marks; // Out of Total( x% ) eg: 10
 

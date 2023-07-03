@@ -14,8 +14,8 @@
             <!-- row-cols-md-3 is used to control how many card in a row -->
             <div class="row row-cols-4 row-cols-md-3 g-4">
                 <div v-for="(courseOffered, index) in coursesOffered" :key="index" class="col">
-                    <div class="card" @click="editCourseOffered(courseOffered)">
-                        <div class="card-body">
+                    <div class="card">
+                        <div class="card-body" @click="editCourseOffered(courseOffered)">
                             <h5 class="card-title">{{ courseOffered.courseDTO.code }}</h5>
                             <p class="card-text">{{ courseOffered.courseDTO.name }}</p>
                             <h6>{{ courseOffered.year }}</h6>
@@ -40,12 +40,14 @@
 </template>
 
 <script setup>
-import router from "@/router";
-import store from "@/store";
 import axios from "axios";
 import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 const coursesOffered = ref([])
+const store = useStore()
+const router = useRouter()
 
 const getCoursesOffered = async () => {
     try {
@@ -77,7 +79,7 @@ const deleteOfferedCourse = (courseOffered) => {
 const editCourseOffered = (courseOffered) => {
     store.state.editingCourseOffered = courseOffered;
     setTimeout(() => {
-        router
+        router.push("/rep/offeredcoursesinner");
     })
 }
 
@@ -108,6 +110,10 @@ onMounted(async () => {
 
 .card h6 {
     font-size: 0.8rem;
+}
+
+.card .card-body {
+    cursor: pointer;
 }
 
 .btn {
