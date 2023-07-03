@@ -45,8 +45,10 @@
 <script setup>
 import axios from "axios";
 import { onMounted, ref } from "vue";
+import { useStore } from "vuex";
 
 const courses = ref([])
+const store = useStore()
 
 const getCourses = async () => {
     try {
@@ -67,10 +69,16 @@ const offerCourse = (course) => {
     }
     axios.post("/course-offering/", offercourse)
         .then((res) => {
-            console.log(res)
+            store.commit("addSuccess", res.data)
+            setTimeout(() => {
+                store.commit("removeSuccess")
+            }, 1000)
         })
         .catch((err) => {
-            console.log(err)
+            store.commit("addError", err.message)
+            setTimeout(() => {
+                store.commit("removeError")
+            }, 1000)
         })
 }
 

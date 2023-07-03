@@ -7,7 +7,7 @@
       <comp-success-alert v-if="store.state.sucList.length" :msg="store.state.sucList[0]" />
     </transition>
     <transition name="alert">
-      <comp-error-alert v-if="store.state.sucList.length" :msg="store.state.sucList[0]" />
+      <comp-error-alert v-if="store.state.errList.length" :msg="store.state.errList[0]" />
     </transition>
     <router-view />
   </div>

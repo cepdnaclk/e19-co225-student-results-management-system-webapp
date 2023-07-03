@@ -7,6 +7,7 @@ export default createStore({
     errList: [],
     username: "",
     role: "",
+    editingCourseOffered: {},
   },
   getters: {},
   mutations: {
@@ -15,6 +16,12 @@ export default createStore({
     },
     removeSuccess(state) {
       state.sucList.splice(0, 1);
+    },
+    addError(state, msg) {
+      state.errList.push(msg);
+    },
+    removeError(state) {
+      state.errList.splice(0, 1);
     },
   },
   actions: {},
