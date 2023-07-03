@@ -32,7 +32,7 @@ public class CourseOfferingService {
         CourseOffering courseOffering = new CourseOffering();
 
         // Create a new CourseOfferingId and set its properties from the DTO
-        CourseOfferingId courseOfferingId = new CourseOfferingId();
+        CourseOfferingId courseOfferingId = new CourseOfferingId(courseRepository.findByCode(courseOfferingDTO.getCourseDTO().getCode()),courseOfferingDTO.getYear());
 //        courseOfferingId.setCourse(courseOfferingDTO.getCoursDTO());
         courseOfferingId.setYear(courseOfferingDTO.getYear());
         courseOfferingId.setCourse(courseRepository.findByCode(courseOfferingDTO.getCourseDTO().getCode()));
@@ -72,7 +72,8 @@ public class CourseOfferingService {
 //        }
 //        return updatedCourseOfferingDTO;
 //    }
-    public void deleteCourseOffering(CourseOfferingId courseOfferingId) {
+    public void deleteCourseOffering(CourseOfferingDTO courseOfferingDTO) {
+        CourseOfferingId courseOfferingId = new CourseOfferingId(courseRepository.findByCode(courseOfferingDTO.getCourseDTO().getCode()),courseOfferingDTO.getYear());
         courseOfferingRepository.deleteByCourseOfferingId(courseOfferingId);
     }
 

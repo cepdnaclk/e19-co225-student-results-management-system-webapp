@@ -19,6 +19,14 @@ public class CourseOfferingId implements Serializable {
     @Column(name = "year")
     private Integer year;
 
+    public CourseOfferingId() {
+    }
+
+    public CourseOfferingId(Course course, Integer year) {
+        this.course = course;
+        this.year = year;
+    }
+
     public Course getCourse() {
         return this.course;
     }

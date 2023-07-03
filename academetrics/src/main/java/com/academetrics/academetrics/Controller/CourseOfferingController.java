@@ -20,7 +20,6 @@ public class CourseOfferingController {
      //Insert new Course Offering
     @PostMapping("/") // Map ONLY POST Requests
     public String addNewCourseOffering(@RequestBody CourseOfferingDTO courseOfferingDTO) {
-        System.out.println(courseOfferingDTO);
         courseOfferingService.saveCourseOffering(courseOfferingDTO);
         return "Course Offering Saved";
     }
@@ -42,9 +41,9 @@ public class CourseOfferingController {
 //    }
 
     @DeleteMapping("/")
-    public String deleteCourseOffering(@RequestParam String code, CourseOfferingId courseOfferingId){
+    public String deleteCourseOffering(@RequestBody CourseOfferingDTO courseOfferingDTO){
         // check composite key for Course code and year
-        courseOfferingService.deleteCourseOffering(courseOfferingId);
+        courseOfferingService.deleteCourseOffering(courseOfferingDTO);
         return "Course Offering Deleted Successfully";
     }
 
