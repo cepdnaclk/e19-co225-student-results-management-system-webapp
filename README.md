@@ -59,6 +59,12 @@ Academetrix is a powerful web application designed to manage and analyze undergr
 ![Screenshot 2](/images/screenshot2.png)
 *Caption for Screenshot 2.*
 
+## Tech Stack
+
+- ![Spring Boot](/images/spring-boot-logo.png) Spring Boot: Backend framework for Java development.
+- ![Vue.js](/images/vuejs-logo.png) Vue.js: Frontend JavaScript framework.
+- ![MySQL](/images/mysql-logo.png) MySQL: Relational database management system.
+  
 ## Installation and Usage
 
 ### Prerequisites
