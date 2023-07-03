@@ -14,21 +14,21 @@
             <!-- row-cols-md-3 is used to control how many card in a row -->
             <div class="row row-cols-4 row-cols-md-3 g-4">
                 <div v-for="(courseOffered, index) in coursesOffered" :key="index" class="col">
-                    <div class="card">
+                    <div class="card" @click="editCourseOffered(courseOffered)">
                         <div class="card-body">
-                            <h5 class="card-title">{{ courseOffered.course.code }}</h5>
-                            <p class="card-text">{{ courseOffered.course.name }}</p>
+                            <h5 class="card-title">{{ courseOffered.courseDTO.code }}</h5>
+                            <p class="card-text">{{ courseOffered.courseDTO.name }}</p>
                             <h6>{{ courseOffered.year }}</h6>
                         </div>
                         <div class="button-panel">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <router-link :to="`/rep/editcourses/${courseOffered.course.code}`"
+                                    <router-link :to="`/rep/editcourses/${courseOffered.courseDTO.code}`"
                                         class="btn btn-sm-3 btn-edit">Edit</router-link>
                                 </div>
                                 <div class="col-sm-6">
                                     <button class="btn btn-sm-3 btn-delete"
-                                        @click="deleteOfferedCourse(course.code)">Delete</button>
+                                        @click="deleteOfferedCourse(courseOffered)">Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -40,6 +40,8 @@
 </template>
 
 <script setup>
+import router from "@/router";
+import store from "@/store";
 import axios from "axios";
 import { onMounted, ref } from "vue";
 
@@ -47,7 +49,7 @@ const coursesOffered = ref([])
 
 const getCoursesOffered = async () => {
     try {
-        const res = await axios.get("/courseOffering/");
+        const res = await axios.get("/course-offering/");
         return res.data
     }
     catch (err) {
@@ -55,11 +57,12 @@ const getCoursesOffered = async () => {
     }
 }
 
-const deleteOfferedCourse = (courseCode) => {
+const deleteOfferedCourse = (courseOffered) => {
     axios
         .delete("/course-offering/", {
             data: {
-                Code: courseCode
+                year: courseOffered.year,
+                courseDTO: courseOffered.courseDTO
             }
         })
         .then((res) => {
@@ -69,6 +72,13 @@ const deleteOfferedCourse = (courseCode) => {
         .catch((err) => {
             console.log(err)
         })
+}
+
+const editCourseOffered = (courseOffered) => {
+    store.state.editingCourseOffered = courseOffered;
+    setTimeout(() => {
+        router
+    })
 }
 
 onMounted(async () => {
