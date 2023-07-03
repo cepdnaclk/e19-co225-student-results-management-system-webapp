@@ -6,6 +6,7 @@ import com.academetrics.academetrics.Entity.Course;
 import com.academetrics.academetrics.Entity.CourseOffering;
 import com.academetrics.academetrics.Entity.CourseOfferingId;
 import com.academetrics.academetrics.Repository.CourseOfferingRepository;
+import com.academetrics.academetrics.Repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,10 +19,12 @@ import java.util.List;
 public class CourseOfferingService {
 
     private final CourseOfferingRepository courseOfferingRepository;
+    private CourseRepository courseRepository;
 
     @Autowired
-    public CourseOfferingService(CourseOfferingRepository courseOfferingRepository) {
+    public CourseOfferingService(CourseOfferingRepository courseOfferingRepository, CourseRepository courseRepository) {
         this.courseOfferingRepository = courseOfferingRepository;
+        this.courseRepository = courseRepository;
     }
 
     public void saveCourseOffering(CourseOfferingDTO courseOfferingDTO) {
@@ -32,6 +35,7 @@ public class CourseOfferingService {
         CourseOfferingId courseOfferingId = new CourseOfferingId();
 //        courseOfferingId.setCourse(courseOfferingDTO.getCoursDTO());
         courseOfferingId.setYear(courseOfferingDTO.getYear());
+        courseOfferingId.setCourse(courseRepository.findByCode(courseOfferingDTO.getCourseDTO().getCode()));
 
         // Set the CourseOfferingId in the CourseOffering entity
         courseOffering.setCourseOfferingId(courseOfferingId);

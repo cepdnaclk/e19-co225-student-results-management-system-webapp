@@ -12,5 +12,4 @@ public class CourseOfferingDTO {
     private Integer year; //      2021
     private CourseDTO courseDTO;
 
-
 }
