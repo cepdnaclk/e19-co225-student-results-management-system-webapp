@@ -1,7 +1,7 @@
-import com.academetrics.Controller.CourseController;
-import com.academetrics.DTO.CourseDTO;
-import com.academetrics.Entity.Course;
-import com.academetrics.Service.CourseService;
+import com.academetrics.academetrics.Controller.CourseController;
+import com.academetrics.academetrics.DTO.CourseDTO;
+import com.academetrics.academetrics.Entity.Course;
+import com.academetrics.academetrics.Service.CourseService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -35,7 +35,7 @@ public class CourseControllerTests {
     @Test
     public void testAddNewCourse() throws Exception {
         CourseDTO courseDTO = new CourseDTO();
-        courseDTO.setCourseName("English");
+        courseDTO.setName("English");
 
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/course/addNewCourse")
                         .contentType(MediaType.APPLICATION_JSON)
