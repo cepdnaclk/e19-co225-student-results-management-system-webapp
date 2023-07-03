@@ -1,6 +1,7 @@
 # Student Result Management System
 
 Project Idea 01 and 02:
+
 The Student Result Management System is a web application designed to manage and analyze undergraduate students' marks. It provides a user-friendly interface for students, administrators, and course coordinators to efficiently handle the result management process.
 
 ## Features
