@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class CourseOfferingId implements Serializable {
 //    @Column(name = "code")
 //    private String code;
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "course_code")
     private Course course;
 
