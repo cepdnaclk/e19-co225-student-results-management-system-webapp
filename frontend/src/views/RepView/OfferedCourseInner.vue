@@ -11,145 +11,9 @@
                     <div class="card">
 
                         <!-- Activity complete look -->
-                        <div class="card-body">
-
-                            <div class="row">
-
-                                <div class="col-3">
-                                    <h5 class="card-title">Lab</h5>
-                                </div>
-                                <div class="col-2">
-                                    <button class="btn btn-sm-3 btn-assessment-title" href="#">Edit</button>
-                                </div>
-                                <div class="col-3">
-                                    <button class="btn btn-sm-3 btn-assessment-title" href="#">Delete</button>
-                                </div>
-                                <div class="col-2">
-                                    <h5 class="card-text text-end">Allocated % : 30%</h5>
-                                </div>
-                            </div>
-
-                            <hr class="horizontal-line">
-
-                            <div class="row">
-                                <div class="col-5">
-
-                                    <h5>Lab 1 : Name </h5>
-                                </div>
-
-                                <div class="col-2">
-                                    <button class="btn btn-sm-3 btn-assessment-title" href="#">Edit</button>
-                                </div>
-
-                                <div class="col-2">
-                                    <button class="btn btn-sm-3 btn-assessment-title" href="#">Delete</button>
-                                </div>
-
-                                <div class="col-2">
-                                    <button class="btn btn-sm-3 btn-activity-title" href="#">Request Results</button>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-5">
-
-                                    <h5>Lab 2 : Name </h5>
-
-                                </div>
-
-                                <div class="col-2">
-                                    <button class="btn btn-sm-3 btn-assessment-title" href="#">Edit</button>
-                                </div>
-
-                                <div class="col-2">
-                                    <button class="btn btn-sm-3 btn-assessment-title" href="#">Delete</button>
-                                </div>
-
-                                <div class="col-2">
-                                    <div class="card-body cb-left">
-                                        <h5 class="text-end">Results uploaded</h5>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <button class="btn btn-sm-3 btn-add-item" href="#">+ Add item</button>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- adding activity into assessments -->
-
-                        <div class="card-body">
-
-                            <div class="row">
-
-                                <div class="col-3">
-                                    <h5 class="card-title">Assignments</h5>
-                                </div>
-
-                                <div class="col-7">
-                                    <h5 class="card-text text-end">Allocated % : xx%</h5>
-                                </div>
-
-                            </div>
-
-                            <hr class="horizontal-line">
-
-                            <form class="row">
-
-                                <label for="activity_name" class="col-sm-2 col-form-label text-field">Activity Name</label>
-                                <div class="col-3">
-                                    <input type="text" class="form-control" id="activity_name" placeholder="Enter name">
-                                </div>
-
-                                <label for="max_marks" class="col-sm-2 col-form-label text-field">Max Marks</label>
-                                <div class="col-2">
-                                    <input type="text" class="form-control" id="max_marks" placeholder="Max Marks">
-                                </div>
-
-                                <div class="col-1">
-                                    <button class="btn btn-sm-3 btn-save-item" href="#">Save item</button>
-                                </div>
-
-                            </form>
-
-                        </div>
-
-                        <!-- after adding main items (labs, Assignments) not added sub items (lab1, lab2) -->
-
-                        <div class="card-body">
-
-                            <div class="row">
-
-                                <div class="col-3">
-                                    <h5 class="card-title">Assignments</h5>
-                                </div>
-                                <div class="col-2">
-                                    <button class="btn btn-sm-3 btn-assessment-title" href="#">Edit</button>
-                                </div>
-                                <div class="col-3">
-                                    <button class="btn btn-sm-3 btn-assessment-title" href="#">Delete</button>
-                                </div>
-                                <div class="col-2">
-                                    <h5 class="card-text text-end">Allocated % : xx%</h5>
-                                </div>
-                            </div>
-
-                            <hr class="horizontal-line">
-
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <button class="btn btn-sm-3 btn-add-item" href="#">+ Add item</button>
-                                </div>
-                            </div>
-                        </div>
-
+                        <comp-assessment-type @changed="loadAssesments"
+                            v-for="(assesment, key, index) in groupedAssessments" :assesment="assesment" :key="index"
+                            :type="key" />
                         <!-- after clicking add item button -->
 
                         <div class="card-body">
@@ -159,36 +23,19 @@
                                 <label for="assessment_name" class="col-sm-2 col-form-label text-field">Activity
                                     Name</label>
                                 <div class="col-sm">
-                                    <input type="text" class="form-control" id="assessment_name" placeholder="Enter name">
-                                </div>
-
-                                <label for="allocated_percentage" class="col-sm-2 col-form-label text-field">Allocated
-                                    %</label>
-                                <div class="col-sm">
-                                    <input type="text" class="form-control" id="allocated_percentage" placeholder="xx%">
+                                    <input type="text" class="form-control" id="assessment_name" placeholder="Enter name"
+                                        v-model="typeName">
                                 </div>
                             </form>
 
                             <hr class="horizontal-line">
 
                             <div class="col-sm-4">
-                                <button class="btn btn-sm-3 btn-add-item" href="#">Save item</button>
+                                <button class="btn btn-sm-3 btn-add-item" @click="addType()">Save item</button>
                             </div>
 
                         </div>
-
-                        <!-- add item (main) button -->
-
-                        <div class="card-body">
-
-                            <div class="col-sm-4">
-                                <button class="btn btn-sm-3 btn-add-item" href="#">+ Add item</button>
-                            </div>
-
-                        </div>
-
                     </div>
-
                 </div>
                 <!-- End exam section - before results -->
                 <div class="col">
@@ -241,6 +88,53 @@
         </div>
     </div>
 </template>
+
+<script setup>
+import { useStore } from "vuex";
+import axios from "axios";
+import { onMounted, ref } from "vue";
+import compAssessmentType from "@/components/compAssessmentType.vue";
+import { useRouter } from "vue-router";
+
+const store = useStore()
+const router = useRouter()
+const groupedAssessments = ref({})
+const typeName = ref()
+
+const addType = () => {
+    groupedAssessments.value[typeName.value] = []
+}
+
+const loadAssesments = async () => {
+    try {
+        const res = await axios.post("/assesment/get", {
+            ...store.state.editingCourseOffered,
+        })
+        console.log(res)
+        groupedAssessments.value = res.data.reduce((result, assessment) => {
+            const type = assessment.type;
+
+            if (!result[type]) {
+                result[type] = [];
+            }
+
+            result[type].push(assessment);
+
+            return result;
+        }, {});
+
+        groupedAssessments.value = { ...groupedAssessments.value }
+    }
+    catch (err) {
+        console.log(err)
+        router.push("/rep/viewofferedcourses")
+    }
+}
+
+onMounted(() => {
+    loadAssesments()
+})
+</script>
 
 <style scoped>
 .rep-courseofferinner {
