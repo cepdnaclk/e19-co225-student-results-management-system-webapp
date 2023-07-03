@@ -74,7 +74,7 @@ Academetrix is a powerful web application designed to manage and analyze undergr
 3. Execute the following command to clone the repository:
 
    ```
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/cepdnaclk/e19-co225-student-results-management-system-webapp.git
    ```
 
 ### Frontend (Vue.js) Setup
@@ -82,7 +82,7 @@ Academetrix is a powerful web application designed to manage and analyze undergr
 1. Navigate to the frontend directory:
 
    ```
-   cd your-repository/frontend
+   cd e19-co225-student-results-management-system-webapp/frontend
    ```
 
 2. Install the dependencies using npm:
@@ -105,7 +105,7 @@ Academetrix is a powerful web application designed to manage and analyze undergr
 2. Navigate to the backend directory:
 
    ```
-   cd your-repository/backend
+   cd e19-co225-student-results-management-system-webapp/backend
    ```
 
 3. Build the Java Spring Boot application using Maven:
