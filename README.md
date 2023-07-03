@@ -72,18 +72,46 @@ Academetrix is a powerful web application designed to manage and analyze undergr
     
 ## Screenshots
 
-![Screenshot 1](/images/screenshot1.png)
-*Caption for Screenshot 1.*
+*User Registration*
+![Screenshot 1](/images/IMG-20230701-WA0023.jpg)
 
-![Screenshot 2](/images/screenshot2.png)
-*Caption for Screenshot 2.*
+*Course Registration*
+![Screenshot 2](/images/IMG-20230701-WA0050.jpg)
+
+**Expected GPA Calculation**
+![Screenshot 3](/images/IMG-20230701-WA0097.jpg)
+
+**Assesment Upload**
+![Screenshot 4](/images/IMG-20230701-WA0173.jpg)
+
 
 ## Tech Stack
 
-- ![Spring Boot](/images/spring-boot-logo.png) Spring Boot: Backend framework for Java development.
-- ![Vue.js](/images/vuejs-logo.png) Vue.js: Frontend JavaScript framework.
-- ![MySQL](/images/mysql-logo.png) MySQL: Relational database management system.
-  
+<p align="center">
+  <img src="/images/spring-boot-logo.png" alt="Spring Boot" width="200">
+  <br>
+  <b>Spring Boot</b>
+  <br>
+  Backend framework for Java development.
+</p>
+
+<p align="center">
+  <img src="/images/vuejs-logo.png" alt="Vue.js" width="200">
+  <br>
+  <b>Vue.js</b>
+  <br>
+  Frontend JavaScript framework.
+</p>
+
+<p align="center">
+  <img src="/images/mysql-logo.png" alt="MySQL" width="200">
+  <br>
+  <b>MySQL</b>
+  <br>
+  Relational database management system.
+</p>
+
+
 ## Installation and Usage
 
 ### Prerequisites

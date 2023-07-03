@@ -4,6 +4,7 @@ import com.academetrics.academetrics.DTO.*;
 import com.academetrics.academetrics.Entity.Student;
 import com.academetrics.academetrics.Entity.StudentCourse;
 import com.academetrics.academetrics.Entity.User;
+import com.academetrics.academetrics.Globals;
 import com.academetrics.academetrics.Repository.CourseOfferingRepository;
 import com.academetrics.academetrics.Repository.CourseRepository;
 import com.academetrics.academetrics.Repository.StudentRepository;
@@ -31,7 +32,13 @@ public class StudentService {
 
     public StudentProfileDTO getStudentDetails(String userName){
         Student student = studentRepository.findById(userName).orElse(null);
-        return studentEntityToProfileDTO(student);
+        StudentProfileDTO studentProfileDTO =  studentEntityToProfileDTO(student);
+        studentProfileDTO.setDeptRank(studentRepository.getDeptRank(student.getDepartment().getId(),
+                student.getAcademicYear(),
+                student.getSemester(),
+                student.getUserName()));
+
+        return studentProfileDTO;
     }
 
 //    public Double getGPA(String userName){
@@ -78,7 +85,7 @@ public class StudentService {
         studentProfileDTO.setSemester(student.getSemester());
         studentProfileDTO.setAcademicYear(student.getAcademicYear());
         studentProfileDTO.setGPA(student.getGpa());
-        studentProfileDTO.setDeptRank(student.getDeptRank());
+//        studentProfileDTO.setDeptRank(student.getDeptRank());
         studentProfileDTO.setTargetGPA(student.getTargetGpa());
 
         return studentProfileDTO;
@@ -90,7 +97,7 @@ public class StudentService {
         student.setSemester(studentProfileDTO.getSemester());
         student.setAcademicYear(studentProfileDTO.getAcademicYear());
         student.setGpa(studentProfileDTO.getGPA());
-        student.setDeptRank(studentProfileDTO.getDeptRank());
+//        student.setDeptRank(studentProfileDTO.getDeptRank());
         if (studentProfileDTO.getTargetGPA() != null){
             student.setTargetGpa(studentProfileDTO.getTargetGPA());
         }
@@ -168,19 +175,19 @@ public class StudentService {
     }
 
     public Map<String, String> getTargetResults (String userName) throws Exception{
-        Map<String, Double> gpaOfGrade = new HashMap<>();
-        gpaOfGrade.put("A+", 4.0);
-        gpaOfGrade.put("A", 4.0);
-        gpaOfGrade.put("A-", 3.7);
-        gpaOfGrade.put("B+", 3.3);
-        gpaOfGrade.put("B", 3.0);
-        gpaOfGrade.put("B-", 2.7);
-        gpaOfGrade.put("C+", 2.3);
-        gpaOfGrade.put("C", 2.0);
-        gpaOfGrade.put("C-", 1.7);
-        gpaOfGrade.put("D+", 1.3);
-        gpaOfGrade.put("D", 1.8);
-        gpaOfGrade.put("E", 0.0);
+//        Map<String, Double> gpaOfGrade = new HashMap<>();
+//        gpaOfGrade.put("A+", 4.0);
+//        gpaOfGrade.put("A", 4.0);
+//        gpaOfGrade.put("A-", 3.7);
+//        gpaOfGrade.put("B+", 3.3);
+//        gpaOfGrade.put("B", 3.0);
+//        gpaOfGrade.put("B-", 2.7);
+//        gpaOfGrade.put("C+", 2.3);
+//        gpaOfGrade.put("C", 2.0);
+//        gpaOfGrade.put("C-", 1.7);
+//        gpaOfGrade.put("D+", 1.3);
+//        gpaOfGrade.put("D", 1.8);
+//        gpaOfGrade.put("E", 0.0);
 
         Map<String, String> targetResults = new HashMap<>();
 
@@ -219,7 +226,6 @@ public class StudentService {
             throw new Exception("Achieving target GPA is impossible");
 
 
-
         // each grade will be advanced until the target gpa is achieved
         List<String> gradesInDescOrder = new ArrayList<>(Arrays.asList("D+", "C-", "C", "C+",
                 "B-", "B", "B+", "A-", "A", "A+"));
@@ -231,7 +237,7 @@ public class StudentService {
                 double currGpa = student.getGpa();
                 double currCiGi = 0.0;
                 for (Course tempCourse : currentCourses.keySet()) {
-                    currCiGi += tempCourse.getCredits() * gpaOfGrade.get(currentCourses.get(tempCourse));
+                    currCiGi += tempCourse.getCredits() * Globals.gpaOfGrade.get(currentCourses.get(tempCourse));
                 }
                 currGpa += currCiGi / student.getTotalCredits();
                 currGpa = Math.round(currGpa * 100.0) / 100.0;
