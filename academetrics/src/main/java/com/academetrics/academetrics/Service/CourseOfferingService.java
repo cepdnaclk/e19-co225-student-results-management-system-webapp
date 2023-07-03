@@ -24,6 +24,21 @@ public class CourseOfferingService {
         this.courseOfferingRepository = courseOfferingRepository;
     }
 
+    public void saveCourseOffering(CourseOfferingDTO courseOfferingDTO) {
+        // Convert the CourseOfferingDTO to a CourseOffering entity
+        CourseOffering courseOffering = new CourseOffering();
+
+        // Create a new CourseOfferingId and set its properties from the DTO
+        CourseOfferingId courseOfferingId = new CourseOfferingId();
+//        courseOfferingId.setCourse(courseOfferingDTO.getCoursDTO());
+        courseOfferingId.setYear(courseOfferingDTO.getYear());
+
+        // Set the CourseOfferingId in the CourseOffering entity
+        courseOffering.setCourseOfferingId(courseOfferingId);
+
+        // Save the CourseOffering entity in the repository
+        courseOfferingRepository.save(courseOffering);
+    }
     public List<CourseOfferingDTO> getAllCourseOfferings() {
         List<CourseOfferingDTO> courseOfferings = new ArrayList<CourseOfferingDTO>();
         for (CourseOffering courseOffering : courseOfferingRepository.findAll()){
@@ -32,7 +47,7 @@ public class CourseOfferingService {
             courseDTO.setCode(courseOffering.getCourseOfferingId().getCourse().getCode());
             courseDTO.setName(courseOffering.getCourseOfferingId().getCourse().getName());
             courseDTO.setCredits(courseOffering.getCourseOfferingId().getCourse().getCredits());
-            courseOfferingDTO.setCourse(courseDTO);
+            courseOfferingDTO.setCourseDTO(courseDTO);
             courseOfferingDTO.setYear(courseOffering.getCourseOfferingId().getYear());
             courseOfferings.add(courseOfferingDTO);
         }

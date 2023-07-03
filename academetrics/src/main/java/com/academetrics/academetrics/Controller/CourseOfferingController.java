@@ -17,12 +17,12 @@ public class CourseOfferingController {
     @Autowired
     private CourseOfferingService courseOfferingService;
 
-    // Insert new Course Offering
-//    @PostMapping("/") // Map ONLY POST Requests
-//    public String addNewCourseOffering(@RequestBody CourseOfferingDTO courseOfferingDTO) {
-//        courseOfferingService.saveCourseOffering(courseOfferingDTO);
-//        return "Course Offering Saved";
-//    }
+     //Insert new Course Offering
+    @PostMapping("/") // Map ONLY POST Requests
+    public String addNewCourseOffering(@RequestBody CourseOfferingDTO courseOfferingDTO) {
+        courseOfferingService.saveCourseOffering(courseOfferingDTO);
+        return "Course Offering Saved";
+    }
 
 
     //  Show All Course Offerings

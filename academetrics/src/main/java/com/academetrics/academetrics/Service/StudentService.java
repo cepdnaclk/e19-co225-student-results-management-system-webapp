@@ -151,7 +151,7 @@ public class StudentService {
                 courseDTO.setName(course.getName());
                 courseDTO.setCredits(course.getCredits());
                 CourseOfferingDTO courseOfferingDTO = new CourseOfferingDTO();
-                courseOfferingDTO.setCourse(courseDTO);
+                courseOfferingDTO.setCourseDTO(courseDTO);
                 courseOfferingDTO.setYear(studentCourse.getCourseOffering().getCourseOfferingId().getYear());
                 StudentCourseDTO studentCourseDTO = new StudentCourseDTO();
                 studentCourseDTO.setCourseOffering(courseOfferingDTO);

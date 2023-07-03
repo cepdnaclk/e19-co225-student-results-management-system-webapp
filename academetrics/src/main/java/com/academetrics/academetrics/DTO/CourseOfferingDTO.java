@@ -10,5 +10,7 @@ import lombok.NoArgsConstructor;
 public class CourseOfferingDTO {
     
     private Integer year; //      2021
-    private CourseDTO course;
+    private CourseDTO courseDTO;
+
+
 }
