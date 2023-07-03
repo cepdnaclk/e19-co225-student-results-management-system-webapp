@@ -22,6 +22,11 @@ public class AssesmentController {
         return "Assesment Saved";
     }
 
+    @GetMapping("/")
+    public Assesment getAssesment(@RequestParam Integer id){
+        return assesmentService.getAssesment(id);
+    }
+
 
     //  Show All Assesments
     @PostMapping("/get") // Map only GET Requests

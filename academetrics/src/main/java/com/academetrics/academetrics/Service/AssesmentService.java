@@ -40,6 +40,10 @@ public class AssesmentService {
         return assesmentRepository.findAllByCourseOffering(courseOffering);
     }
 
+    public Assesment getAssesment(Integer id){
+        return assesmentRepository.findByAssesId(id);
+    }
+
     public AssesmentDTO updateAssesment(Integer assesmentId, AssesmentDTO updatedAssesmentDTO) {
         Assesment existingAssesment = assesmentRepository.findByAssesId(assesmentId);
         if (existingAssesment != null) {

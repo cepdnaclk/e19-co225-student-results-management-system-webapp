@@ -5,7 +5,7 @@ import com.academetrics.academetrics.DTO.CourseOfferingDTO;
 public class ResultDTO {
     private String regNo;
     private String grade;
-    private CourseOfferingDTO courseOfferingDTO;
+    private AssesmentDTO assesmentDTO;
 
     // Constructors
     public ResultDTO() {

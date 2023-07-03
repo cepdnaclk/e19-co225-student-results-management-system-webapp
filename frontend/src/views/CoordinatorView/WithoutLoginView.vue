@@ -1,109 +1,74 @@
 <template>
     <div class="coor-no-log">
-        <Logout :show-additional-item="false"></Logout>
         <img class="bg" src="@/assets/bg.png" alt="">
-        <div class="container body">
+        <form class="container body" @submit.prevent="submit">
             <h5 class="mb-4">You have been invited to upload the following results of [course_code-year-course_name]</h5>
             <div class="row justify-content-center mb-2">
                 <div class="col-lg-9">
                     <div class="card">
                         <div class="card-body d-flex justify-content-between align-items-center">
-                            Result item
-                            <a class="btn btn-light" href="#" role="button">Upload</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center mb-2">
-                <div class="col-lg-9">
-                    <div class="card">
-                        <div class="card-body d-flex justify-content-between align-items-center">
-                        Lab 1: HTML Web Page Designing
-                        <a class="btn btn-light" href="#" role="button">Upload</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center mb-2">
-                <div class="col-lg-9">
-                    <div class="card">
-                        <div class="card-body d-flex justify-content-between align-items-center">
-                            Assignment 2: ER Diagrams
-                            <a class="btn btn-light" href="#" role="button">Upload</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center mb-2">
-                <div class="col-lg-9">
-                    <div class="card">
-                        <div class="card-body d-flex justify-content-between align-items-center">
-                            Enter your targeted GPA for semester 4
-                            <a class="btn btn-light" href="#" role="button">Upload</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center mb-2">
-                <div class="col-lg-9">
-                    <div class="card">
-                        <div class="card-body d-flex justify-content-between align-items-center">
-                            Result item
-                            <a class="btn btn-light" href="#" role="button">Upload</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center mb-2">
-                <div class="col-lg-9">
-                    <div class="card">
-                        <div class="card-body d-flex justify-content-between align-items-center">
-                        Lab 1: HTML Web Page Designing
-                        <a class="btn btn-light" href="#" role="button">Upload</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center mb-2">
-                <div class="col-lg-9">
-                    <div class="card">
-                        <div class="card-body d-flex justify-content-between align-items-center">
-                            Assignment 2: ER Diagrams
-                            <a class="btn btn-light" href="#" role="button">Upload</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center mb-2">
-                <div class="col-lg-9">
-                    <div class="card">
-                        <div class="card-body d-flex justify-content-between align-items-center">
-                            Enter your targeted GPA for semester 4
-                            <a class="btn btn-light" href="#" role="button">Upload</a>
+                            <div>
+                                <span>{{ assessment.type }}</span><br>
+                                {{ assessment.name }}
+                            </div>
+                            <input type="file" name="" @change="fileUpload" id="">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 offset-lg-3 text-center">
-                <a class="btn btn-warning mt-4 mb-5" href="#" role="button">Submit</a>
+                <button class="btn btn-warning mt-4 mb-5" role="button">Submit</button>
             </div>
-        </div>
+        </form>
     </div>
 </template>
 
-<script>
-import Logout from '../CoorMainView.vue';
+<script setup>
+import axios from "axios";
+import { ref } from "vue";
+import { useRoute } from "vue-router";
 
-export default {
-  components: {
-    Logout
-  }
+const route = useRoute()
+const assessment = ref({})
+const file = ref()
+console.log(route.params.id)
+axios
+    .get("/assesment/", {
+        params: {
+            id: route.params.id
+        }
+    })
+    .then((res) => {
+        assessment.value = res.data
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+
+const fileUpload = (e) => {
+    file.value = e.target.files[0]
+}
+
+const submit = () => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    axios.post('/upload', formData)
+        .then(response => {
+            // Handle success
+            console.log(response.data);
+        })
+        .catch(error => {
+            // Handle error
+            console.error(error);
+        });
 }
 </script>
 
 <style scoped>
 .body {
     padding-top: 50px;
+    min-height: 90vh;
 }
 
 .bg {
@@ -129,6 +94,15 @@ h5 {
     font-weight: 400;
 }
 
+.card span {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.card input {
+    font-size: 0.8rem;
+}
+
 .btn-light {
     background: rgb(234, 234, 234);
 }
@@ -139,13 +113,14 @@ h5 {
 
 @media screen and (max-width: 992px) {
     .btn {
-        
+
         font-size: 17px;
     }
-    .card{
+
+    .card {
         font-size: 15px
     }
-    
+
     h5 {
         font-size: 15px;
     }
@@ -153,9 +128,10 @@ h5 {
 
 @media screen and (max-width: 768px) {
     .btn {
-        
+
         font-size: 15px;
     }
+
     h5 {
         font-size: 17px;
     }

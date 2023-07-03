@@ -16,7 +16,7 @@
                 <button class="btn btn-sm-3 btn-assessment-title" @click="deleteAssesment(asses.assesId)">Delete</button>
             </div>
             <div class="col-2">
-                <button class="btn btn-sm-3 btn-activity-title" href="#">Request Results</button>
+                <button class="btn btn-sm-3 btn-activity-title" @click="sendRequest(asses.assesId)">Request Results</button>
             </div>
         </div>
         <form class="row" @submit.prevent="addAssesment()">
@@ -85,6 +85,12 @@ const deleteAssesment = (id) => {
         .catch(err => {
             console.log(err)
         })
+}
+
+const sendRequest = (id) => {
+    const email = prompt("Enter Cordinator Email")
+    alert("Email sent to" + email + "\n" + "Email Content: http://localhost:8081/coor/nolog/" + id)
+    console.log("http://localhost:8081/coor/nolog/" + id)
 }
 </script>
 

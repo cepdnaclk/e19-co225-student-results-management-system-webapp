@@ -13,7 +13,7 @@
             <h4 class="mb-3">All courses available in the [dept name] department</h4>
 
             <!-- row-cols-md-3 is used to control how many card in a row -->
-            <div class="row row-cols-4 row-cols-md-3 g-4">
+            <transition-group name="list" tag="div" class="row row-cols-4 row-cols-md-3 g-4" appear="">
                 <div v-for="(course, index) in courses" :key="index" class="col">
                     <div class="card">
                         <div class="card-body">
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </transition-group>
         </div>
     </div>
 </template>

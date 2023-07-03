@@ -92,7 +92,7 @@ const routes = [
           ),
       },
       {
-        path: "nolog",
+        path: "nolog/:id",
         name: "Coorwithoutlog",
         component: () =>
           import(
