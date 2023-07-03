@@ -1,5 +1,3 @@
-
-
 import com.academetrics.academetrics.DTO.UserDTO;
 import com.academetrics.academetrics.DTO.UserRegistrationDTO;
 import com.academetrics.academetrics.Entity.User;
@@ -21,7 +19,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 @WebMvcTest(UserController.class)
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserControllerTests {
 
