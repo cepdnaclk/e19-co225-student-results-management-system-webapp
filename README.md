@@ -4,6 +4,15 @@ Project Idea 01 and 02:
 
 The Student Result Management System is a web application designed to manage and analyze undergraduate students' marks. It provides a user-friendly interface for students, administrators, and course coordinators to efficiently handle the result management process.
 
+## Welcome to Academetrix!
+
+Meet the Academetrix Team
+Group 12                               Group 07       
+Inesha Dissanayake:  **E/19/090**      Dinuka Avinash:        **E/19/029**
+Manodya Senevirathne:**E/19/366**      Sanka Peeris:          **E/19/275**
+Kalindu Wijerathna:  **E/19/446**      Kavishka Rambukwella:  **E/19/309**
+Dhanushka De Silva:  **E/18/059**      Geethal Wickramasignhe:**E/19/436**
+
 ## Features
 
 1. **User Registration:** Allow undergraduate students to register and create an account in the system.
