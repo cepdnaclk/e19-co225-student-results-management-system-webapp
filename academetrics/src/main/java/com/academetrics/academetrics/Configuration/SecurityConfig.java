@@ -46,13 +46,16 @@ import java.util.Arrays;
 public class SecurityConfig {
 
     @Bean
-    //authentication
-    public UserDetailsService userDetailsService() {return new UserInfoUserDetailsService();}
+    // authentication
+    public UserDetailsService userDetailsService() {
+        return new UserInfoUserDetailsService();
+    }
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:8081")); // Replace with the actual origin of your frontend application
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:8081")); // Replace with the actual origin of
+                                                                                 // your frontend application
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
         configuration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
         configuration.setAllowCredentials(true); // Allow including credentials in requests
@@ -65,7 +68,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        HeaderWriterLogoutHandler clearSiteData = new HeaderWriterLogoutHandler(new ClearSiteDataHeaderWriter(ClearSiteDataHeaderWriter.Directive.COOKIES));
+        HeaderWriterLogoutHandler clearSiteData = new HeaderWriterLogoutHandler(
+                new ClearSiteDataHeaderWriter(ClearSiteDataHeaderWriter.Directive.COOKIES));
 
         return http
                 .cors()
@@ -73,33 +77,34 @@ public class SecurityConfig {
                 .and()
                 .csrf().disable()
                 .authorizeHttpRequests()
-                    .requestMatchers("/user/welcome").permitAll()    // change this for welcome page or else
-//                    .requestMatchers("/**").permitAll()
+                .requestMatchers("/user/welcome").permitAll() // change this for welcome page or else
+                // .requestMatchers("/**").permitAll()
                 .and()
-                    .formLogin()
-                    .successHandler(mp_successHandler())
-                    .failureHandler(mp_failureHandler())
-                    .loginPage("/login").permitAll()
+                .formLogin()
+                .successHandler(mp_successHandler())
+                .failureHandler(mp_failureHandler())
+                .loginPage("/login").permitAll()
                 .and()
-                    .logout()
-                        .logoutUrl("/logout").permitAll()
-                        .addLogoutHandler(clearSiteData)
-                        .logoutSuccessHandler(new LogoutSuccessHandler() {
-                            @Override
-                            public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-                                try{
-                                    System.out.println("This user logged out: " + authentication.getName());
-                                }
-                                catch(Exception exp){
-                                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "You are not logged in");
-                                }
-                            }
-                        })
+                .logout()
+                .logoutUrl("/logout").permitAll()
+                .addLogoutHandler(clearSiteData)
+                .logoutSuccessHandler(new LogoutSuccessHandler() {
+                    @Override
+                    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response,
+                            Authentication authentication) throws IOException, ServletException {
+                        try {
+                            System.out.println("This user logged out: " + authentication.getName());
+                        } catch (Exception exp) {
+                            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "You are not logged in");
+                        }
+                    }
+                })
                 .and()
-                    .authorizeHttpRequests().requestMatchers("/**").authenticated()
-//                .authorizeHttpRequests().requestMatchers("/**").permitAll()
+                // .authorizeHttpRequests().requestMatchers("/**").authenticated()
+                // TODO: Changed for testing purposes
+                .authorizeHttpRequests().requestMatchers("/**").permitAll()
                 .and()
-                    .build();
+                .build();
     }
 
     @Bean
@@ -108,15 +113,15 @@ public class SecurityConfig {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         };
     }
-//    @Bean
-//    public LogoutSuccessHandler logoutSuccessHandler() {
-//        return (request, response, authentication) -> {
-//            SecurityContextHolder.getContext().setAuthentication(null);
-//            request.getSession().invalidate();
-//            // Custom logout logic here
-//            response.setStatus(HttpServletResponse.SC_OK);
-//        };
-//    }
+    // @Bean
+    // public LogoutSuccessHandler logoutSuccessHandler() {
+    // return (request, response, authentication) -> {
+    // SecurityContextHolder.getContext().setAuthentication(null);
+    // request.getSession().invalidate();
+    // // Custom logout logic here
+    // response.setStatus(HttpServletResponse.SC_OK);
+    // };
+    // }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -124,13 +129,12 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationProvider authenticationProvider(){
-        DaoAuthenticationProvider authenticationProvider=new DaoAuthenticationProvider();
+    public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setUserDetailsService(userDetailsService());
         authenticationProvider.setPasswordEncoder(passwordEncoder());
         return authenticationProvider;
     }
-
 
     private AuthenticationSuccessHandler mp_successHandler() {
         return (request, response, authentication) -> {
@@ -151,12 +155,11 @@ public class SecurityConfig {
         };
     }
 
-
     private OncePerRequestFilter csrfHeaderFilter() {
         return new OncePerRequestFilter() {
             @Override
             protected void doFilterInternal(HttpServletRequest request,
-                                            HttpServletResponse response, FilterChain filterChain)
+                    HttpServletResponse response, FilterChain filterChain)
                     throws ServletException, IOException {
                 CsrfToken csrf = (CsrfToken) request.getAttribute(CsrfToken.class
                         .getName());
@@ -180,7 +183,5 @@ public class SecurityConfig {
         repository.setHeaderName("X-XSRF-TOKEN");
         return repository;
     }
-
-
 
 }

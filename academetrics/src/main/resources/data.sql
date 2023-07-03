@@ -20,7 +20,8 @@ INSERT INTO course (code, name, credits) VALUES
     ("CO226", "Database Systems", 3),
     ("EM215", "Numerical Methods", 3),
     ("EM212", "Calculus II", 3),
-    ("EE285", "Electronics I", 3);
+    ("EE285", "Electronics I", 3),
+    ("GP106", "Computing", 3);
 
 INSERT INTO course_offering (course_code, year) VALUES
     ("CO221", 2023),
@@ -35,8 +36,8 @@ INSERT INTO course_offering (course_code, year) VALUES
     ("EM214", 2023),
     ("EM215", 2023),
     ("EE282", 2023),
-    ("EE285", 2023);
-
+    ("EE285", 2023),
+    ("GP106", 2023);
 
 INSERT INTO user (user_name, password, mail, honorific, initials, last_name, role, contact, dept_id) VALUES
     ("admin", "$2a$12$Hish978AZuwUquegBl4NruwMXrMPs6iKYm90pvl9X90e2g3qyAkyi", "admin@eng.pdn.ac.lk", "Mr", "A.", "Mihindu", "admin", "0777123456", null),

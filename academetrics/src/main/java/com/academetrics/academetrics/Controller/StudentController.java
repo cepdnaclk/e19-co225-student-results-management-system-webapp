@@ -1,6 +1,6 @@
 package com.academetrics.academetrics.Controller;
 
-import com.academetrics.academetrics.DTO.StudentProfileDTO;
+import com.academetrics.academetrics.DTO.*;
 import com.academetrics.academetrics.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -51,6 +51,50 @@ public class StudentController {
             return ResponseEntity.status(400).body("Update failed: " + e.getMessage());
         }
     }
+
+    // TODO: Add courses to a list of students
+//    @PutMapping("/course")
+//    public ResponseEntity<?> addOfferingToStudents(@RequestBody){
+//
+//    }
+
+    @PutMapping("/update-semester")
+    public ResponseEntity<?> updateSemester(@RequestBody StudentSemesterUpdateDTO studentSemesterUpdateDTO){
+        try{
+        for (String userName : studentSemesterUpdateDTO.getUserNames() ){
+                studentService.updateSemester(userName, studentSemesterUpdateDTO.getAcademicYear(), studentSemesterUpdateDTO.getSemester());
+        }
+        }catch (Exception e){
+            return ResponseEntity.status(400).body("Update Failed: " + e.getMessage());
+        }
+        return ResponseEntity.status(200).body("Update Successfully");
+    }
+
+    @PutMapping("/course-assignment")
+    public ResponseEntity<?> assignCourseToStudent(@RequestBody StudentCourseAssignmentDTO studentCourseAssignmentDTO){
+        try{
+            for (String userName : studentCourseAssignmentDTO.getUserNames()){
+                studentService.assignCourseToStudent(userName, studentCourseAssignmentDTO.getCourseCode(), studentCourseAssignmentDTO.getYear());
+            }
+        }catch (Exception e){
+            return ResponseEntity.status(400).body("Update Failed: " + e.getMessage());
+        }
+        return ResponseEntity.status(200).body("Update Successfully");
+    }
+
+    @GetMapping(value = "/view-courses", params={"userName"})
+    public ResponseEntity<?> viewFollowingCourses(@RequestParam String userName){
+        List<StudentCourseDTO> studentCourseDTOList = studentService.getFollowingCourses(userName);
+        if (studentCourseDTOList == null){
+            return ResponseEntity.status(404).body("Student not found");
+        }
+        else{
+            return ResponseEntity.status(200).body(studentCourseDTOList);
+        }
+    }
+
+    // TODO: Add assignments to a list of students
+    // TODO: Save expected gpa and sent expected results
 
     // Students are not allowed to be removed, only users
 }

@@ -25,7 +25,9 @@ public class Student extends User {
     private int semester;
     @Transient
     private double gpa;
+    private Double targetGpa = null;
     private int deptRank;
+
 
 //    @ManyToMany
 //    private Map<CourseOffering, Assesment> followingCourses = new HashMap<CourseOffering, Assesment>();
@@ -64,4 +66,12 @@ public class Student extends User {
         this.gpa = Math.round(this.gpa * 100.0) / 100.0;
     }
 
+
+    public void addCourse(CourseOffering courseOffering){
+        StudentCourse studentCourse = new StudentCourse();
+        studentCourse.setStudent(this);
+        studentCourse.setCourseOffering(courseOffering);
+        studentCourse.setGrade(null);
+        followingCourses.add(studentCourse);
+    }
 }
