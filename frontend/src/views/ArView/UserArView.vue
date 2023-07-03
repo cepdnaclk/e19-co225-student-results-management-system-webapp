@@ -5,47 +5,45 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="input-group">
-                        <input type="text" class="form-control form-control-sm" placeholder="Search">
-                        <button class="btn btn-primary btn-md" type="button">Search</button>
+                        <input type="text" class="form-control form-control-sm" placeholder="Search" v-model="searchTxt">
                     </div>
                 </div>
             </div>
             <div class="row mt-md-3 align-items-center justify-content-center gap-md-0 gap-3 mt-5">
                 <div class="col-lg-2 col-md-3">
-                    <select class="form-select form-select-sm" aria-label="Default select example">
-                        <option selected>Sort By</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
+                    <select class="form-select form-select-sm" aria-label="Default select example" v-model="sortBy">
+                        <option value="" selected>Sort By</option>
+                        <option value="name">Name</option>
+                        <option value="eno">E no.</option>
+                        <option value="dept">Depertment</option>
                     </select>
                 </div>
                 <div class="col-lg-2 col-md-3">
-                    <select class="form-select form-select-sm" aria-label="Default select example">
-                        <option selected>Filter By</option>
-                        <option>17</option>
-                        <option>18</option>
-                        <option>19</option>
-                        <option>20</option>
+                    <select class="form-select form-select-sm" aria-label="Default select example" v-model="userYear">
+                        <option selected value="">Batch</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
                     </select>
                 </div>
                 <div class="col-lg-2 col-md-3">
-                    <select class="form-select form-select-sm" aria-label="Default select example">
-                        <option selected>Department</option>
-                        <option>Computer Engineering</option>
-                        <option>Electrical & Electronic Engineering</option>
-                        <option>Chemical & Process Engineering</option>
-                        <option>Mechanical Engineering</option>
-                        <option>Manufacturing & Industrial Engineering</option>
-                        <option>Civil Engineering</option>
+                    <select class="form-select form-select-sm" aria-label="Default select example" v-model="userDept">
+                        <option value="" selected>Department</option>
+                        <option value="co">Computer Engineering</option>
+                        <option value="ee">Electrical & Electronic Engineering</option>
+                        <option value="cp">Chemical & Process Engineering</option>
+                        <option value="me">Mechanical Engineering</option>
+                        <option value="mi">Manufacturing & Industrial Engineering</option>
+                        <option value="ce">Civil Engineering</option>
                     </select>
                 </div>
                 <div class="col-lg-2 col-md-3">
-                    <select class="form-select form-select-sm" aria-label="Default select example">
-                        <option selected>User Type</option>
-                        <option>Student</option>
-                        <option>Representative</option>
-                        <option>Coordinator</option>
+                    <select class="form-select form-select-sm" aria-label="Default select example" v-model="userRole">
+                        <option value="" selected>User Type</option>
+                        <option value="student">Student</option>
+                        <option value="representator">Representative</option>
+                        <option value="cordinator">Coordinator</option>
                     </select>
                 </div>
             </div>
@@ -56,52 +54,102 @@
                         <th scope="col">Name</th>
                         <th scope="col">Registration number</th>
                         <th scope="col">Department</th>
-
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr v-for="user in users" :key="user.id">
-                        <td>{{ user.name }}</td>
-                        <td>{{ user.eno }}</td>
-                        <td>{{ user.dep }}</td>
-                        <div>
-                            <a class="btn btn-warning view" href="#" role="button">View</a>
-                            <a class="btn btn-success" href="#" role="button">Edit</a>
-                        </div>
+                <transition name="fade" mode="out-in">
+                    <TransitionGroup v-if="filteredUsers.length" name="list" tag="tbody" appear>
+                        <tr v-for="(user, index) in filteredUsers" :key="index">
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.eno }}</td>
+                            <td>{{ user.dept }}</td>
+                            <td> <a class="btn btn-warning view" href="#" role="button">View</a> </td>
+                            <td><a class="btn btn-success" href="#" role="button">Edit</a></td>
+                        </tr>
+                    </TransitionGroup>
+                    <tr v-else>
+                        <td colspan="3" class="text-center mt-2">There are no users</td>
                     </tr>
-                </tbody>
+                </transition>
             </table>
         </div>
     </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import axios from "axios"
+import { computed, ref } from "vue";
 
-const users = ref([
-    { id: 1, name: 'John Doe', eno: 'E/19/001', dep: 'Computer Engineering' },
-    { id: 2, name: 'Jane Smith', eno: 'E/18/002', dep: 'Electrical & Electronic Engineering' },
-    { id: 3, name: 'David Johnson', eno: 'E/17/003', dep: 'Chemical & Process Engineering' },
-    { id: 4, name: 'Sarah Williams', eno: 'E/20/004', dep: 'Mechanical Engineering' },
-    { id: 5, name: 'Michael Brown', eno: 'E/19/005', dep: 'Manufacturing & Industrial Engineering' },
-    { id: 6, name: 'Emily Davis', eno: 'E/18/006', dep: 'Civil Engineering' },
-    { id: 7, name: 'Robert Wilson', eno: 'E/17/007', dep: 'Computer Engineering' },
-    { id: 8, name: 'Jennifer Miller', eno: 'E/20/008', dep: 'Electrical & Electronic Engineering' },
-    { id: 9, name: 'William Taylor', eno: 'E/19/009', dep: 'Chemical & Process Engineering' },
-    { id: 10, name: 'Linda Anderson', eno: 'E/18/010', dep: 'Mechanical Engineering' },
-    { id: 11, name: 'Alex Johnson', eno: 'E/20/011', dep: 'Manufacturing & Industrial Engineering' },
-    { id: 12, name: 'Sophia Davis', eno: 'E/19/012', dep: 'Civil Engineering' },
-    { id: 13, name: 'Daniel Wilson', eno: 'E/18/013', dep: 'Computer Engineering' },
-    { id: 14, name: 'Olivia Taylor', eno: 'E/20/014', dep: 'Electrical & Electronic Engineering' },
-    { id: 15, name: 'Noah Brown', eno: 'E/19/015', dep: 'Chemical & Process Engineering' },
-    { id: 16, name: 'Ava Smith', eno: 'E/18/016', dep: 'Mechanical Engineering' },
-    { id: 17, name: 'William Davis', eno: 'E/20/017', dep: 'Manufacturing & Industrial Engineering' },
-    { id: 18, name: 'Isabella Anderson', eno: 'E/19/018', dep: 'Civil Engineering' },
-    { id: 19, name: 'James Johnson', eno: 'E/18/019', dep: 'Computer Engineering' },
-    { id: 20, name: 'Sophia Miller', eno: 'E/20/020', dep: 'Electrical & Electronic Engineering' },
-    // Add more sample user objects as needed
-]
-)
+const result = ref([])
+const searchTxt = ref("")
+const userRole = ref("")
+const userYear = ref("")
+const userDept = ref("")
+const sortBy = ref("")
+const users = computed(() => {
+    let array = []
+    result.value.forEach((ele) => {
+        const objUser = {
+            id: ele.id,
+            name: ele.honorific + ". " + ele.initials + " " + ele.lastName,
+            eno: ele.userName || "",
+            dept: ele.deptName || "",
+            role: ele.role,
+        }
+        array.push(objUser)
+    })
+    return array
+})
+const filteredUsers = computed(() => {
+    let array = users.value
+    if (searchTxt.value != "") {
+        array = array.filter(user =>
+            user.name.toLowerCase().includes(searchTxt.value.toLowerCase()) ||
+            user.eno.toLowerCase().includes(searchTxt.value.toLowerCase())
+        )
+    }
+    if (userRole.value != "") {
+        array = array.filter(user =>
+            user.role.toLowerCase().includes(userRole.value.toLowerCase())
+        )
+    }
+    if (userYear.value != "") {
+        array = array.filter(user =>
+            user.eno.toLowerCase().includes("e/" + userYear.value.toLowerCase())
+        )
+    }
+    if (userDept.value != "") {
+        array = array.filter(user =>
+            user.dept.toLowerCase().includes(userDept.value.toLowerCase())
+        )
+    }
+    if (sortBy.value != "") {
+        array = array.sort(function (a, b) {
+            return a[sortBy.value].localeCompare(b[sortBy.value]);
+        });
+    }
+
+    return array
+})
+
+axios
+    .get("/user/", { withCredentials: true })
+    .then((res) => {
+        result.value = res.data;
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+
+axios
+    .get("/user/welcome", { withCredentials: true })
+    .then((res) => {
+        console.log(res);
+    })
+    .catch((err) => {
+        console.log(err)
+    })
 </script>
 
 <style scoped>
@@ -131,6 +179,11 @@ const users = ref([
     text-align: center;
 }
 
+.table thead th:nth-child(4),
+.table thead th:nth-child(5) {
+    width: 30px;
+}
+
 .table tbody td {
     text-align: center;
 }
@@ -154,9 +207,9 @@ const users = ref([
     text-align: left;
 }
 
-.view {
-    margin-left: 40px;
-    margin-right: 30px;
+.table thead tr th:first-child {
+    text-align: left !important;
+    padding-left: 1.1rem
 }
 
 .col-form-label {
@@ -173,5 +226,24 @@ const users = ref([
     padding-right: 20px;
     padding-left: 60px;
     width: fit-content;
+}
+
+.list-move,
+/* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+    transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.list-leave-active {
+    position: absolute;
 }
 </style>

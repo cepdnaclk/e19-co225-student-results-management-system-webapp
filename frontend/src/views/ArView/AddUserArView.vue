@@ -3,31 +3,22 @@
         <img class="bg" src="@/assets/bg.png" alt="">
         <div class="container">
             <form class="form">
-                <!-- dropdown -->
-                <!-- <div class="row">
-                <label for="acc_type" class="col-sm-2 col-form-label">Account type</label>
-                <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example">
-                    <option selected>Account typeeee</option>
-                    <option value="1">Student</option>
-                    <option value="2">Representative</option>
-                    <option value="3">Coordinator</option>
-                    </select>
-                </div>
-            </div> -->
                 <div class="row mt-4">
                     <label for="acc_type" class="col-sm-2 col-form-label other">Account type</label>
                     <div class="col-lg-10 col-sm-11">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="acc_type" id="option1" value="1">
+                            <input class="form-check-input" type="radio" name="acc_type" v-model="user.role" id="option1"
+                                value="student">
                             <label class="form-check-label" for="option1">Student</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="acc_type" id="option2" value="2">
+                            <input class="form-check-input" type="radio" name="acc_type" v-model="user.role" id="option2"
+                                value="representative">
                             <label class="form-check-label" for="option2">Representative</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="acc_type" id="option3" value="3">
+                            <input class="form-check-input" type="radio" name="acc_type" v-model="user.role" id="option3"
+                                value="coordinator">
                             <label class="form-check-label" for="option3">Coordinator</label>
                         </div>
                     </div>
@@ -105,6 +96,14 @@
         </div>
     </div>
 </template>
+
+<script setup>
+import { reactive } from "vue";
+
+const user = reactive({
+
+})
+</script>
 
 <style scoped>
 .form {

@@ -3,10 +3,10 @@
         <img class="bg" src="@/assets/bg.png" alt="">
         <div class="container">
             <div class="col-lg-6 offset-lg-3 text-center">
-                <a class="btn btn-warning add" href="#">Add User</a>
+                <router-link class="btn btn-warning add" to="/ar/adduser">Add User</router-link>
             </div>
             <div class="col-lg-6 offset-lg-3 text-center">
-                <a class="btn btn-warning view" href="#">View User</a>
+                <router-link class="btn btn-warning view" to="/ar/user">View Users</router-link>
             </div>
         </div>
     </div>

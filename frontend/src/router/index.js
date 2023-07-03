@@ -55,14 +55,7 @@ const routes = [
           import(
             /* webpackChunkName: "ARhome" */ "../views/ArView/HomeArView.vue"
           ),
-      },
-      {
-        path: "adduser",
-        name: "ARadduser",
-        component: () =>
-          import(
-            /* webpackChunkName: "ARadduser" */ "../views/ArView/AddUserArView.vue"
-          ),
+        meta: { index: 1, transition: "slide-left" },
       },
       {
         path: "user",
@@ -71,14 +64,16 @@ const routes = [
           import(
             /* webpackChunkName: "ARuser" */ "../views/ArView/UserArView.vue"
           ),
+        meta: { index: 2, transition: "slide-right" },
       },
       {
-        path: "logout",
-        name: "ARlogout",
+        path: "adduser",
+        name: "ARadduser",
         component: () =>
           import(
-            /* webpackChunkName: "ARlogout" */ "../views/ArView/LogoutArView.vue"
+            /* webpackChunkName: "ARadduser" */ "../views/ArView/AddUserArView.vue"
           ),
+        meta: { index: 3, transition: "slide-right" },
       },
     ],
   },
@@ -110,81 +105,155 @@ const routes = [
     path: "/rep",
     name: "Representative",
     component: () =>
+      import(/* webpackChunkName: "RepMain" */ "../views/RepMain.vue"),
+    children: [
+      //offered courses page
+      {
+        path: "viewofferedcourses",
+        name: "RepViewOfferedCourse",
+        component: () =>
+          import(
+            /* webpackChunkName: "CourseManawmwnt" */ "../views/RepView/ViewOfferedCourses.vue"
+          ),
+        meta: { index: 2, transition: "slide-right" },
+      },
+      //view courses page
+      {
+        path: "viewcourses",
+        name: "RepViewCourses",
+        component: () =>
+          import(
+            /* webpackChunkName: "Coorwithlog" */ "../views/RepView/ViewCourses.vue"
+          ),
+        meta: { index: 1, transition: "slide-right" },
+      },
+      //add courses
+      {
+        path: "addcourses",
+        name: "RepAddCourses",
+        component: () =>
+          import(
+            /* webpackChunkName: "Coorwithlog" */ "../views/RepView/AddCourses.vue"
+          ),
+        meta: { index: 4, transition: "slide-right" },
+      },
+      //edit courses
+      {
+        path: "editcourses/:code",
+        name: "RepEditCourse",
+        component: () =>
+          import(
+            /* webpackChunkName: "Coorwithlog" */ "../views/RepView/EditCourses.vue"
+          ),
+        meta: { index: 4, transition: "slide-right" },
+      },
+      {
+        path: "editcourses/",
+        name: "RepEditCourseFall",
+        component: () =>
+          import(
+            /* webpackChunkName: "Coorwithlog" */ "../views/RepView/EditCourses.vue"
+          ),
+        meta: { index: 4, transition: "slide-right" },
+      },
+      //course inner page
+      {
+        path: "offeredcoursesinner",
+        name: "RepOfferedCoursesInner",
+        component: () =>
+          import(
+            /* webpackChunkName: "Coorwithlog" */ "../views/RepView/OfferedCourseInner.vue"
+          ),
+      },
+      // offer courses
+      {
+        path: "courseoffering",
+        name: "RepCourseOfferings",
+        component: () =>
+          import(
+            /* webpackChunkName: "Coorwithlog" */ "../views/RepView/CourseOffering.vue"
+          ),
+      },
+      //edit offered course
+      {
+        path: "editcourseoffering",
+        name: "RepEditCourseOffered",
+        component: () =>
+          import(
+            /* webpackChunkName: "Coorwithlog" */ "../views/RepView/EditCourseOffering.vue"
+          ),
+      },
+    ],
+  },
+  {
+    path: "/student",
+    name: "Student",
+    component: () =>
       import(
-        /* webpackChunkName: "RepMain" */ "../views/RepMain.vue"
+        /* webpackChunkName: "Studenttemp" */ "../views/StudentMainView.vue"
       ),
-      children: [
-        //offered courses page
-        {
-          path: "viewofferedcourses",
-          name: "RepViewOfferedCourse",
-          component: () =>
-            import(
-              /* webpackChunkName: "CourseManawmwnt" */ "../views/RepView/ViewOfferedCourses.vue"
-            ),
-        },
-        //view courses page
-        {
-          path: "viewcourses",
-          name: "RepViewCourses",
-          component: () =>
-            import(
-              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/ViewCourses.vue"
-            ),
-        },
-        //add courses
-        {
-          path: "addcourses",
-          name: "RepAddCourses",
-          component: () =>
-            import(
-              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/AddCourses.vue"
-            ),
-        },
-        //edit courses
-        {
-          path: "editcourses",
-          name: "RepEditCourse",
-          component: () =>
-            import(
-              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/EditCourses.vue"
-            ),
-        },
-        //course inner page
-        {
-          path: "offeredcoursesinner",
-          name: "RepOfferedCoursesInner",
-          component: () =>
-            import(
-              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/OfferedCourseInner.vue"
-            ),
-        },
-        // offer courses
-        {
-          path: "courseoffering",
-          name: "RepCourseOfferings",
-          component: () =>
-            import(
-              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/CourseOffering.vue"
-            ),
-        },
-        //edit offered course
-        {
-          path: "editcourseoffering",
-          name: "RepEditCourseOffered",
-          component: () =>
-            import(
-              /* webpackChunkName: "Coorwithlog" */ "../views/RepView/EditCourseOffering.vue"
-            ),
-        }
-      ]
-
-  }
+    children: [
+      {
+        path: "home",
+        name: "StudentHome",
+        component: () =>
+          import(
+            /* webpackChunkName: "StudentHome" */ "../views/StudentView/HomeView.vue"
+          ),
+      },
+      {
+        path: "dashboard",
+        name: "StudentDashboard",
+        component: () =>
+          import(
+            /* webpackChunkName: "StudentDashboard" */ "../views/StudentView/DashboardView.vue"
+          ),
+      },
+      {
+        path: "targetdashboard",
+        name: "StudentTargetDashboard",
+        component: () =>
+          import(
+            /* webpackChunkName: "StudentTargetDashboard" */ "../views/StudentView/TargetDashboardView.vue"
+          ),
+      },
+      {
+        path: "courses",
+        name: "StudentCourses",
+        component: () =>
+          import(
+            /* webpackChunkName: "StudentCourses" */ "../views/StudentView/CoursesView.vue"
+          ),
+      },
+      {
+        path: "coursesinner",
+        name: "StudentCoursesInner",
+        component: () =>
+          import(
+            /* webpackChunkName: "StudentCoursesInner" */ "../views/StudentView/CoursesInnerView.vue"
+          ),
+      },
+      {
+        path: "edit",
+        name: "StudentEdit",
+        component: () =>
+          import(
+            /* webpackChunkName: "StudentEdit" */ "../views/StudentView/EditProfileView.vue"
+          ),
+      },
+    ],
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.afterEach((to, from) => {
+  const toDepth = to.meta.index;
+  const fromDepth = from.meta.index;
+  to.meta.transition = toDepth < fromDepth ? "slide-right" : "slide-left";
 });
 
 export default router;
