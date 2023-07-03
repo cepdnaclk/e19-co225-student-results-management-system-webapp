@@ -23,12 +23,8 @@
                         <div class="button-panel">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <router-link :to="`/rep/editcourses/${courseOffered.courseDTO.code}`"
-                                        class="btn btn-sm-3 btn-edit">Edit</router-link>
-                                </div>
-                                <div class="col-sm-6">
                                     <button class="btn btn-sm-3 btn-delete"
-                                        @click="deleteOfferedCourse(courseOffered)">Delete</button>
+                                        @click="deleteOfferedCourse(courseOffered)">Revoke Offer</button>
                                 </div>
                             </div>
                         </div>
@@ -67,9 +63,9 @@ const deleteOfferedCourse = (courseOffered) => {
                 courseDTO: courseOffered.courseDTO
             }
         })
-        .then((res) => {
+        .then(async (res) => {
             console.log(res)
-            getCoursesOffered()
+            coursesOffered.value = await getCoursesOffered()
         })
         .catch((err) => {
             console.log(err)

@@ -89,9 +89,9 @@ const deleteCourse = (courseCode) => {
                 Code: courseCode
             }
         })
-        .then((res) => {
+        .then(async (res) => {
             console.log(res)
-            getCourses()
+            courses.value = await getCourses()
         })
         .catch((err) => {
             console.log(err)

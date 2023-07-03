@@ -62,7 +62,6 @@ const onLogin = async (e) => {
         const res = await axios.post("/login", logUser, {
             withCredentials: true,
         })
-        console.log(res)
         store.state.username = res.data.username;
         store.state.role = res.data.authorities[0].authority;
         setTimeout(() => {

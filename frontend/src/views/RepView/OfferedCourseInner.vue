@@ -11,14 +11,14 @@
                     <div class="card">
 
                         <!-- Activity complete look -->
-                        <comp-assessment-type @changed="loadAssesments"
+                        <comp-assessment-type @changed="loadAssesments()"
                             v-for="(assesment, key, index) in groupedAssessments" :assesment="assesment" :key="index"
                             :type="key" />
                         <!-- after clicking add item button -->
 
                         <div class="card-body">
 
-                            <form class="row">
+                            <form @submit.prevent="addType()" class="row">
 
                                 <label for="assessment_name" class="col-sm-2 col-form-label text-field">Activity
                                     Name</label>
@@ -37,53 +37,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- End exam section - before results -->
-                <div class="col">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <h5 class="card-title">End Exam</h5>
-                            <div class="row">
-
-                                <div class="col-9">
-
-                                    <p class="card-text">End Exam results are not released yet</p>
-                                </div>
-
-                                <div class="col-3">
-                                    <button class="btn btn-sm-3 btn-activity-title" href="#">Request Results</button>
-                                </div>
-
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- End exam section - after results -->
-                <div class="col">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div class="row">
-
-                                <h5 class="card-title">End Exam</h5>
-                                <div class="col-9">
-                                    <p class="card-text">End Exam results are released </p>
-                                </div>
-
-                                <div class="col-2">
-                                    <div class="card-body cb-left">
-                                        <h5 class="text-end">Results uploaded</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
@@ -103,6 +56,7 @@ const typeName = ref()
 
 const addType = () => {
     groupedAssessments.value[typeName.value] = []
+    typeName.value = ""
 }
 
 const loadAssesments = async () => {

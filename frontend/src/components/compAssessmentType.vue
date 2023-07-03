@@ -41,12 +41,14 @@
 
 <script setup>
 import store from '@/store';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import axios from 'axios';
 
 const props = defineProps(["assesment", "type"])
 const emits = defineEmits(["changed"])
-const assesment = ref(props.assesment)
+const assesment = computed(() => {
+    return props.assesment
+})
 const name = ref()
 const maxMarks = ref()
 
@@ -61,16 +63,28 @@ const addAssesment = () => {
         .post("/assesment/", AddAssesment)
         .then((res) => {
             console.log(res)
-            $emit("changed")
+            name.value = ""
+            maxMarks.value = ""
+            emits("changed")
         })
         .catch((err) => {
             console.log(err)
         })
 }
 
-const deleteAssesment = () => {
-    axios.delete("/assesment/")
-        .then()
+const deleteAssesment = (id) => {
+    axios.delete(`/assesment/`, {
+        params: {
+            id: id
+        }
+    })
+        .then(res => {
+            console.log(res);
+            emits("changed")
+        })
+        .catch(err => {
+            console.log(err)
+        })
 }
 </script>
 
