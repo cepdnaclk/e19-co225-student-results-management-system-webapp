@@ -135,3 +135,13 @@ To stop the Vue.js development server or the Spring Boot backend, simply press `
 ## 📞 Contact Us
 
 If you have any questions, suggestions, or need assistance with Academetrix, feel free to reach out to any member of our team!
+- Email: [e18059@eng.pdn.ac.lk]
+         [e19029@eng.pdn.ac.lk]
+         [e19090@eng.pdn.ac.lk]
+         [e19275@eng.pdn.ac.lk]
+         [e19309@eng.pdn.ac.lk]
+         [e19366@eng.pdn.ac.lk]
+         [e19436@eng.pdn.ac.lk]
+         [e19446@eng.pdn.ac.lk]
+
+We appreciate your support and look forward to hearing from you. Have a great day! :smiley:
