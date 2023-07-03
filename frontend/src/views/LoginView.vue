@@ -54,7 +54,7 @@ const onLogin = async (e) => {
         return
     }
 
-    let logUser = new FormData()
+    const logUser = new FormData()
     logUser.append("username", user.username)
     logUser.append("password", user.password)
 

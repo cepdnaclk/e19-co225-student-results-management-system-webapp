@@ -28,7 +28,6 @@ import {
 library.add(faUserSecret, faUserGraduate, faUser, faRightFromBracket);
 
 axios.defaults.baseURL = "http://localhost:8080/api";
-axios.defaults.headers["Content-Type"] = "application/json";
 
 createApp(App)
   .use(store)
