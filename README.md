@@ -24,7 +24,7 @@ Academetrix is a powerful web application designed to manage and analyze undergr
 ### Group 07 (Project Idea 1)
 
 - Dinuka Avinash: **E/19/029**
-- Anka Peeris: **E/19/275**
+- Sanka Peeris: **E/19/275**
 - Kavishka Rambukwella: **E/19/309**
 - Geethal Wickramasignhe: **E/19/436**
 
