@@ -32,6 +32,8 @@ public class StudentService {
 
     public StudentProfileDTO getStudentDetails(String userName){
         Student student = studentRepository.findById(userName).orElse(null);
+        if (student == null)
+            return null;
         StudentProfileDTO studentProfileDTO =  studentEntityToProfileDTO(student);
         studentProfileDTO.setDeptRank(studentRepository.getDeptRank(student.getDepartment().getId(),
                 student.getAcademicYear(),
