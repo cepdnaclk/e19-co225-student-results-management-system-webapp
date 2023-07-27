@@ -71,6 +71,8 @@ const onLogin = async (e) => {
                 router.push("/student/dashboard")
             else if (store.state.role == 'admin')
                 router.push("/ar/home")
+            else if (store.state.role == 'representative')
+                router.push("/rep/viewcourses")
         }, 500)
     }
     catch (err) {
