@@ -45,7 +45,8 @@ INSERT INTO user (user_name, password, mail, honorific, initials, last_name, rol
     ("co-Kernighan", "789", "kernighan@eng.pdn.ac.lk", "Mr", "B.", "Kernighan", "lecturer", "0777987654", "CO"),
     ("co-Torvalds", "bash", "torvalds@eng.pdn.ac.lk", "Mr", "L.", "Torvalds", "lecturer", "0777111111", "CO"),
     ("em-Woo", "314", "woo@eng.pdn.ac.lk", "Mr", "E.", "Woo", "lecturer", "0777678678", "EM"),
-    ("E/10/001", "123", "e10001@eng.pdn.ac.lk", "Mr", "J.", "Doe", "student", "0123456789", "CO");
+    ("E/10/001", "123", "e10001@eng.pdn.ac.lk", "Mr", "J.", "Doe", "student", "0123456789", "CO"),
+    ("E/19/001", "123", "e19001@eng.pdn.ac.lk", "Mr", "Ken", "Adams", "student", "0123456789", "CO");
 
 --admin pwd 123
 --e/19/275 456

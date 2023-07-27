@@ -38,8 +38,8 @@ public class CourseControllerTests {
         courseDTO.setName("English");
 
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/course/addNewCourse")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(asJsonString(courseDTO)))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(courseDTO)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("Course Saved"))
                 .andDo(print());
