@@ -81,10 +81,10 @@
                 <div class="row mt-4">
                     <label for="uni_email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm">
-                        <input type="email" class="form-control" id="uni_email" v-model="user.email"
+                        <input type="email" class="form-control" id="uni_email" v-model="user.mail"
                             placeholder="University email">
                     </div>
-                    <p class="errmsg" v-if="validate.email.$error">{{ validate.email.$errors[0].$message }}</p>
+                    <p class="errmsg" v-if="validate.mail.$error">{{ validate.mail.$errors[0].$message }}</p>
                 </div>
 
                 <div class="row mt-4 mb-3">
@@ -121,7 +121,7 @@ const user = reactive({
     lastName: "",
     role: "student",
     deptId: "CO",
-    email: "",
+    mail: "",
     contact: ""
 })
 
@@ -133,7 +133,7 @@ const rules = {
     lastName: {},
     role: { required },
     deptId: { required },
-    email: { email },
+    mail: { email },
     contact: {}
 }
 
@@ -144,8 +144,11 @@ const addUser = async () => {
     if (!pass) {
         return
     }
+    let location = "user"
+    if (user.role == "student")
+        location = "student"
     axios
-        .post("/user/", user)
+        .post(`/${location}/`, user)
         .then(res => {
             store.commit("addSuccess", res.data)
             setTimeout(() => {

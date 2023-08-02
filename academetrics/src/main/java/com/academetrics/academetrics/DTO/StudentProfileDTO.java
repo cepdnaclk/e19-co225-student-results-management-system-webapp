@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class StudentProfileDTO {
     private String userName;
+    private String password;
     private String mail;
     private String honorific;
     private String initials;

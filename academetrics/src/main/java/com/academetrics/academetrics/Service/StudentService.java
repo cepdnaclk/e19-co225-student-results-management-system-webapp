@@ -10,6 +10,9 @@ import com.academetrics.academetrics.Repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -90,6 +93,7 @@ public class StudentService {
     private Student studentProfileDTOToEntity(StudentProfileDTO studentProfileDTO){
         Student student = new Student();
         student.setUserName(studentProfileDTO.getUserName());
+        student.setPassword(passwordEncoder().encode(studentProfileDTO.getPassword()));
         student.setMail(studentProfileDTO.getMail());
         student.setHonorific(studentProfileDTO.getHonorific());
         student.setInitials(studentProfileDTO.getInitials());
@@ -106,6 +110,10 @@ public class StudentService {
         }
 
         return student;
+    }
+
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     public void saveStudent(StudentProfileDTO studentProfileDTO) {
