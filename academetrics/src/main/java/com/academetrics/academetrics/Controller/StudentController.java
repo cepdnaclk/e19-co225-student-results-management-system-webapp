@@ -18,12 +18,12 @@ public class StudentController {
 
     @GetMapping(value = "/", params = {"userName"})
     public ResponseEntity<?> getStudent(@RequestParam String userName){
-        StudentProfileDTO studentProfileDTO = studentService.getStudentDetails(userName);
-        if (studentProfileDTO == null){
+        StudentDTO studentDTO = studentService.getStudentDetails(userName);
+        if (studentDTO == null){
             return ResponseEntity.status(404).body("Student not found");
         }
         else{
-            return ResponseEntity.status(200).body(studentProfileDTO);
+            return ResponseEntity.status(200).body(studentDTO);
         }
     }
 

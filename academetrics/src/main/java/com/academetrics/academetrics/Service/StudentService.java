@@ -27,17 +27,16 @@ public class StudentService {
     @Autowired
     private CourseRepository courseRepository;
 
-    public StudentProfileDTO getStudentDetails(String userName){
+    public StudentDTO getStudentDetails(String userName){
         Student student = studentRepository.findById(userName).orElse(null);
         if (student == null)
             return null;
-        StudentProfileDTO studentProfileDTO =  studentEntityToProfileDTO(student);
-        studentProfileDTO.setDeptRank(studentRepository.getDeptRank(student.getDepartment().getId(),
-                student.getAcademicYear(),
-                student.getSemester(),
-                student.getUserName()));
+//        studentProfileDTO.setDeptRank(studentRepository.getDeptRank(student.getDepartment().getId(),
+//                student.getAcademicYear(),
+//                student.getSemester(),
+//                student.getUserName()));
 
-        return studentProfileDTO;
+        return studentEntityToDTO(student);
     }
 
 //    public Double getGPA(String userName){
@@ -76,18 +75,39 @@ public class StudentService {
 //        return gpa;
 //    }
 
-    private StudentProfileDTO studentEntityToProfileDTO(Student student){
+    private StudentDTO studentEntityToDTO(Student student){
         if (student == null) return null;
+        /*
+            private String userName;
+    private String mail;
+    private String honorific;
+    private String initials;
+    private String lastName;
+    private String contact;
+    private String deptName;
+    private int academicYear;
+    private int semester;
+    private double GPA;
+    private Integer deptRank;
+    private Double targetGPA;
+        */
 
-        StudentProfileDTO studentProfileDTO = new StudentProfileDTO();
-        studentProfileDTO.setUserName(student.getUserName());
-        studentProfileDTO.setSemester(student.getSemester());
-        studentProfileDTO.setAcademicYear(student.getAcademicYear());
-        studentProfileDTO.setGPA(student.getGpa());
+        StudentDTO studentDTO = new StudentDTO();
+        studentDTO.setUserName(student.getUserName());
+        studentDTO.setMail(student.getMail());
+        studentDTO.setHonorific(student.getHonorific());
+        studentDTO.setInitials(student.getInitials());
+        studentDTO.setLastName(student.getLastName());
+        studentDTO.setContact(student.getContact());
+        studentDTO.setDeptName(student.getDepartment().getName());
+        studentDTO.setAcademicYear(student.getAcademicYear());
+        studentDTO.setSemester(student.getSemester());
+        studentDTO.setGPA(student.getGpa());
+        studentDTO.setDeptRank(studentDTO.getDeptRank());
 //        studentProfileDTO.setDeptRank(student.getDeptRank());
-        studentProfileDTO.setTargetGPA(student.getTargetGpa());
+        studentDTO.setTargetGPA(student.getTargetGpa());
 
-        return studentProfileDTO;
+        return studentDTO;
     }
 
     private Student studentProfileDTOToEntity(StudentProfileDTO studentProfileDTO){
