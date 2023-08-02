@@ -1,9 +1,7 @@
 package com.academetrics.academetrics.Service;
 
 import com.academetrics.academetrics.DTO.*;
-import com.academetrics.academetrics.Entity.Student;
-import com.academetrics.academetrics.Entity.StudentCourse;
-import com.academetrics.academetrics.Entity.User;
+import com.academetrics.academetrics.Entity.*;
 import com.academetrics.academetrics.Globals;
 import com.academetrics.academetrics.Repository.CourseOfferingRepository;
 import com.academetrics.academetrics.Repository.CourseRepository;
@@ -13,10 +11,6 @@ import jakarta.transaction.Transactional;
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.academetrics.academetrics.Entity.CourseOfferingId;
-import com.academetrics.academetrics.Entity.CourseOffering;
-import com.academetrics.academetrics.Entity.Course;
 
 import java.util.*;
 
@@ -96,9 +90,16 @@ public class StudentService {
     private Student studentProfileDTOToEntity(StudentProfileDTO studentProfileDTO){
         Student student = new Student();
         student.setUserName(studentProfileDTO.getUserName());
+        student.setMail(studentProfileDTO.getMail());
+        student.setHonorific(studentProfileDTO.getHonorific());
+        student.setInitials(studentProfileDTO.getInitials());
+        student.setLastName(studentProfileDTO.getLastName());
+        student.setRole(studentProfileDTO.getRole());
+        student.setContact(studentProfileDTO.getContact());
+        student.setDepartment(new Department(studentProfileDTO.getDeptId(), studentProfileDTO.getDeptName()));
         student.setSemester(studentProfileDTO.getSemester());
         student.setAcademicYear(studentProfileDTO.getAcademicYear());
-        student.setGpa(studentProfileDTO.getGPA());
+//        student.setGpa(studentProfileDTO.getGPA());
 //        student.setDeptRank(studentProfileDTO.getDeptRank());
         if (studentProfileDTO.getTargetGPA() != null){
             student.setTargetGpa(studentProfileDTO.getTargetGPA());
